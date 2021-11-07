@@ -11,12 +11,17 @@ int main(){
     MtH = new(Markdown_to_html);
     string str;
     cout<<"input file name,like xxxx."<<endl;
-    cout<<"filename:";
-    cin>>str;
-    string t = ".md";
-    string Str;
-    Str = str + t;
-    MtH->Conversion(Str,str);
+    int n;    
+    cout<<"page number";
+    cin>>n;
+    while( n -- ){
+         cout<<"filename:";
+        cin>>str;
+        string t = ".md";
+        string Str;
+        Str = str + t;        
+        MtH->Conversion(Str,str);
+    }
     return 0;
 }
 
@@ -37,7 +42,8 @@ int Markdown_to_html::Conversion(string s,string file_name){
         fout<<"<meta charset=\"UTF-8\">"<<endl;
         fout<<"<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">"<<endl;
         fout<<"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"<<endl;
-        fout<<" <title>Document</title>"<<endl;
+        fout<<" <title>S-zh.space</title>"<<endl;
+        fout<<"<style>body {background-color: #dea829;}</style>";
         fout<<"</head>"<<endl;
         fout<<"<body>"<<endl;
         while ((c = fin.get()) != EOF){
@@ -53,7 +59,6 @@ int Markdown_to_html::Conversion(string s,string file_name){
                 b = 0;
                 bit = 0;
                 fout<<"\n";
-                fout<<"<br>";
             }
             else if( c == '!' && b == 0){
                 bit++;
@@ -69,15 +74,12 @@ int Markdown_to_html::Conversion(string s,string file_name){
                 fout<<"\" />";
             }
             else if( bit && c == ']'){
-                continue;
+                fout<<" src=\"";
+                b = 0;
             }
             else if( c == '\n'){
                 fout<<"\n";
                 fout<<"<br>";
-            }
-            else if( bit && c == 'g' && b){
-                fout<< c <<" src=\"";
-                b = 0;
             }
             else if( bit == 0 && c == '['){
                 fout<<"<a href=\"";
