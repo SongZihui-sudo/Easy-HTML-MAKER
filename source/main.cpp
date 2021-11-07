@@ -1,4 +1,4 @@
- #include<iostream>
+#include<iostream>
 #include "Markdown_to_html.h"
 #include <fstream>
 
@@ -12,7 +12,7 @@ int main(){
     string str;
     cout<<"input file name,like xxxx."<<endl;
     int n;    
-    cout<<"page number";
+    cout<<"page number:";
     cin>>n;
     while( n -- ){
          cout<<"filename:";
@@ -46,6 +46,7 @@ int Markdown_to_html::Conversion(string s,string file_name){
         fout<<"<style>body {background-color: #dea829;}</style>";
         fout<<"</head>"<<endl;
         fout<<"<body>"<<endl;
+        int v = 0;
         while ((c = fin.get()) != EOF){
             if( c == tap00){
                 bit++;
@@ -53,8 +54,9 @@ int Markdown_to_html::Conversion(string s,string file_name){
             }
             else if ( bit && c == 32){
                 fout<<"<"<<"h"<<bit<<">";
+                v = 1;
             }
-            else if (b == 1 && c == '\n'){
+            else if (b && c == '\n' && v){
                 fout<<"</h"<<bit<<">";
                 b = 0;
                 bit = 0;
@@ -85,7 +87,9 @@ int Markdown_to_html::Conversion(string s,string file_name){
                 fout<<"<a href=\"";
                 bit++;
             }
-            
+            else if (c=='`'){
+                continue;
+            }
             else            
                 fout << c;
         } 
