@@ -67,10 +67,7 @@ int Markdown_to_html::Conversion(string s,string file_name){
                 bit++;
                 b++;
             }
-            else if(code_bit < 3 && code_bit > 2){
-                fout<< c;
-            }
-            else if( c == '[' ){
+            else if( c == '[' && code_bit == 0){
                 fout<<"<";
             }
             else if( bit && c == '(')
@@ -87,15 +84,15 @@ int Markdown_to_html::Conversion(string s,string file_name){
                 fout<<"\n";
                 fout<<"<br>";
             }
-            else if( bit == 0 && c == '['){
+            else if( bit == 0 && c == '[' && code_bit == 0 ){
                 fout<<"<a href=\"";
                 bit++;
             } 
-            else if( code_bit == 2 ){
+            else if( code_bit == 2 && c == '`'){
                 fout<<"<pre>";
                 code_bit++;
             } 
-            else if( code_bit == 3 ){
+            else if( code_bit == 3  && c == '`'){
                 fout<<"</pre>";
                 code_bit++;
             }
