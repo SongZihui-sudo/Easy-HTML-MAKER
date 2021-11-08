@@ -91,7 +91,11 @@ int Markdown_to_html::Conversion(string s,string file_name){
             else if( code_bit == 2 && c == '`'){
                 fout<<"<pre>";
                 code_bit++;
-            } 
+            }  
+            else if( code_bit == 3 && c== '<')
+                    fout<<"&#60";
+            else if( code_bit == 3 && c == '>')
+                    fout<<"&#62";
             else if( code_bit == 3  && c == '`'){
                 fout<<"</pre>";
                 code_bit++;
@@ -101,12 +105,11 @@ int Markdown_to_html::Conversion(string s,string file_name){
             else if ( c == '`'){
                 code_bit++;
             }    
-            else if(c == '<')
-                fout<<"&#60";
-            else if(c == '>')
-                fout<<"&#62";
-            else            
+           
+            else{
                 fout << c;
+            }            
+                
         } 
         fout<<"</body>"<<endl;
         fout<<"</html>"<<endl;
