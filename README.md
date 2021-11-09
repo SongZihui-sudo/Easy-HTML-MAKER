@@ -4,6 +4,20 @@
 A tool that can make Markdown to the Html.
 欢迎来访s-zh.space，用这个工具制作的网站。  
 Welcome to visite s-zh.space which is made by th is tool.
+相应的HTML会存在相应的文件夹中  
+文件结构  
+输入ps命令
+```
+e-htmlmaker
+|
+————Blog:you content
+|
+————About: about youself
+|
+————index: wensite's index html
+|
+————theme: wensite's theme
+```
 # 目前支持的markdown的标签  
 ```
 #        多级标题
