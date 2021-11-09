@@ -17,6 +17,8 @@ e-htmlmaker
 ————index: wensite's index html
 |
 ————theme: wensite's theme
+|
+————md: markdown file
 ```
 后续会加入主题切换功能
 # 目前支持的markdown的标签  
