@@ -15,8 +15,12 @@ int main(){
     cout<<"page number:";
     cin>>n;
     while( n -- ){
-         cout<<"filename:";
+        cout<<"filename:";
         cin>>str;
+        if(str == "ps"){
+            print_file_struct();
+            continue;
+        }
         string t = ".md";
         string Str;
         Str = str + t;        
@@ -29,7 +33,19 @@ int Markdown_to_html::Conversion(string s,string file_name){
     ifstream  fin;
     ofstream fout;
     string h = ".html";
-    file_name = file_name + h;
+    cout<<"chose the file postion,About---1,index----2,Blog----3:";
+    int f;
+    cin>>f;
+    if (f==1){
+        file_name = "About/" + file_name + h;
+    }
+    else if(f==2){
+        file_name = "index/" + file_name + h;
+    }
+    else if(f==3){
+        file_name = "Blog/" + file_name + h;
+    }
+    else;
     fout.open(file_name);
     fin.open(s);
     if(fin){ //防止出错
@@ -37,6 +53,7 @@ int Markdown_to_html::Conversion(string s,string file_name){
         int b = 0;
         char c;
         int code_bit = 0;
+        //html的head
         fout<<"<!DOCTYPE html>"<<endl;
         fout<<"<html lang=\"en\">"<<endl;
         fout<<"<head>"<<endl;
@@ -47,7 +64,12 @@ int Markdown_to_html::Conversion(string s,string file_name){
         fout<<"<style>body {background-color: #dea829;}</style>";
         fout<<"</head>"<<endl;
         fout<<"<body>"<<endl;
+        cout<<"today-date:";
+        string date;
+        cin>>date;
+        fout<<"<h4>"<<date<<"</h4>";
         int v = 0;
+        //对符号的判断
         while ((c = fin.get()) != EOF){
             if( c == tap00){
                 bit++;
