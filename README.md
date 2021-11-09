@@ -18,6 +18,7 @@ e-htmlmaker
 |
 ————theme: wensite's theme
 ```
+后续会加入主题切换功能
 # 目前支持的markdown的标签  
 ```
 #        多级标题
