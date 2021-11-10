@@ -33,25 +33,21 @@ e-htmlmaker
 # demo
 markdown
 ```
-# XXXX’s_Website 
+# Song_Zihui’s_Website 
+
+Every problems has its Solution
 
 ## Welcome
 
+<a href ="../About/About.html">About Me</a>
+
+<a href="../Blog/Blog.html">Blog</a>
+
+<a href="../About/contact_me.html">contact me</a>
 
 
-<a href ="About.html">About Me</a>
+This Website made by (<a href="https://github.com/SongZihui-sudo/e-Conversion-html-maker">e-Conversion html maker</a>).
 
-
-
-<a href="Blog.html">Blog</a>
-
-![img](https://images.pexels.com/photos/9754/mountains-clouds-forest-fog.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)
-
-<a href="contact me">contact me</a>
-
-
-
-This Website made by e-Conversion html maker(<a href="https://github.com/SongZihui-sudo/e-Conversion-html-maker">ABOUT</a>).
 ```
 HTML CODE
 ```
@@ -61,28 +57,26 @@ HTML CODE
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Document</title>
-</head>
-<body>
-<h1>XXXX’s_Website<h1></h1>
+ <title>S-zh.space</title>
+<style>body{
+    background:url(https://images.pexels.com/photos/844297/pexels-photo-844297.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) no-repeat;
+}</style></head>
+<body><h4>2021-11-10</h4><h1>Song_Zihui’s_Website<h1></h1>
+
+<br>Every problems has its Solution
 <br>
 <br><h2>Welcome</h2>
+
+<br><a href ="../About/About.html">About Me</a>
+<br>
+<br><a href="../Blog/Blog.html">Blog</a>
+<br>
+<br><a href="../About/contact_me.html">contact me</a>
 <br>
 <br>
+<br>This Website made by (<a href="https://github.com/SongZihui-sudo/e-Conversion-html-maker">e-Conversion html maker</a>).
 <br>
-<br><a href ="About.html">About Me</a>
-<br>
-<br>
-<br>
-<br><a href="Blog.html">Blog</a>
-<br>
-<br><img src="https://images.pexels.com/photos/9754/mountains-clouds-forest-fog.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
-<br>
-<br><a href="contact me">contact me</a>
-<br>
-<br>
-<br>
-<br>This Website made by e-Conversion html maker(<a href="https://github.com/SongZihui-sudo/e-Conversion-html-maker">ABOUT</a>).</body>
+<br></body>
 </html>
 ```
 screenshot
