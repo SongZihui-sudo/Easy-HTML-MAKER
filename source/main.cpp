@@ -15,12 +15,12 @@ int main(){
     cout<<"page number:";
     cin>>n;
     while( n -- ){
-        cout<<"filename:";
+        cout<<"filename:";    
         cin>>str;
         if(str == "ps"){
             print_file_struct();
             continue;
-        }
+        }       
         string t = ".md";
         string Str;
         Str = str + t;        
@@ -32,20 +32,8 @@ int main(){
 int Markdown_to_html::Conversion(string s,string file_name){    
     ifstream  fin;
     ofstream fout;
-    string h = ".html";
-    cout<<"chose the file postion,About---1,index----2,Blog----3:";
-    int f;
-    cin>>f;
-    if (f==1){
-        file_name = "About/" + file_name + h;
-    }
-    else if(f==2){
-        file_name = "index/" + file_name + h;
-    }
-    else if(f==3){
-        file_name = "Blog/" + file_name + h;
-    }
-    else;
+    s = "md/"+s;
+    file_name = chose_file_postion(file_name);
     fout.open(file_name);
     fin.open(s);
     if(fin){ //防止出错
@@ -53,17 +41,18 @@ int Markdown_to_html::Conversion(string s,string file_name){
         int b = 0;
         char c;
         int code_bit = 0;
-        //html的head
-        fout<<"<!DOCTYPE html>"<<endl;
-        fout<<"<html lang=\"en\">"<<endl;
-        fout<<"<head>"<<endl;
-        fout<<"<meta charset=\"UTF-8\">"<<endl;
-        fout<<"<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">"<<endl;
-        fout<<"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"<<endl;
-        fout<<" <title>S-zh.space</title>"<<endl;
-        fout<<"<style>body {background-color: #dea829;}</style>";
-        fout<<"</head>"<<endl;
-        fout<<"<body>"<<endl;
+        string theme;
+        theme = chose_theme();
+        ifstream file_in;
+        file_in.open(theme);
+            if(file_in){   
+                char t;
+                while ((t = file_in.get()) != EOF){
+                    fout<<t;
+                }
+            }
+            else    
+                return 1;
         cout<<"today-date:";
         string date;
         cin>>date;
