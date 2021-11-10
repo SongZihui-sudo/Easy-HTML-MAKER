@@ -20,6 +20,8 @@
 
     void Welcome();
     void print_file_struct();
+    string chose_file_postion(string file);
+    string chose_theme();
 
     class Markdown_to_html{
         private:
@@ -47,7 +49,39 @@
         cout<<"|"<<endl;
         cout<<"————"<<"index: wensite's index html"<<endl;
         cout<<"|"<<endl;
-        cout<<"————"<<": wensite's "<<endl;
+        cout<<"————"<<"theme: wensite's theme"<<endl;
+        cout<<"|"<<endl;
+        cout<<"————"<<"md: markdown file "<<endl;
     }
+    //选择存储目录
+    string chose_file_postion(string file){
+        string h = ".html";
+        cout<<"chose the file postion,About---1,index----2,Blog----3:";
+        int f;
+        cin>>f;
+        if (f==1){
+            file = "About/" + file + h;
+            return file;
+        }
+        else if(f==2){
+            file = "index/" + file + h;
+            return file;
+        }
+        else if(f==3){
+            file = "Blog/" + file + h;
+            return file;
+        }
+    else{
 
+        return "1";
+    }
+    }
+    //选择主题
+    string chose_theme(){
+        cout<<"chose the theme you like:";
+        string theme_name;
+        cin>>theme_name;
+        theme_name = "theme/"+theme_name+".txt";
+        return theme_name;
+    }
 #endif
