@@ -14,8 +14,6 @@ e-htmlmaker
 |
 ————About: about youself
 |
-————index: wensite's index html
-|
 ————theme: wensite's theme
 |
 ————md: markdown file
