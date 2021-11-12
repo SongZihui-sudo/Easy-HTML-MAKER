@@ -3,32 +3,32 @@
 #include <fstream>
 
 using namespace std;
-
+//主函数
 int main(){
     Welcome();
     ofstream fout;
-    Markdown_to_html *MtH;
+    Markdown_to_html *MtH; //类
     MtH = new(Markdown_to_html);
     string str;
     cout<<"input file name,like xxxx."<<endl;
-    int n;    
+    int n;    //页数
     cout<<"page number:";
     cin>>n;
     while( n -- ){
-        cout<<"filename:";    
+        cout<<"filename:"; //文件名    
         cin>>str;
         if(str == "ps"){
-            print_file_struct();
+            print_file_struct();//输出目录结构
             continue;
         }       
         string t = ".md";
         string Str;
         Str = str + t;        
-        MtH->Conversion(Str,str);
+        MtH->Conversion(Str,str);//转换
     }
     return 0;
 }
-
+//转换函数
 int Markdown_to_html::Conversion(string s,string file_name){    
     ifstream  fin;
     ofstream fout;
@@ -43,7 +43,7 @@ int Markdown_to_html::Conversion(string s,string file_name){
         int code_bit = 0;
         string theme;
         theme = chose_theme();
-        ifstream file_in;
+        ifstream file_in;//切换主题
         file_in.open(theme);
             if(file_in){   
                 char t;
@@ -54,11 +54,12 @@ int Markdown_to_html::Conversion(string s,string file_name){
             else    
                 return 1;
         cout<<"today-date:";
-        string date;
+        string date;//加入日期
         cin>>date;
         fout<<"<h4>"<<date<<"</h4>";
         int v = 0;
         //对符号的判断
+        //进行转换
         while ((c = fin.get()) != EOF){
             if( c == tap00){
                 bit++;
