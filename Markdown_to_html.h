@@ -21,7 +21,7 @@
     void Welcome();
     void print_file_struct();
     string chose_file_postion(string file);
-    string chose_theme();
+    int chose_theme();
 
     class Markdown_to_html{
         private:
@@ -77,11 +77,21 @@
     }
     }
     //选择主题
-    string chose_theme(){
+    int chose_theme(){
         cout<<"chose the theme you like:";
         string theme_name;
         cin>>theme_name;
         theme_name = "theme/"+theme_name+".txt";
-        return theme_name;
+        ifstream file_in;//切换主题
+        file_in.open(theme_name);
+            if(file_in){   
+                char t;
+                while ((t = file_in.get()) != EOF){
+                    fout<<t;
+                }
+            }
+            else    
+                return 1;
+        return 0;
     }
 #endif
