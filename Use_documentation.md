@@ -45,9 +45,9 @@ output：<h3>大家好</h3>
 
 实例：
 
-input : ![img](https://images.pexels.com/photos/9428520/pexels-photo-9428520.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)
+input : ![img](https://images.pexels.com)
    
-output : ![img](https://images.pexels.com/photos/9428520/pexels-photo-9428520.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)
+output : ![img](https://images.pexels.com)
 
 ### 链接标签
 
