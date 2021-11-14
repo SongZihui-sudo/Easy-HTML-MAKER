@@ -17,7 +17,6 @@
     int bit_code_begin = 0;
     int bit_code_end = 0;
     int bit_url = 0;
-    int bit_sample = 0;
     
     void Welcome();
     void print_file_struct();

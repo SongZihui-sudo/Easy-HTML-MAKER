@@ -139,6 +139,13 @@ int Markdown_to_html::Lexical_interpreter(string Md_name,string html_name){
                     fout<<"\n"<<"<br>";
                     p->arr.clear();
                 }
+                if(bit_head==0&&bit_img==0&&bit_code_begin==0&&bit_code_end==0&&bit_url==0){
+                    for(int j = 0;j < p->arr.size();j++){
+                        fout<<p->arr[j];
+                    }
+                    fout<<"\n"<<"<br>";
+                    p->arr.clear();
+                }
             }
             //存储链接
             else{
