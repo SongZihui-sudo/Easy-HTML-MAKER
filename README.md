@@ -39,14 +39,15 @@ Every problems has its Solution
 
 ## Welcome
 
-<a href ="../About/About.html">About Me</a>
+url ../About/About.html About Me
 
-<a href="../Blog/Blog.html">Blog</a>
+url ../Blog/Blog.html Blog
 
-<a href="../About/contact_me.html">contact me</a>
+url ../About/contact_me.html contact me 
 
 
-This Website made by (<a href="https://github.com/SongZihui-sudo/e-Conversion-html-maker">e-Conversion html maker</a>).
+This Website made by 
+url https://github.com/SongZihui-sudo/e-Conversion-html-maker e-Conversion html maker 
 
 ```
 HTML CODE
@@ -58,27 +59,22 @@ HTML CODE
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>S-zh.space</title>
-<style>body{
-    background:url(https://images.pexels.com/photos/844297/pexels-photo-844297.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) no-repeat;
-}</style></head>
-<body><h4>2021-11-10</h4><h1>Song_Zihui’s_Website<h1></h1>
-
+</head>
+<body background="https://images.pexels.com/photos/783944/pexels-photo-783944.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+<h1> Song_Zihui’s_Website </h1>
+<br><h1></h1>
 <br>Every problems has its Solution
 <br>
-<br><h2>Welcome</h2>
-
-<br><a href ="../About/About.html">About Me</a>
+<br><h2> Welcome</h2>
+<br><h2></h2>
+<br><a href="../About/About.html"> About Me</a>
 <br>
-<br><a href="../Blog/Blog.html">Blog</a>
+<br><a href="../Blog/Blog.html"> Blog</a>
 <br>
-<br><a href="../About/contact_me.html">contact me</a>
+<br><a href="../About/contact_me.html"> contact me </a>
 <br>
 <br>
-<br>This Website made by (<a href="https://github.com/SongZihui-sudo/e-Conversion-html-maker">e-Conversion html maker</a>).
-<br>
-<br></body>
-</html>
+<br>This Website made by 
+<br><a href="https://github.com/SongZihui-sudo/e-Conversion-html-maker"> e-Conversion html maker </a>
+<br></body></html>
 ```
-screenshot
-![图片](![图片](https://user-images.githubusercontent.com/77034643/141147033-6e61a295-ad61-4e49-b724-1f8f66b5fb98.png)
-)
