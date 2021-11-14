@@ -2,22 +2,23 @@
 #define _Markdown_to_html_h
     #include<iostream>
     #include <fstream>
-
+    #include <vector>
+    
     #define Error -1;
     #define OK 0;
 
     using namespace std;
 
-    int bit = 0;
-    int b = 0;
-    int code_bit = 0;
     ofstream fout;
-    int v = 0;
+    ifstream  fin;
 
-    bool tape( char cc );   
-    bool img( char Cc);
-    bool code(char cC);
-
+    int bit_head = 0;
+    int bit_img = 0;
+    int bit_code_begin = 0;
+    int bit_code_end = 0;
+    int bit_url = 0;
+    int bit_sample = 0;
+    
     void Welcome();
     void print_file_struct();
     string chose_file_postion(string file);
@@ -25,15 +26,22 @@
 
     class Markdown_to_html{
         private:
-            char tap00 = '#';
-            char tap01 = '!';
-            char tap02 = '*';
-            char tap03 = '`';//符号
-            char tap04 = '[';  
+            char Img[7]={'!','[','i','m','g',']','('};
+            char code_begin[3] = {'`','`','`'};
+            char code_end[3] = {'*','*','*'};
+            char Url[3] = {'u','r','l'};               
+            vector <char> arr;
         public:
             Markdown_to_html() = default ;
-            int Conversion(string str,string file_name);
+            int Lexical_interpreter(string Md_name,string html_name); 
+            vector <char> head(int number,vector <char> Array);//处理head标签的方法
+            vector <char> img(vector <char> img_arr);//处理img标签的方法
+            vector <char> url(vector <char> url_arr);//处理url标签的方法
+            int simple_Statement();//处理普通语句
         };
+    int Markdown_to_html::simple_Statement(){
+        return 0;
+    }
     //欢迎界面
     void Welcome(){
         cout<<"Welcome to use e-Conversion html maker!"<<endl;
@@ -64,7 +72,7 @@
             return file;
         }
         else if(f==2){
-            file = "index/" + file + h;
+            file = file + h;
             return file;
         }
         else if(f==3){
