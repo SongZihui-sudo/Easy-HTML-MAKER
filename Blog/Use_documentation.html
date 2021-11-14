@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>S-zh.space</title>
+</head>
+<body background="https://images.pexels.com/photos/783944/pexels-photo-783944.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+<h1> E-转换-HTML生成器 使用文档</h1>
+<br>
+<br>
+<br><a href="https://github.com/SongZihui-sudo/e-Conversion-html-maker/releases"> 发行版</a>
+<br>
+<br>说明：
+<br>
+<br>v2.0 版本目前为稳定版本，在翻译标签时并没有明显bug。但是目前还不支持叠加使用标签
+<br>
+<br>v1.0 原始版本在翻译代码块标签时和在正文中使用一些符号时，会产生明显bug。
+<br>
+<br><h2> 	开始使用 - 安装</h2>
+<br>
+<br>
+<br>1. 可选 安装 git。
+<br>
+<br><h3> Linux </h3>
+<br>
+<br>
+<br>使用如下命令
+<br>
+<br><pre>
+<br>sudo git clone https://github.com/SongZihui-sudo/e-Conversion-html-maker
+<br></pre>
+<br></pre>
+<br><h3> Windows</h3>
+<br>
+<br>
+<br><pre>
+<br>git clone https://github.com/SongZihui-sudo/e-Conversion-html-maker
+<br></pre>
+<br></pre>
+<br>2. 下载源码后，可以使用g++编译源码使用，也可以直接打开二进制程序使用。
+<br>
+<br><h2> 关于语言</h2>
+<br>
+<br>
+<br><h4> 标题标签 </h4>
+<br>
+<br>
+<br>与原Markdown中的标签相同，都为n个#，由个数来划分为n级标题。
+<br>
+<br>实例：
+<br>input ：### 大家好
+<br>output：<h3>大家好</h3>
+<br>
+<br>
+<br><h3> 图像标签</h3>
+<br>
+<br>
+<br>与原Markdown中的相同。
+<br>
+<br>实例：
+<br>
+<br>input : ![img](https://images.pexels.com/photos/9428520/pexels-photo-9428520.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)
+<br>   
+<br>output : ![img](https://images.pexels.com/photos/9428520/pexels-photo-9428520.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)
+<br>
+<br><h3> 链接标签</h3>
+<br>
+<br>
+<br>与原Markdown略有不同。
+<br>
+<br>原:[name](url)
+<br>
+<br>改为 url 网址（url） name
+<br>
+<br>实例：
+<br>input : url s-zh.space my website
+<br>output : <a href = "s-zh.space">my website</a>
+<br>
+<br><h3> 代码块标签</h3>
+<br>
+<br>
+<br>与原Markdown不同
+<br>
+<br>原 三个`
+<br>现改为了两部分
+<br>三个`表示代码块的开始部分，三个*表示代码块的结束部分
+<br>实例：
+<br>
+<br>input 
+<br>三个`
+<br><pre>
+<br>#include<iostream>
+<br>   int main(){
+<br>      cout<<"hello world";
+<br>      return 0;
+<br>}
+<br></pre>
+<br>三个*
+<br>output
+<br><pre>
+<br>   #include<iostream>
+<br>   int main(){
+<br>   	cout<<"hello world";
+<br>   	return 0;
+<br>   }
+<br></pre>
+<br>
+<br><h2> 关于主题</h2>
+<br>
+<br>
+<br>该功能目前还不完善，只是可以切换背景，哈哈哈。。。。。。。
+<br>
+<br><h2> 其他一些说明</h2>
+<br>
+<br>
+<br>在程序中进行文件名输入时，并不需要输入后缀（不要忘，不要忘，不要忘）。
+<br>还有就是要顶格书写
+<br>
+<br>   
+<br>
+<br>   
+<br>
+<br>   
+<br></body></html>

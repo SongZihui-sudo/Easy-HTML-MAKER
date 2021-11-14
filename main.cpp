@@ -62,16 +62,13 @@ int Markdown_to_html::Lexical_interpreter(string Md_name,string html_name){
                     for( int j = 1;j < p->arr.size();j++){
                         fout<<p->arr[j];
                     }
+                    bit_head = 0;
                     fout<<"\n"<<"<br>";
                     p->arr.clear();
                 }
                 //图像标签
-                for (int i = 0; i < 7; i++){
-                    if( p->arr[i] == ')'){
-                        p->arr[i] = 48;
-                        break;
-                    }
-                    else if(p->arr[i] == p->Img[i]){
+                for (int i = 0; i < 7; i++){ 
+                    if(p->arr[i] == p->Img[i]){
                         p->arr[i] = 48;
                         bit_img = 1;
                     }
