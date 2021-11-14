@@ -1,9 +1,7 @@
 # e-Conversion-html-maker
 # E-转换-网页-生成工具
 一个可以将markdown转换成HTML的工具。 
-A tool that can make Markdown to the Html.
 欢迎来访s-zh.space，用这个工具制作的网站。  
-Welcome to visite s-zh.space which is made by th is tool.
 相应的HTML会存在相应的文件夹中  
 文件结构  
 输入ps命令
@@ -22,11 +20,15 @@ e-htmlmaker
 目前是有两种背景主题可供选择  
 一种是以自定义的纯色背景主题  
 还有一种是自定义图片为背景的主题  
-# 目前支持的markdown的标签  
+# 重构了现有代码，也改变一些标签的写法如下：    
 ```
-#        多级标题
-![img]() 图像标签
-三个`    插入代码块
+标题标签：#
+图像标签：![img]()
+链接标签：url 网址 名称
+代码块标签：
+三个` 表示开始  
+三个* 表示结束  
+中间的内容表示代码  
 ```
 # demo
 markdown
