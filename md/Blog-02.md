@@ -20,7 +20,7 @@ int search(int key[MAXSIZE],int j){
         }
     }
 }
-```
+***
 
 ### 跳跃搜索法
 
@@ -63,7 +63,7 @@ int search(struct jmup s){
     //如果相等就输出OK和位置
     return OK,left;
 }
-```
+***
 
 ### 两边搜索法
 
@@ -92,7 +92,7 @@ int search(std::vector<int> key,int k){
     }
     return ERROR; //没找到，返回错误
 }
-```
+***
 
 这样减少了遍历的次数，但是我们还可以继续改进，我们相对数据进行排序，让数据有大到小进行排列。试想如果我们直接用要查找的值与中间位置的值进行比较就可以直接判断出该数据是在前一部分还是后一部分，以此类推循环和中间值进行比较我们就可以直至我们要查找的数与中间值相等就找了它。
 
@@ -145,7 +145,7 @@ int find(dichotomy *find){
     }
     return ERROR;//没找到
 }
-```
+***
 
 当然我们由上面的例子可以看出，即使是我们使用了二分法，我们也依然会在边界内反复循环来查找中间值，有一部分在边界中是没用的，所以我们可以显出一种方法，我们可以先直接让left的值反复乘二，直至大于我们要查找的值，以这时的下标作为二分法的右边界，就可以将二分法的范围减少，从而可以很快找到我们要查找的值。
 
@@ -169,7 +169,7 @@ int expon_search(struct Exponential_Search find){
         }
     return Binary_Search(find,left);//在指定范围内进行二分法查找
 } 
-```
+***
 
 ### 二分法：
 
@@ -192,7 +192,7 @@ int Binary_Search(struct Exponential_Search Binary,int left){
         }        
     }
     return ERROR; //遍历完也没找到，不存在，返回错误
-```
+***
 
 ### 最后时插值查找法。
 
@@ -215,5 +215,5 @@ int search(struct Inter_search find){
     //否则返回错误
     return ERROR;
 }
-```
+***
 

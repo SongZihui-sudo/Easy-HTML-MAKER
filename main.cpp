@@ -38,6 +38,7 @@ int Markdown_to_html::Lexical_interpreter(string Md_name,string html_name){
     fin.open(Md_name); //open md file
     string html_file_name = chose_file_postion(html_name);
     fout.open(html_file_name);
+    chose_theme();
     if(fin){ 
         char c;
         while ((c = fin.get()) != EOF){
@@ -152,6 +153,7 @@ int Markdown_to_html::Lexical_interpreter(string Md_name,string html_name){
                 p->arr.push_back(c);
             }
         }
+        fout<<"</body>"<<"</html>";
     }
     else{//error
         cout<<"cannot open the file";

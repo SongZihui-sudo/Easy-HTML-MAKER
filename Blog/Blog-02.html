@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>S-zh.space</title>
+</head>
+<body background="https://images.pexels.com/photos/783944/pexels-photo-783944.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
 <h1> 对搜索算法的一些想法（C/C++）</h1>
 <br><h1></h1>
 <br>这里主要讨论了这几种搜索算法：线性查找法，双边查找法，跳跃搜索法，插值搜索法，指数搜索法。
@@ -20,12 +29,10 @@
 <br>        }
 <br>    }
 <br>}
-<br><pre>
-<br><pre>
+<br></pre>
+<br></pre>
 <br><h3> 跳跃搜索法</h3>
-<br><pre>
 <br><h3></h3>
-<br><pre>
 <br>为了减少循环次数，我们可以想到，让数组下标跳跃前进，前进的大于要查找的值时就停止跳跃，向回遍历，直至找到我们要找的值。
 <br>
 <br>附上代码段：（C++）
@@ -65,12 +72,10 @@
 <br>    //如果相等就输出OK和位置
 <br>    return OK,left;
 <br>}
-<br><pre>
-<br><pre>
+<br></pre>
+<br></pre>
 <br><h3> 两边搜索法</h3>
-<br><pre>
 <br><h3></h3>
-<br><pre>
 <br>与我们可以想到，两边同时开始遍历，如果要查的值在前半部获后半部就可以减少遍历的次数，很快找到。
 <br>
 <br>附上代码段：（C++）
@@ -96,8 +101,8 @@
 <br>    }
 <br>    return ERROR; //没找到，返回错误
 <br>}
-<br><pre>
-<br><pre>
+<br></pre>
+<br></pre>
 <br>这样减少了遍历的次数，但是我们还可以继续改进，我们相对数据进行排序，让数据有大到小进行排列。试想如果我们直接用要查找的值与中间位置的值进行比较就可以直接判断出该数据是在前一部分还是后一部分，以此类推循环和中间值进行比较我们就可以直至我们要查找的数与中间值相等就找了它。
 <br>
 <br>*例子*
@@ -149,8 +154,8 @@
 <br>    }
 <br>    return ERROR;//没找到
 <br>}
-<br><pre>
-<br><pre>
+<br></pre>
+<br></pre>
 <br>当然我们由上面的例子可以看出，即使是我们使用了二分法，我们也依然会在边界内反复循环来查找中间值，有一部分在边界中是没用的，所以我们可以显出一种方法，我们可以先直接让left的值反复乘二，直至大于我们要查找的值，以这时的下标作为二分法的右边界，就可以将二分法的范围减少，从而可以很快找到我们要查找的值。
 <br>
 <br>附上代码段：（C++）
@@ -173,12 +178,10 @@
 <br>        }
 <br>    return Binary_Search(find,left);//在指定范围内进行二分法查找
 <br>} 
-<br><pre>
-<br><pre>
+<br></pre>
+<br></pre>
 <br><h3> 二分法：</h3>
-<br><pre>
 <br><h3></h3>
-<br><pre>
 <br><pre>
 <br>//二分法查找
 <br>int Binary_Search(struct Exponential_Search Binary,int left){
@@ -198,12 +201,10 @@
 <br>        }        
 <br>    }
 <br>    return ERROR; //遍历完也没找到，不存在，返回错误
-<br><pre>
-<br><pre>
+<br></pre>
+<br></pre>
 <br><h3> 最后时插值查找法。</h3>
-<br><pre>
 <br><h3></h3>
-<br><pre>
 <br>适用于数据的大小均匀变化的情况。因为我们知道了第一个与最后一个就可以知道单位每一数据增加或减少的值，在乘上要搜索的值与第一的插值，就可以的到指定下标的数值，直接进行判断即可。
 <br>
 <br>公式： ![[公式]](https://www.zhihu.com/equation?tex=key%3D%5B%28end-first%29%2Fsize%5D%2A%28find-first%29)
@@ -223,6 +224,6 @@
 <br>    //否则返回错误
 <br>    return ERROR;
 <br>}
-<br><pre>
-<br><pre>
-<br>
+<br></pre>
+<br></pre>
+<br></body></html>
