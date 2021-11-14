@@ -39,11 +39,11 @@ Every problems has its Solution
 
 ## Welcome
 
-url ../About/About.html About Me
+url ../About/About.html About Me 
 
-url ../Blog/Blog.html Blog
+url ../Blog/Blog.html Blog 
 
-url ../About/contact_me.html contact me 
+url ../About/contact_me.html contact me  
 
 
 This Website made by 
