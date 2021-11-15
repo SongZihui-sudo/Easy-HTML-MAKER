@@ -82,6 +82,7 @@ int Markdown_to_html::Lexical_interpreter(string Md_name,string html_name){
                     for( int j = 1;j < p->arr.size();j++){
                         fout<<p->arr[j];
                     }
+                    bit_img = 0;
                     fout<<"\n"<<"<br>";
                     p->arr.clear();
                 }
@@ -101,6 +102,7 @@ int Markdown_to_html::Lexical_interpreter(string Md_name,string html_name){
                     fout<<"<pre>";
                     fout<<"\n"<<"<br>";
                     p->arr.clear();
+                    bit_code_begin = 0;
                 }
                 //代码块结束标签
                 for (int i = 0; i < 3; i++){
@@ -115,6 +117,7 @@ int Markdown_to_html::Lexical_interpreter(string Md_name,string html_name){
                 if(bit_code_end){
                     fout<<"</pre>";
                     fout<<"\n"<<"<br>";
+                    bit_code_end = 0;
                     p->arr.clear();
                 }
                 //链接标签
@@ -134,9 +137,64 @@ int Markdown_to_html::Lexical_interpreter(string Md_name,string html_name){
                     for( int j = 0;j < p->arr.size();j++){
                         fout<<p->arr[j];
                     }
+                    bit_url = 0;
                     fout<<"\n"<<"<br>";
                     p->arr.clear();
                 }
+                //处理引用语句
+                for (int i = 0; i < 1; i++){
+                    if( p->arr[i] == p->Quote[i]){
+                        bit_quote = 1;
+                    }
+                    else{
+                        bit_quote = 0;
+                        break;
+                    }
+                }
+                if(bit_quote){
+                    p->arr = p->quote(p->arr);
+                    for (int j = 0; j < p->arr.size(); j++){
+                        fout<<p->arr[j];
+                    }
+                    bit_quote = 0;
+                    fout<<"\n"<<"<br>";
+                    p->arr.clear();
+                }
+                //处理分割线语句
+                for (int i = 0; i < 3; i++){
+                    if(p->arr[i] == p->split_line[i]){
+                        split_line_bit = 1;
+                    }
+                    else{
+                        split_line_bit = 0;
+                        break;
+                    }
+                }
+                if( split_line_bit ){
+                    fout<<"<hr />"<<"\n"<<"<br>";
+                    p->arr.clear();
+                    split_line_bit = 0;
+                }
+                //处理强调语句
+                for (int i = 0; i < 2; i++){
+                    if( p->arr[i] == p->Strong[i]){
+                        strong_bit = 1;
+                    }
+                    else{
+                        strong_bit = 0;
+                        break;
+                    }
+                }
+                if(strong_bit){
+                    p->arr = p->strong(p->arr);
+                    for (int j = 0; j < p->arr.size(); j++){
+                        fout<<p->arr[j];
+                    }
+                    strong_bit = 0;
+                    fout<<"\n"<<"<br>";
+                    p->arr.clear();
+                }
+                //处理普通语句
                 if(bit_head==0&&bit_img==0&&bit_code_begin==0&&bit_code_end==0&&bit_url==0){
                     for(int j = 0;j < p->arr.size();j++){
                         fout<<p->arr[j];
@@ -173,6 +231,7 @@ vector <char> Markdown_to_html::head(int number,vector <char> Array){
         Array.push_back('<');Array.push_back('/');//标签结尾
         Array.push_back('h');Array.push_back(number+48);
         Array.push_back('>');
+        parr.clear();
         return Array;
     }
 //处理图像标签
@@ -190,6 +249,7 @@ vector <char> Markdown_to_html::img(vector <char> img_arr){
         img_arr.push_back(parr[k]);
     img_arr.push_back('"');img_arr.push_back('/');
     img_arr.push_back('>');    
+    parr.clear();
     return img_arr;
 }
 //处理链接标签
@@ -222,5 +282,47 @@ vector <char> Markdown_to_html::url(vector <char> url_arr){
     }
     url_arr.push_back('<');url_arr.push_back('/');
     url_arr.push_back('a');url_arr.push_back('>');
+    parr_name.clear();
+    parr_url.clear();
     return url_arr;
     }
+//引用标签
+vector <char> Markdown_to_html::quote(vector <char> quote_arr){
+    vector <char> parr;
+    for( int k = 2;k < quote_arr.size() ; k++){
+        parr.push_back(quote_arr[k]);
+    }
+    quote_arr.clear();
+    char html_quote_begin[12] = {'<','b','l','o','c','k','q','u','o','t','e','>'};
+    char html_quote_end[13] = {'<','/','b','l','o','c','k','q','u','o','t','e','>'};
+    for( int g = 0;g < 12;g++)
+        quote_arr.push_back(html_quote_begin[g]);
+    for (int g = 0; g < parr.size(); g++){
+        quote_arr.push_back(parr[g]);
+    }
+    for (int g = 0; g < 13; g++){
+        quote_arr.push_back(html_quote_end[g]);
+    }
+    parr.clear();
+    return quote_arr;
+}
+//处理强调语句
+vector <char> Markdown_to_html::strong(vector <char> strong_arr){
+    vector <char> parr;
+    for (int k = 3; k < strong_arr.size(); k++){
+        parr.push_back(strong_arr[k]);
+    }
+    strong_arr.clear();
+    char html_strong_begin[8] = {'<','s','t','r','o','n','g','>'};
+    char html_string_end[9] = {'<','/','s','t','r','o','n','g','>'};
+    for (int k = 0; k < 8; k++){
+        strong_arr.push_back(html_strong_begin[k]);
+    }
+    for (int k = 0; k < parr.size(); k++){
+        strong_arr.push_back(parr[k]);
+    }
+    for (int k = 0; k < 9; k++){
+        strong_arr.push_back(html_string_end[k]);
+    }
+    return strong_arr;
+}
