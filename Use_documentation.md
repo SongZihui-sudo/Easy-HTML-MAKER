@@ -3,6 +3,7 @@
 url https://githubfast.com/SongZihui-sudo/e-Conversion-html-maker/releases 发行版
 
 说明：
+v2.1 版本在v2.0版本基础上，完善了几乎所有的markdown标签（个别有所改变）
 
 v2.0 版本目前为稳定版本，在翻译标签时并没有明显bug。但是目前还不支持叠加使用标签
 
@@ -28,7 +29,17 @@ git clone https://githubfast.com/SongZihui-sudo/e-Conversion-html-maker
 
 2. 下载源码后，可以使用g++编译源码使用，也可以直接打开二进制程序使用。
 
-## 关于语言
+## 关于语言  
+关键词如下：
+1.标题标签：#  
+2.图像标签：‘![img]()’  
+3.链接标签：url   
+4.代码块标签：三个` 表示开始    
+            *** 表示结束  
+5.强调标签：__  
+6.引用标签：>  
+7.分割线标签：---  
+### 说明
 
 #### 标题标签 
 
@@ -89,18 +100,30 @@ output
    }
 </pre>
 ```
-<<<<<<< HEAD
+### 分割线标签
+--- 三个减号 再单独的一行里
+input ：---
+output ： </hr>
 
-=======
->>>>>>> 99392df4c5511c8011e406e125f8013758c6b620
+### 强调标签
+__ 两个_ 空格 内容
+input : __ XXXXXX
+output : <strong>XXXXXX</strong>
+
+### 引用标签
+'>' 一个>
+input：> hello world
+output: <blockquote>hello world</blockquote>
+
 ## 关于主题
 
 该功能目前还不完善，只是可以切换背景，哈哈哈。。。。。。。
 
 ## 其他一些说明
 
-在程序中进行文件名输入时，并不需要输入后缀（不要忘，不要忘，不要忘）。
-还有就是要顶格书写
+在程序中进行文件名输入时，并不需要输入后缀（不要忘，不要忘，不要忘）.
+# 重要
+所有语句都要顶格书写，尤其带有关键词的语句。
 
    
 
