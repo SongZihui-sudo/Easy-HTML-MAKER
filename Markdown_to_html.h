@@ -12,12 +12,16 @@
     ofstream fout;
     ifstream  fin;
 
+    //状态
     int bit_head = 0;
     int bit_img = 0;
     int bit_code_begin = 0;
     int bit_code_end = 0;
     int bit_url = 0;
-    
+    int bit_quote = 0;
+    int split_line_bit = 0;
+    int strong_bit = 0;
+
     void Welcome();
     void print_file_struct();
     string chose_file_postion(string file);
@@ -25,22 +29,26 @@
 
     class Markdown_to_html{
         private:
-            char Img[7]={'!','[','i','m','g',']','('};
-            char code_begin[3] = {'`','`','`'};
-            char code_end[3] = {'*','*','*'};
-            char Url[3] = {'u','r','l'};               
+            //标签关键词
+            char Img[7]={'!','[','i','m','g',']','('};//图像标签
+            char code_begin[3] = {'`','`','`'};//代码块开始标签
+            char code_end[3] = {'*','*','*'};//代码块结束标签
+            char Url[3] = {'u','r','l'};//链接标签
+            char Quote[1] = {'>'}; //引用标签
+            char split_line[3] = {'-','-','-'};//分割线标签
+            char Strong[2] = {'_','_'};//强调标签
+            //暂时存放一行的数组
             vector <char> arr;
         public:
             Markdown_to_html() = default ;
-            int Lexical_interpreter(string Md_name,string html_name); 
+            int Lexical_interpreter(string Md_name,string html_name); //词法分析器
+            //句法分析
             vector <char> head(int number,vector <char> Array);//处理head标签的方法
             vector <char> img(vector <char> img_arr);//处理img标签的方法
             vector <char> url(vector <char> url_arr);//处理url标签的方法
-            int simple_Statement();//处理普通语句
+            vector <char> quote(vector <char> quote_arr);//处理引用标签
+            vector <char> strong(vector <char> strong_arr);//处理强调语句
         };
-    int Markdown_to_html::simple_Statement(){
-        return 0;
-    }
     //欢迎界面
     void Welcome(){
         cout<<"Welcome to use e-Conversion html maker!"<<endl;
