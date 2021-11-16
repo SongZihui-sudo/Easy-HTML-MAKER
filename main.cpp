@@ -11,23 +11,17 @@ int main(){
     ofstream fout;
     Markdown_to_html *MtH; //类
     MtH = new(Markdown_to_html);
-    string str;
     cout<<"input file name,like xxxx."<<endl;
-    int n;    //页数
-    cout<<"page number:";
-    cin>>n;
-    while( n -- ){
-        cout<<"filename:"; //文件名    
-        cin>>str;
-        if(str == "ps"){
-            print_file_struct();//输出目录结构
-            continue;
-        }       
-        string t = ".md";
-        string md_name;
-        md_name = str + t;        
-        MtH->Lexical_interpreter(md_name,str);//转换
-    }
+    string str;
+    cout<<"filename:"; //文件名    
+    cin>>str;
+    if(str == "ps"){
+        print_file_struct();//输出目录结构
+    }       
+    string t = ".md";
+    string md_name;
+    md_name = str + t;        
+    MtH->Lexical_interpreter(md_name,str);//转换
     return 0;
 }
 //词法解释器
@@ -38,182 +32,193 @@ int Markdown_to_html::Lexical_interpreter(string Md_name,string html_name){
     fin.open(Md_name); //open md file
     string html_file_name = chose_file_postion(html_name);
     fout.open(html_file_name);
-    chose_theme();
-    if(fin){ 
+    if(fin){     
+        chose_theme();
+        fout<<"<div>";
         char c;
         while ((c = fin.get()) != EOF){
             //每次提取一行到数组中
             if( c == '\n' ){
-                //标题标签
-                for(int i = 0;i < p->arr.size();i++){
-                    if(p->arr[i] == '#'){
-                        bit_head++;
-                        continue;
-                    }
-                    else if( p->arr[i] == ' ')
-                        break;
-                    else{
-                        bit_head = 0;
-                        break;
-                    }
-                }
-                if(bit_head){
-                    p->arr = head(bit_head,p->arr);
-                    for( int j = 1;j < p->arr.size();j++){
-                        fout<<p->arr[j];
-                    }
-                    bit_head = 0;
-                    fout<<"\n"<<"<br>";
-                    p->arr.clear();
-                }
-                //图像标签
-                for (int i = 0; i < 7; i++){ 
-                    if(p->arr[i] == p->Img[i]){
-                        p->arr[i] = 48;
-                        bit_img = 1;
-                    }
-                    else{
-                        bit_img = 0;
-                        break;
-                    }
-                }
-                if(bit_img){
-                    p->arr =  p->img(p->arr);
-                    for( int j = 1;j < p->arr.size();j++){
-                        fout<<p->arr[j];
-                    }
-                    bit_img = 0;
-                    fout<<"\n"<<"<br>";
-                    p->arr.clear();
-                }
-                //代码块开始标签
-                for (int i = 0; i < 3; i++){
-                    if (p->arr[i] == p->code_begin[i]){
-                        bit_code_begin = 1;
-                    }
-                    else if(p->arr[i] == '\0')
-                        break;
-                    else{
-                        bit_code_begin = 0;
-                        break;
-                    }
-                }
-                if(bit_code_begin){
-                    fout<<"<pre>";
-                    fout<<"\n"<<"<br>";
-                    p->arr.clear();
-                    bit_code_begin = 0;
-                }
-                //代码块结束标签
-                for (int i = 0; i < 3; i++){
-                    if (p->arr[i] == p->code_end[i]){
-                        bit_code_end = 1;
-                    }
-                    else{
-                        bit_code_end = 0;
-                        break;
-                    }
-                }
-                if(bit_code_end){
-                    fout<<"</pre>";
-                    fout<<"\n"<<"<br>";
-                    bit_code_end = 0;
-                    p->arr.clear();
-                }
-                //链接标签
-                for (int i = 0; i < 3; i++){
-                    if (p->arr[i] == p->Url[i]){
-                        bit_url = 1;
-                    }
-                    else if( p->arr[i] == '\0' )
-                        break;
-                    else{
-                        bit_url = 0;
-                        break;
-                    }
-                }
-                if(bit_url){
-                    p->arr = p->url(p->arr);
-                    for( int j = 0;j < p->arr.size();j++){
-                        fout<<p->arr[j];
-                    }
-                    bit_url = 0;
-                    fout<<"\n"<<"<br>";
-                    p->arr.clear();
-                }
-                //处理引用语句
-                for (int i = 0; i < 1; i++){
-                    if( p->arr[i] == p->Quote[i]){
-                        bit_quote = 1;
-                    }
-                    else{
-                        bit_quote = 0;
-                        break;
-                    }
-                }
-                if(bit_quote){
-                    p->arr = p->quote(p->arr);
-                    for (int j = 0; j < p->arr.size(); j++){
-                        fout<<p->arr[j];
-                    }
-                    bit_quote = 0;
-                    fout<<"\n"<<"<br>";
-                    p->arr.clear();
-                }
-                //处理分割线语句
-                for (int i = 0; i < 3; i++){
-                    if(p->arr[i] == p->split_line[i]){
-                        split_line_bit = 1;
-                    }
-                    else{
-                        split_line_bit = 0;
-                        break;
-                    }
-                }
-                if( split_line_bit ){
-                    fout<<"<hr />"<<"\n"<<"<br>";
-                    p->arr.clear();
-                    split_line_bit = 0;
-                }
-                //处理强调语句
-                for (int i = 0; i < 2; i++){
-                    if( p->arr[i] == p->Strong[i]){
-                        strong_bit = 1;
-                    }
-                    else{
-                        strong_bit = 0;
-                        break;
-                    }
-                }
-                if(strong_bit){
-                    p->arr = p->strong(p->arr);
-                    for (int j = 0; j < p->arr.size(); j++){
-                        fout<<p->arr[j];
-                    }
-                    strong_bit = 0;
-                    fout<<"\n"<<"<br>";
-                    p->arr.clear();
-                }
-                //处理普通语句
-                if(bit_head==0&&bit_img==0&&bit_code_begin==0&&bit_code_end==0&&bit_url==0){
-                    for(int j = 0;j < p->arr.size();j++){
-                        fout<<p->arr[j];
-                    }
-                    fout<<"\n"<<"<br>";
-                    p->arr.clear();
-                }
+                Syntax_interpreter(p->arr);
+                p->arr.clear();
             }
-            //存储链接
             else{
                 p->arr.push_back(c);
             }
         }
-        fout<<"</body>"<<"</html>";
+        fout<<"</div>"<<"</body>"<<"</html>";
     }
     else{//error
-        cout<<"cannot open the file";
+        cout<<"cannot open the file"<<endl;
         return Error; 
     }   
+    return 0;
+}
+//文法分析器
+int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
+    Markdown_to_html *m;
+    m = new(Markdown_to_html); 
+    if(Syntax_interpreter_arr.empty())
+        return 0;
+    //标题标签
+    for(int i = 0;i < Syntax_interpreter_arr.size();i++){
+        if(Syntax_interpreter_arr[i] == '#'){
+            bit_head++;
+            continue;
+        }
+        else if( Syntax_interpreter_arr[i] == ' ')
+            break;
+        else{
+            bit_head = 0;
+            break;
+        }
+    }
+    if(bit_head){
+        Syntax_interpreter_arr = head(bit_head,Syntax_interpreter_arr);
+        for( int j = 1;j < Syntax_interpreter_arr.size();j++){
+            fout<<Syntax_interpreter_arr[j];
+        }
+        bit_head = 0;
+        fout<<"\n"<<"<br>";
+        Syntax_interpreter_arr.clear();
+    }
+    //图像标签
+    for (int i = 0; i < 7; i++){ 
+        if(Syntax_interpreter_arr[i] == m->Img[i]){
+            Syntax_interpreter_arr[i] = 48;
+            bit_img = 1;
+        }
+        else{
+            bit_img = 0;
+            break;
+        }
+    }
+    if(bit_img){
+        Syntax_interpreter_arr =  m->img(Syntax_interpreter_arr);
+        for( int j = 1;j < Syntax_interpreter_arr.size();j++){
+        fout<<Syntax_interpreter_arr[j];
+    }
+        bit_img = 0;
+        fout<<"\n"<<"<br>";
+        Syntax_interpreter_arr.clear();
+    }
+    //代码块开始标签
+    for (int i = 0; i < 3; i++){
+        if (Syntax_interpreter_arr[i] == m->code_begin[i]){
+            bit_code_begin = 1;
+        }
+        else if(Syntax_interpreter_arr[i] == '\0')
+            break;
+        else{
+            bit_code_begin = 0;
+            break;
+        }
+    }
+    if(bit_code_begin){
+        fout<<"<pre>";
+        fout<<"\n"<<"<br>";
+        Syntax_interpreter_arr.clear();
+        bit_code_begin = 0;
+    }
+    //代码块结束标签
+    for (int i = 0; i < 3; i++){
+        if (Syntax_interpreter_arr[i] == m->code_end[i]){
+            bit_code_end = 1;
+        }
+        else{
+            bit_code_end = 0;
+            break;
+        }
+    }
+        if(bit_code_end){
+            fout<<"</pre>";
+            fout<<"\n"<<"<br>";
+            bit_code_end = 0;
+            Syntax_interpreter_arr.clear();
+        }
+        //链接标签
+    for (int i = 0; i < 3; i++){
+        if (Syntax_interpreter_arr[i] == m->Url[i]){
+            bit_url = 1;
+        }
+        else if( Syntax_interpreter_arr[i] == '\0' )
+            break;
+        else{
+            bit_url = 0;
+            break;
+        }
+    }
+    if(bit_url){
+        Syntax_interpreter_arr = m->url(Syntax_interpreter_arr);
+        for( int j = 0;j < Syntax_interpreter_arr.size();j++){
+            fout<<Syntax_interpreter_arr[j];
+        }
+        bit_url = 0;
+        fout<<"\n"<<"<br>";
+        Syntax_interpreter_arr.clear();
+    }
+        //处理引用语句
+    for (int i = 0; i < 1; i++){
+        if( Syntax_interpreter_arr[i] == m->Quote[i]){
+            bit_quote = 1;
+        }
+        else{
+            bit_quote = 0;
+            break;
+        }
+    }
+    if(bit_quote){
+        Syntax_interpreter_arr = m->quote(Syntax_interpreter_arr);
+        for (int j = 0; j < Syntax_interpreter_arr.size(); j++){
+            fout<<Syntax_interpreter_arr[j];
+        }
+        bit_quote = 0;
+        fout<<"\n"<<"<br>";
+        Syntax_interpreter_arr.clear();
+    }
+    //处理分割线语句
+    for (int i = 0; i < 3; i++){
+        if(Syntax_interpreter_arr[i] == m->split_line[i]){
+            split_line_bit = 1;
+        }
+        else{
+            split_line_bit = 0;
+            break;
+        }
+    }
+    if( split_line_bit ){
+        fout<<"<hr />"<<"\n"<<"<br>";
+        Syntax_interpreter_arr.clear();
+        split_line_bit = 0;
+    }
+    //处理强调语句
+    for (int i = 0; i < 2; i++){
+        if( Syntax_interpreter_arr[i] == m->Strong[i]){
+            strong_bit = 1;
+            }
+        else{
+            strong_bit = 0;
+            break;
+            }
+    }
+    if(strong_bit){
+        Syntax_interpreter_arr = m->strong(Syntax_interpreter_arr);
+        for (int j = 0; j < Syntax_interpreter_arr.size(); j++){
+            fout<<Syntax_interpreter_arr[j];
+        }
+        strong_bit = 0;
+        fout<<"\n"<<"<br>";
+        Syntax_interpreter_arr.clear();
+    }
+    //处理普通语句
+    if(bit_head==0&&bit_img==0&&bit_code_begin==0&&bit_code_end==0&&bit_url==0){
+        num++;
+        for(int j = 0;j < Syntax_interpreter_arr.size();j++){
+            fout<<Syntax_interpreter_arr[j];
+        }
+        fout<<"\n"<<"<br>";
+        Syntax_interpreter_arr.clear();
+    }
     return 0;
 }
 //处理标题标签
