@@ -21,6 +21,7 @@
     int bit_quote = 0;
     int split_line_bit = 0;
     int strong_bit = 0;
+    long long num = 0;
 
     void Welcome();
     void print_file_struct();
@@ -42,6 +43,7 @@
         public:
             Markdown_to_html() = default ;
             int Lexical_interpreter(string Md_name,string html_name); //词法分析器
+            int Syntax_interpreter(vector <char> Syntax_interpreter_arr);
             //句法分析
             vector <char> head(int number,vector <char> Array);//处理head标签的方法
             vector <char> img(vector <char> img_arr);//处理img标签的方法
@@ -93,10 +95,21 @@
     }
     //选择主题
     int chose_theme(){
-        cout<<"chose the theme you like:";
-        string theme_name;
-        cin>>theme_name;
-        theme_name = "theme/"+theme_name+".txt";
+        string txt = ".txt";
+        cout<<"chose the theme you like:"<<endl;
+        cout<<"type 1---- background is a picture"<<endl;
+        cout<<"type 2---- background is a color"<<endl;
+        cout<<"type 3---- background is a center in the screen"<<endl;
+        string theme_name = " ";
+        int x;        
+        cin>>x;            
+        if(x == 1)
+            theme_name = "theme/" + string("picture_theme") + txt;
+        else if(x == 2)
+            theme_name = "theme/" + string("color_theme") +   txt;
+        else if(x == 3)
+            theme_name = "theme/" + string("text_center") + txt;
+        else;
         ifstream file_in;//切换主题
         file_in.open(theme_name);
             if(file_in){   
