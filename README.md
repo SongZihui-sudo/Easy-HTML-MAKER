@@ -1,7 +1,7 @@
 # E-转换-网页-生成工具
 一个可以将markdown转换成HTML的工具。 
 欢迎来访s-zh.space，用这个工具制作的网站。   
-[使用文档](https://github.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/Use_documentation.md)  
+[使用文档](https://github.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/Use_documentation.md) [ENGLISH](https://github.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/english.md)   
 相应的HTML会存在相应的文件夹中  
 文件结构  
 输入ps命令
