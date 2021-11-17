@@ -1,4 +1,5 @@
 # E-转换-HTML生成器 使用文档
+[ENGLISH](https://github.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/Use_documentation_english.md)
 
 url https://githubfast.com/SongZihui-sudo/e-Conversion-html-maker/releases 发行版
 
