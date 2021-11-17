@@ -14,12 +14,12 @@ int main(){
     cout<<"input file name,like xxxx."<<endl;
     string str;
     cout<<"filename:"; //文件名    
-    cin>>str;
+    cin>>str;//名称无后缀
     if(str == "ps"){
         print_file_struct();//输出目录结构
     }       
-    string t = ".md";
-    string md_name;
+    string t = ".md"; 
+    string md_name; //md文件名称   
     md_name = str + t;        
     MtH->Lexical_interpreter(md_name,str);//转换
     return 0;
@@ -33,8 +33,6 @@ int Markdown_to_html::Lexical_interpreter(string Md_name,string html_name){
     string html_file_name = chose_file_postion(html_name);
     fout.open(html_file_name);
     if(fin){     
-        chose_theme();
-        fout<<"<div>";
         char c;
         while ((c = fin.get()) != EOF){
             //每次提取一行到数组中
@@ -52,6 +50,7 @@ int Markdown_to_html::Lexical_interpreter(string Md_name,string html_name){
         cout<<"cannot open the file"<<endl;
         return Error; 
     }   
+    free(p);
     return 0;
 }
 //文法分析器
@@ -60,6 +59,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
     m = new(Markdown_to_html); 
     if(Syntax_interpreter_arr.empty())
         return 0;
+
     //标题标签
     for(int i = 0;i < Syntax_interpreter_arr.size();i++){
         if(Syntax_interpreter_arr[i] == '#'){
@@ -82,6 +82,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
         fout<<"\n"<<"<br>";
         Syntax_interpreter_arr.clear();
     }
+
     //图像标签
     for (int i = 0; i < 7; i++){ 
         if(Syntax_interpreter_arr[i] == m->Img[i]){
@@ -102,6 +103,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
         fout<<"\n"<<"<br>";
         Syntax_interpreter_arr.clear();
     }
+
     //代码块开始标签
     for (int i = 0; i < 3; i++){
         if (Syntax_interpreter_arr[i] == m->code_begin[i]){
@@ -120,6 +122,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
         Syntax_interpreter_arr.clear();
         bit_code_begin = 0;
     }
+
     //代码块结束标签
     for (int i = 0; i < 3; i++){
         if (Syntax_interpreter_arr[i] == m->code_end[i]){
@@ -136,6 +139,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
             bit_code_end = 0;
             Syntax_interpreter_arr.clear();
         }
+
         //链接标签
     for (int i = 0; i < 3; i++){
         if (Syntax_interpreter_arr[i] == m->Url[i]){
@@ -157,6 +161,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
         fout<<"\n"<<"<br>";
         Syntax_interpreter_arr.clear();
     }
+
         //处理引用语句
     for (int i = 0; i < 1; i++){
         if( Syntax_interpreter_arr[i] == m->Quote[i]){
@@ -176,6 +181,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
         fout<<"\n"<<"<br>";
         Syntax_interpreter_arr.clear();
     }
+
     //处理分割线语句
     for (int i = 0; i < 3; i++){
         if(Syntax_interpreter_arr[i] == m->split_line[i]){
@@ -191,6 +197,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
         Syntax_interpreter_arr.clear();
         split_line_bit = 0;
     }
+
     //处理强调语句
     for (int i = 0; i < 2; i++){
         if( Syntax_interpreter_arr[i] == m->Strong[i]){
@@ -210,6 +217,28 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
         fout<<"\n"<<"<br>";
         Syntax_interpreter_arr.clear();
     }
+
+    //主题标签
+    for (int i = 0; i < 5; i++){
+        if(Syntax_interpreter_arr[i] == m->theme_[i])
+            bit_theme = 1;
+        else{
+            bit_theme = 0;
+            break;
+        }
+    }
+    if(bit_theme){
+        vector <char> Theme_Name;
+        for (int j = 7; j < Syntax_interpreter_arr.size(); j++){
+            Theme_Name.push_back(Syntax_interpreter_arr[j]);
+        }
+        chose_theme(Theme_Name);
+        bit_theme = 0;
+        Syntax_interpreter_arr.clear();
+        Theme_Name.clear();
+        fout<<"<div>";
+    }
+    
     //处理普通语句
     if(bit_head==0&&bit_img==0&&bit_code_begin==0&&bit_code_end==0&&bit_url==0){
         num++;
@@ -219,6 +248,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
         fout<<"\n"<<"<br>";
         Syntax_interpreter_arr.clear();
     }
+    free(m);
     return 0;
 }
 //处理标题标签
