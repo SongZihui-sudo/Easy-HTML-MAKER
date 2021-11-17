@@ -39,6 +39,7 @@ git clone https://githubfast.com/SongZihui-sudo/e-Conversion-html-maker
 5.强调标签：__  
 6.引用标签：>  
 7.分割线标签：---  
+8. 主题标签 #theme
 ### 说明
 
 #### 标题标签 
@@ -115,9 +116,12 @@ output : <strong>XXXXXX</strong>
 input：> hello world
 output: <blockquote>hello world</blockquote>
 
+### 主题标签  
+#theme 主题名  
+主题名为theme文件夹中文件的名称  
 ## 关于主题
 
-该功能目前还不完善，只是可以切换背景，哈哈哈。。。。。。。
+该功能目前还不完善，哈哈哈。。。。。。。
 
 ## 其他一些说明
 
