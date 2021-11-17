@@ -41,21 +41,28 @@ e-htmlmaker
 # demo
 markdown
 ```
+#theme text_center
+
 # Song_Zihui’s_Website 
+
 
 Every problems has its Solution
 
+
 ## Welcome
 
-url ../About/About.html About Me 
+
+url ../About/About.html About Me 
+
 
 url ../Blog/Blog.html Blog 
 
+
 url ../About/contact_me.html contact me  
 
-This Website made by 
-url https://github.com/SongZihui-sudo/e-Conversion-html-maker e-Conversion html maker 
 
+This Website made by 
+url https://github.com/SongZihui-sudo/e-Conversion-html-maker e-Conversion html maker  
 ```
 HTML CODE
 ```
@@ -66,23 +73,33 @@ HTML CODE
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>S-zh.space</title>
-</head>
-<body background="https://images.pexels.com/photos/783944/pexels-photo-783944.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
-<h1> Song_Zihui’s_Website </h1>
-<br><h1></h1> 
+ <script type="text/javascript" src="https://v1.cnzz.com/z_stat.php?id=1280598106&web_id=1280598106"></script>
+<style>body {background-color: #dea829;}
+     div{
+	    text-align: center; /*让div内部文字居中*/
+	    border-radius: 20px;
+	    width: 300px;
+	    margin: auto;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+}
+</style></head>
+<body>
+<div>
+<br><h1> Song_Zihui’s_Website </h1>
+<br>
 <br>Every problems has its Solution
-<br>
 <br><h2> Welcome</h2>
-<br><h2></h2>
-<br><a href="../About/About.html"> About Me</a>
 <br>
-<br><a href="../Blog/Blog.html"> Blog</a>
+<br><a href="../About/About.html"> About Me </a>
 <br>
-<br><a href="../About/contact_me.html"> contact me </a>
+<br><a href="../Blog/Blog.html"> Blog </a>
 <br>
+<br><a href="../About/contact_me.html"> contact me  </a>
 <br>
 <br>This Website made by 
-<br><a href="https://github.com/SongZihui-sudo/e-Conversion-html-maker"> e-Conversion html maker </a>
-<br></body></html>
-
+<br></div></body></html>
 ```
