@@ -23,6 +23,9 @@
     int strong_bit = 0;
     int bit_theme = 0;
     long long num = 0;
+    int len = 0;
+    int bit_print = 0;
+    int head_number = 0;
 
     void Welcome();
     void print_file_struct();
@@ -58,6 +61,7 @@
     void Welcome(){
         cout<<"Welcome to use e-Conversion html maker!"<<endl;
         cout<<"You can input and enjoy you write!"<<endl;
+        cout<<"EASYTHML-V2.1"<<endl;
     }
 
     //输出目录结构
