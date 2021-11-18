@@ -120,6 +120,13 @@ output: <blockquote>hello world</blockquote>
 ### 主题标签  
 #theme 主题名  
 主题名为theme文件夹中文件的名称  
+## 关于标签的嵌套使用   
+目前还不完善，额，哈哈哈    
+只是支持标题标签与链接标签的一层嵌套使用。  
+语法：
+标题标签（多个#）空格 链接标签（url） 空格 网址（或目录） 空格 名称 
+例如：   
+'###' github url https://github.com Github
 ## 关于主题
 
 该功能目前还不完善，哈哈哈。。。。。。。
