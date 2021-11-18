@@ -42,7 +42,7 @@ e-htmlmaker
 目前还不完善。。。   
 只支持标题标签与链接标签的一层嵌套使用。  
 例如：  
-### url https://github.com Github   
+'###' url https://github.com Github   
 # demo
 markdown
 ```
