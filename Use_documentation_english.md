@@ -1,4 +1,5 @@
-# E-conversion-HTML generator using documentation
+# E-conversion-HTML generator using documentation    
+# EASYHTML LANGUAGE   
 [中文](https://github.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/Use_documentation.md)  
 
 [Release ](https://githubfast.com/SongZihui-sudo/e-Conversion-html-maker/releases)
@@ -128,7 +129,13 @@ It's not perfect yet, uh, hahaha
 It only supports one-level nesting of title tags and link tags.     
 Syntax: Title tag (multiple #) spaces Link tag (url) spaces URL (or directory) spaces name    
 For example:   
-'###' github url https://github.com Github    
+'###' github url https://github.com Github       
+
+Embed a hyperlink in the body:   
+Syntax: body url URL (url) name   
+example:     
+welcome to visit url https://github.com github hahah.....   
+
 ## About the topic
 
 This function is not perfect at present, hahaha. . . . . . .
