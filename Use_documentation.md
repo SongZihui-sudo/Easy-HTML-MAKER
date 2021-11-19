@@ -1,5 +1,5 @@
 # E-转换-HTML生成器 使用文档
-[ENGLISH](https://github.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/Use_documentation_english.md)
+[ENGLISH](https://githubfast.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/Use_documentation_english.md)
 
 url https://githubfast.com/SongZihui-sudo/e-Conversion-html-maker/releases 发行版
 
@@ -31,10 +31,10 @@ git clone https://githubfast.com/SongZihui-sudo/e-Conversion-html-maker
 2. 下载源码后，可以使用g++编译源码使用，也可以直接打开二进制程序使用。
 
 ## 关于语言  
-关键词如下：
-1.标题标签：#  
-2.图像标签：‘![img]()’  
-3.链接标签：url   
+关键词如下：   
+1.标题标签：#     
+2.图像标签：‘![img]()’     
+3.链接标签：url      
 4.代码块标签：三个` 表示开始    
             *** 表示结束  
 5.强调标签：__  
@@ -62,7 +62,7 @@ input : ![img](https://images.pexels.com)
    
 output : ![img](https://images.pexels.com)
 
-### 链接标签
+### 链接标签    
 
 与原Markdown略有不同。
 
@@ -70,15 +70,15 @@ output : ![img](https://images.pexels.com)
 
 改为 url 网址（url） name
 
-实例：
+实例：    
 input : url s-zh.space my website
 output : <a href = "s-zh.space">my website</a>
 
 ### 代码块标签
 
-与原Markdown不同
+与原Markdown不同   
 
-原 三个`
+原 三个`   
 现改为了两部分
 三个`表示代码块的开始部分，三个*表示代码块的结束部分
 实例：
@@ -126,7 +126,7 @@ output: <blockquote>hello world</blockquote>
 语法：
 标题标签（多个#）空格 链接标签（url） 空格 网址（或目录） 空格 名称 
 例如：   
-'###' github url https://github.com Github
+'###' url https://githubfast.com Github
 ## 关于主题
 
 该功能目前还不完善，哈哈哈。。。。。。。
