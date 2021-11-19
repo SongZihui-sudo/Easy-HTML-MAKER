@@ -22,7 +22,6 @@
     int split_line_bit = 0;
     int strong_bit = 0;
     int bit_theme = 0;
-    long long num = 0;
     int len = 0;
     int bit_print = 0;
     int head_number = 0;
@@ -55,6 +54,7 @@
             vector <char> url(vector <char> url_arr);//处理url标签的方法
             vector <char> quote(vector <char> quote_arr);//处理引用标签
             vector <char> strong(vector <char> strong_arr);//处理强调语句
+            int simple(vector <char> simple_Arr);//处理普通语句
         };
         
     //欢迎界面
