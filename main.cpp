@@ -92,6 +92,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
         bit_print = 0;
         bit_head = 0;
         Syntax_interpreter_arr.clear();
+        return 0;
     }
     //图像标签
     for (int i = 0; i < 7; i++){ 
@@ -111,6 +112,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
     }
         bit_img = 0;
         Syntax_interpreter_arr.clear();
+        return 0;
     }
     //代码块开始标签
     for (int i = 0; i < 3; i++){
@@ -128,6 +130,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
         fout<<"<pre>";
         Syntax_interpreter_arr.clear();
         bit_code_begin = 0;
+        return 0;
     }
     //代码块结束标签
     for (int i = 0; i < 3; i++){
@@ -143,6 +146,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
             fout<<"</pre>";
             bit_code_end = 0;
             Syntax_interpreter_arr.clear();
+            return 0; 
         }
         //链接标签
     for (int i = 0; i < 3; i++){
@@ -163,6 +167,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
         }
         bit_url = 0;
         Syntax_interpreter_arr.clear();
+        return 0;
     }
         //处理引用语句
     for (int i = 0; i < 1; i++){
@@ -181,6 +186,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
         }
         bit_quote = 0;
         Syntax_interpreter_arr.clear();
+        return 0;
     }
     //处理分割线语句
     for (int i = 0; i < 3; i++){
@@ -195,6 +201,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
     if( split_line_bit ){
         Syntax_interpreter_arr.clear();
         split_line_bit = 0;
+        return 0;
     }
     //处理强调语句
     for (int i = 0; i < 2; i++){
@@ -213,6 +220,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
         }
         strong_bit = 0;
         Syntax_interpreter_arr.clear();
+        return 0;
     }
     //主题标签
     for (int i = 0; i < 5; i++){
@@ -233,15 +241,11 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
         Syntax_interpreter_arr.clear();
         Theme_Name.clear();
         fout<<"<div>";
+        return 0;
     }
-    
     //处理普通语句
     if(bit_head==0&&bit_img==0&&bit_code_begin==0&&bit_code_end==0&&bit_url==0){
-        num++;
-        for(int j = 0;j < Syntax_interpreter_arr.size();j++){
-            fout<<Syntax_interpreter_arr[j];
-        }
-        Syntax_interpreter_arr.clear();
+        m->simple(Syntax_interpreter_arr);
     }
     free(m);
     return 0;
@@ -355,4 +359,63 @@ vector <char> Markdown_to_html::strong(vector <char> strong_arr){
         strong_arr.push_back(html_string_end[k]);
     }
     return strong_arr;
+}
+//处理普通语句
+int Markdown_to_html::simple(vector <char> simple_Arr){
+    int num_space = 0;
+    int not_found = 0;
+    long long num = 0;
+    char html_Url[3] = {'u','r','l'}; 
+    vector <char> parr;
+    for(int j = 0;j < 3;){
+        if( simple_Arr[num] != html_Url[j] ){
+            num +=3;
+            if (num > simple_Arr.size()){
+                not_found = 0;
+                break;
+            }
+        } 
+        else if( simple_Arr[num] == html_Url[j]){
+            j++;
+            num++;
+            not_found = 1;
+        }
+    }
+    if(not_found){
+        long long length = 0;
+        for ( int k = num - 3; k < simple_Arr.size(); k++){
+            if(simple_Arr[k] == ' '){
+                parr.push_back(simple_Arr[k]);
+                num_space++;
+            }
+            else if(num_space == 3){
+                length = k;
+                break;
+            }
+            else{
+                parr.push_back(simple_Arr[k]);
+            }
+        }
+        for (int j = 0; j < num - 4; j++){
+            fout<<simple_Arr[j];
+        }
+        Markdown_to_html::Syntax_interpreter(parr);
+        for ( int j = length; j < simple_Arr.size(); j++){
+            fout<<simple_Arr[j];
+        }
+    }
+    else{
+        for (int j = 0; j < simple_Arr.size(); j++){
+            if(simple_Arr[j] == '<'){
+                fout<<"&lt";
+            }
+            else if(simple_Arr[j] == '>'){
+                fout<<"&gt";
+            }
+            else{
+                fout<<simple_Arr[j];
+            }
+        }
+    }
+    return 0;
 }
