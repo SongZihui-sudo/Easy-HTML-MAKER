@@ -1,5 +1,5 @@
 # E-转换-HTML生成器 使用文档
-[ENGLISH](https://githubfast.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/Use_documentation_english.md)
+[ENGLISH](https://github.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/Use_documentation_english.md)
 
 url https://githubfast.com/SongZihui-sudo/e-Conversion-html-maker/releases 发行版
 
@@ -19,13 +19,13 @@ v1.0 原始版本在翻译代码块标签时和在正文中使用一些符号时
 使用如下命令
 
 ```
-sudo git clone https://githubfast.com/SongZihui-sudo/e-Conversion-html-maker
+sudo git clone https://github.com/SongZihui-sudo/e-Conversion-html-maker
 ***
 
 ### Windows
 
 ```
-git clone https://githubfast.com/SongZihui-sudo/e-Conversion-html-maker
+git clone https://github.com/SongZihui-sudo/e-Conversion-html-maker
 ***
 
 2. 下载源码后，可以使用g++编译源码使用，也可以直接打开二进制程序使用。
