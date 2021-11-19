@@ -40,9 +40,12 @@ e-htmlmaker
 ``` 
 ## 标签的嵌套使用   
 目前还不完善。。。   
-只支持标题标签与链接标签的一层嵌套使用。  
+支持标题标签与链接标签的一层嵌套使用。  
 例如：  
 '###' url https://githubfast.com Github   
+还有在正文中对标题标签的嵌套使用   
+例如：
+Welcome to visit github url https://github.com haha....      
 # demo
 markdown
 ```
