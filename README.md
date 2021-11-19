@@ -45,7 +45,7 @@ e-htmlmaker
 '###' url https://githubfast.com Github   
 还有在正文中对标题标签的嵌套使用   
 例如：
-Welcome to visit github url https://github.com haha....      
+Welcome to visit url https://github.com github haha....      
 # demo
 markdown
 ```
