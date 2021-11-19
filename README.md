@@ -1,8 +1,8 @@
 # E-转换-网页-生成工具  
 EasyHtml language  
 一个可以将类markdown语言转换成HTML的工具。 
-欢迎来访[我的博客](s-zh.space)，用这个工具制作的网站。   
-[使用文档](https://github.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/Use_documentation.md) [ENGLISH](https://github.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/english.md)   
+欢迎来访[我的博客](http://s-zh.space)，用这个工具制作的网站。   
+[使用文档](https://githubfast.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/Use_documentation.md) [ENGLISH](https://githubfast.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/english.md)   
 相应的HTML会存在相应的文件夹中  
 文件结构  
 输入ps命令
@@ -42,7 +42,7 @@ e-htmlmaker
 目前还不完善。。。   
 只支持标题标签与链接标签的一层嵌套使用。  
 例如：  
-'###' url https://github.com Github   
+'###' url https://githubfast.com Github   
 # demo
 markdown
 ```
@@ -67,7 +67,7 @@ url ../About/contact_me.html contact me
 
 
 This Website made by 
-url https://github.com/SongZihui-sudo/e-Conversion-html-maker e-Conversion html maker  
+url https://githubfast.com/SongZihui-sudo/e-Conversion-html-maker e-Conversion html maker  
 ```
 HTML CODE
 ```
@@ -106,7 +106,7 @@ HTML CODE
 <br><a href="../About/contact_me.html"> contact me  </a>
 <br>
 <br>This Website made by 
-<br><a href="https://github.com/SongZihui-sudo/e-Conversion-html-maker"> e-Conversion html maker </a>
+<br><a href="https://githubfast.com/SongZihui-sudo/e-Conversion-html-maker"> e-Conversion html maker </a>
 <br>
 <br></div></body></html>
 ```
