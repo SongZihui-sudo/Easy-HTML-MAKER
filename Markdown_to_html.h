@@ -3,15 +3,13 @@
     #include<iostream>
     #include <fstream>
     #include <vector>
-    
+    //宏定义
     #define Error -1;
     #define OK 0;
-
     using namespace std;
-
+    //文件
     ofstream fout;
     ifstream  fin;
-
     //状态
     int bit_head = 0;
     int bit_img = 0;
@@ -25,7 +23,8 @@
     int len = 0;
     int bit_print = 0;
     int head_number = 0;
-
+    int expand_bit = 0;
+    //一些函数
     void Welcome();
     void print_file_struct();
     string chose_file_postion(string file);
@@ -42,6 +41,7 @@
             char split_line[3] = {'-','-','-'};//分割线标签
             char Strong[2] = {'_','_'};//强调标签
             char theme_[6] = {'#','t','h','e','m','e'};
+            char expand_[7] = {'#','e','x','p','a','n','d'};
             //暂时存放一行的数组
             vector <char> arr;
         public:
