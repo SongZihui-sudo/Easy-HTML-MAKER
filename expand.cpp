@@ -43,7 +43,7 @@ vector <char> expand::pi_dashboard_function(vector <char> pi_arr){
     for (size_t j = 0; j < 7; j++){
         pi_parr.push_back(expand::expand_[j]);
     }
-    for (int j = 0; j < pi_arr.size() ; j++){
+    for (int j = 0; j < pi_arr.size()-1; j++){
         pi_parr.push_back(pi_arr[j]);
     }
     pi_parr.push_back('/');
