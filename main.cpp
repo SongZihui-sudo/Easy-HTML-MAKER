@@ -2,7 +2,8 @@
 #include "Markdown_to_html.h"
 #include <fstream>
 #include <vector>
-#include <string>
+#include "expand.h"
+#include "logic.h"
 
 using namespace std;
 //主函数
@@ -56,7 +57,11 @@ int Markdown_to_html::Lexical_interpreter(string Md_name,string html_name){
 }
 //文法分析器
 int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
+    expand *e;
+    logic_ *l;
     Markdown_to_html *m;
+    e = new(expand);
+    l = new(logic_);
     m = new(Markdown_to_html); 
     vector <char> syntax_Arr;
     if(Syntax_interpreter_arr.empty())
@@ -243,10 +248,27 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
         fout<<"<div>";
         return 0;
     }
+    //拓展标签
+    for (int i = 0; i < 7; i++){
+        if (Syntax_interpreter_arr[i] == m->expand_[i]){
+            expand_bit = 1;
+        }
+        else{
+            expand_bit = 0;
+            break;
+        }
+    }
+    if ( expand_bit ){
+        Syntax_interpreter_arr = e->expand_function(Syntax_interpreter_arr);
+        Syntax_interpreter(Syntax_interpreter_arr);
+        return 0;
+    }
     //处理普通语句
     if(bit_head==0&&bit_img==0&&bit_code_begin==0&&bit_code_end==0&&bit_url==0){
         m->simple(Syntax_interpreter_arr);
     }
+    free(e);
+    free(l);
     free(m);
     return 0;
 }
