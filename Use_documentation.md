@@ -125,11 +125,11 @@ output: <blockquote>hello world</blockquote>
 注意主题标签要写在文件首行    
 #theme 主题名   
 主题名为theme文件夹中文件的名称  
-### 拓展标签   
-#expand 拓展名    
-目前支持的拓展为：   
-[Pi-dashboard](https://github.com/nxez/pi-dashboard) 
-后续还会支持更多开源项目    
+### 拓展标签    
+#expand 拓展名     
+目前支持的拓展为：     
+[Pi-dashboard](https://github.com/nxez/pi-dashboard)      
+后续还会支持更多开源项目       
 ## 关于标签的嵌套使用   
 目前还不完善，额，哈哈哈    
 只是支持标题标签与链接标签的一层嵌套使用。  
