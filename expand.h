@@ -10,7 +10,7 @@
         /* data */
         char expand_[7]= {'e','x','p','a','n','d','/'};
         char index[5] = {'i','n','d','e','x'};
-        char Pi_dashboard[12] = {'p','i','-','d','a','s','h','b','o','a','r','d'};
+        char Pi_dashboard[13] = {'p','i','-','d','a','s','h','b','o','a','r','d',' '};
     public:
         expand() = default;  
         vector <char> expand_function(vector <char> expand_arr); //拓展名处理
