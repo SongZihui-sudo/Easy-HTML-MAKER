@@ -2,7 +2,7 @@
 # EASYHTML LANGUAGE   
 [中文](https://github.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/Use_documentation.md)  
 
-[Release ](https://githubfast.com/SongZihui-sudo/e-Conversion-html-maker/releases)
+[Release](https://githubfast.com/SongZihui-sudo/e-Conversion-html-maker/releases)
 
 illustrate:   
 
