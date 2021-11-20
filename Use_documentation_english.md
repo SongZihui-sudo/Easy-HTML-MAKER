@@ -144,7 +144,7 @@ welcome to visit url https://github.com github hahah.....
 ### Expand tags   
 #expand Extension   
 The currently supported extensions are:   
-[Pi-dashboard]https://github.com/nxez/pi-dashboard)    
+[Pi-dashboard author：NXEZ ](https://github.com/nxez/pi-dashboard)    
 More open source projects will be supported in the future 
 ## About the topic
 
