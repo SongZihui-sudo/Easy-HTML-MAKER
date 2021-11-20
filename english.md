@@ -34,7 +34,11 @@ It only supports one-level nesting of title tags and link tags.
 '###' github url https://github.com Github   
 And the nested use of title tags in the body   
 E.g:   
-Welcome to visit url https://github.com github haha....
+Welcome to visit url https://github.com github haha....    
+## Expand function
+Use extended tags
+#expand Extension
+You can add other open source projects (or link to other open source projects) on your website      
 # Refactored the existing code, and also changed the writing of some tags as follows:    
 ```
 Title tag: #
