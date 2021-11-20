@@ -51,7 +51,7 @@ Welcome to visit url https://github.com github haha....
 使用拓展标签   
 #expand 拓展名   
 即可在您的网站上添加其他开源项目（或者说链接其他开源项目）     
-目前支持的拓展：
+目前支持的拓展：     
 [pi-dashboard](https://github.com/nxez/pi-dashboard)      
 # demo
 markdown
