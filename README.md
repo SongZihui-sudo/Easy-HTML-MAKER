@@ -46,7 +46,11 @@ e-htmlmaker
 '###' url https://githubfast.com Github   
 还有在正文中对标题标签的嵌套使用   
 例如：
-Welcome to visit url https://github.com github haha....      
+Welcome to visit url https://github.com github haha....    
+## 拓展功能    
+使用拓展标签   
+#expand 拓展名   
+即可在您的网站上添加其他开源项目（或者说链接其他开源项目）       
 # demo
 markdown
 ```
