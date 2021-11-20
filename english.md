@@ -12,7 +12,8 @@ The content in the middle represents the code
 Quote tags>
 Divider label --- one more line
 Emphasis (bold) __ two_
-Theme tag #theme theme name
+Theme tag #theme theme name   
+Expansion tags #expand Expansion    
 ```
 ## Prerequisites   
 (Optional) Install git   
