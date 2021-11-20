@@ -4,12 +4,16 @@
 
 url https://githubfast.com/SongZihui-sudo/e-Conversion-html-maker/releases 发行版
 
-说明：
-v2.1 版本在v2.0版本基础上，完善了几乎所有的markdown标签（个别有所改变）
+说明：  
+v1.0 以后都为没有影响的bug，但是完善程度不同。  
 
-v2.0 版本目前为稳定版本，在翻译标签时并没有明显bug。但是目前还不支持叠加使用标签
+v2.5 版本为目前最完善稳定的版本，可以正常使用。  
 
-v1.0 原始版本在翻译代码块标签时和在正文中使用一些符号时，会产生明显bug。
+v2.1 版本在v2.0版本基础上，完善了几乎所有的markdown标签（个别有所改变）   
+
+v2.0 版本目前为稳定版本，在翻译标签时并没有明显bug。但是目前还不支持叠加使用标签   
+
+v1.0 原始版本在翻译代码块标签时和在正文中使用一些符号时，会产生明显bug。    
 
 ## 	开始使用 - 安装
 
@@ -22,13 +26,13 @@ v1.0 原始版本在翻译代码块标签时和在正文中使用一些符号时
 ```
 sudo git clone https://github.com/SongZihui-sudo/e-Conversion-html-maker
 ***
-
+```
 ### Windows
 
 ```
 git clone https://github.com/SongZihui-sudo/e-Conversion-html-maker
 ***
-
+```
 2. 下载源码后，可以使用g++编译源码使用，也可以直接打开二进制程序使用。
 
 ## 关于语言  
@@ -118,10 +122,15 @@ output : <strong>XXXXXX</strong>
 input：> hello world
 output: <blockquote>hello world</blockquote>
 
-### 主题标签  
-#theme 主题名  
+### 主题标签   
+注意主题标签要写在文件首行    
+#theme 主题名   
 主题名为theme文件夹中文件的名称  
-
+### 拓展标签   
+#expand 拓展名    
+目前支持的拓展为：   
+[Pi-dashboard]https://github.com/nxez/pi-dashboard）   
+后续还会支持更多开源项目    
 ## 关于标签的嵌套使用   
 目前还不完善，额，哈哈哈    
 只是支持标题标签与链接标签的一层嵌套使用。  
