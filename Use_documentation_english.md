@@ -140,11 +140,12 @@ For example:
 Embed a hyperlink in the body:   
 Syntax: body url URL (url) name   
 example:     
-welcome to visit url https://github.com github hahah.....   
+welcome to visit url https://github.com github hahah.....    
 ### Expand tags   
 #expand Extension   
 The currently supported extensions are:   
-[Pi-dashboard author：NXEZ ](https://github.com/nxez/pi-dashboard)    
+[Pi-dashboard author：NXEZ ](https://github.com/nxez/pi-dashboard)        
+[Weather.io author:Haiyong ](https://github.com/wanghao221/Weather.io)             
 More open source projects will be supported in the future 
 ## About the topic
 
