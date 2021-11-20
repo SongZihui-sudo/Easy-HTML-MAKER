@@ -1,31 +1,7 @@
-# E-转换-网页-生成工具  
-EasyHtml language  
-一个可以将类markdown语言转换成HTML的工具。 
-欢迎来访[我的博客](http://s-zh.space)，用这个工具制作的网站。   
-[使用文档](https://github.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/Use_documentation.md) [ENGLISH](https://github.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/english.md)   
-相应的HTML会存在相应的文件夹中  
-文件结构  
-输入ps命令
-```
-e-htmlmaker
-|
-————Blog:you content
-|
-————About: about youself
-|
-————theme: wensite's theme
-|
-————md: markdown file
-```
-## 加入主题切换功能   
-改善主题功能的使用。  
-有两种主题在theme文件夹中。  
-效果如下图  
-![img](https://pcsdata.baidu.com/thumbnail/e8838a97fo92ae672a4a759827e87949?fid=224912513-16051585-253462236053462&rt=pr&sign=FDTAER-yUdy3dSFZ0SVxtzShv1zcMqd-aH%2BcUg8%2BSfLhKQRPyFKbjuy0I2o%3D&expires=2h&chkv=0&chkbd=0&chkpc=&dp-logid=522531740795592441&dp-callid=0&time=1637143200&bus_no=26&size=c1600_u1600&quality=100&vuk=-&ft=video)  
-![img](https://pcsdata.baidu.com/thumbnail/f31747a02h0227b6ae76ffa4b631f2fa?fid=224912513-16051585-581443497161907&rt=pr&sign=FDTAER-yUdy3dSFZ0SVxtzShv1zcMqd-tREA0mQy3V16fN3L9Ge83Xpt6EU%3D&expires=2h&chkv=0&chkbd=0&chkpc=&dp-logid=522531740795592441&dp-callid=0&time=1637143200&bus_no=26&size=c1600_u1600&quality=100&vuk=-&ft=video)  
-在md文件的第一行使用主题标签来选择主题。（具体使用如下）  
+# EasyHtml-langage
 
-## 重构了现有代码，也改变一些标签的写法如下：    
+[使用文档](https://github.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/Use_documentation.md) [ENGLISH](https://github.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/english.md)   
+
 ```
 标题标签：#
 图像标签：![img]()
@@ -39,47 +15,45 @@ e-htmlmaker
 强调（加粗） __ 两个_
 主题标签 #theme 主题名
 ``` 
-## 标签的嵌套使用   
-目前还不完善。。。   
-支持标题标签与链接标签的一层嵌套使用。  
-例如：  
-'###' url https://githubfast.com Github   
-还有在正文中对标题标签的嵌套使用   
-例如：
-Welcome to visit url https://github.com github haha....    
-## 拓展功能    
-使用拓展标签   
-#expand 拓展名   
-即可在您的网站上添加其他开源项目（或者说链接其他开源项目）     
-目前支持的拓展：     
-[pi-dashboard](https://github.com/nxez/pi-dashboard)      
-# demo
-markdown
+
+## Getting Started   
+
+### Prerequisites  
+（可选）安装git       
+
+### Installing    
+linux  
+```
+sudo git clone https://github.com/SongZihui-sudo/EasyHtml-language
+```
+windows
+```
+git clone https://github.com/SongZihui-sudo/EasyHtml-language
+```
+或者直接下载源码，编译。
+### Running the tests    
+### DEMO   
+MARKDOWN     
 ```
 #theme text_center
 
 # Song_Zihui’s_Website 
 
-
 Every problems has its Solution
 
-
 ## Welcome
-
+---
 
 url ../About/About.html About Me 
-
 
 url ../Blog/Blog.html Blog 
 
 
 url ../About/contact_me.html contact me  
 
-
-This Website made by 
-url https://githubfast.com/SongZihui-sudo/e-Conversion-html-maker e-Conversion html maker  
+This Website made by url https://githubfast.com/SongZihui-sudo/e-Conversion-html-maker e-Conversion html maker Welcome to use !!!    
 ```
-HTML CODE
+HTML     
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -120,3 +94,5 @@ HTML CODE
 <br>
 <br></div></body></html>
 ```
+## Deployment
+继续完善拓展与主题功能。   
