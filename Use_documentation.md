@@ -2,7 +2,7 @@
 # EASYHTML LANGUAGE
 [ENGLISH](https://github.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/Use_documentation_english.md)
 
-url https://githubfast.com/SongZihui-sudo/e-Conversion-html-maker/releases 发行版
+[发行版](https://githubfast.com/SongZihui-sudo/e-Conversion-html-maker/releases) 
 
 说明：  
 v1.0 以后都为没有影响的bug，但是完善程度不同。  
@@ -25,23 +25,22 @@ v1.0 原始版本在翻译代码块标签时和在正文中使用一些符号时
 
 ```
 sudo git clone https://github.com/SongZihui-sudo/e-Conversion-html-maker
-***
 ```
 ### Windows
 
 ```
 git clone https://github.com/SongZihui-sudo/e-Conversion-html-maker
-***
 ```
 2. 下载源码后，可以使用g++编译源码使用，也可以直接打开二进制程序使用。
 
 ## 关于语言  
+
 关键词如下：   
 1.标题标签：#     
 2.图像标签：‘![img]()’     
 3.链接标签：url      
-4.代码块标签：三个` 表示开始    
-            *** 表示结束  
+4.代码块标签：三个 ` 表示开始    
+             *** 表示结束  
 5.强调标签：__  
 6.引用标签：>  
 7.分割线标签：---  
