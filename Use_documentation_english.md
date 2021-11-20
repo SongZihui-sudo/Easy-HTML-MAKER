@@ -4,7 +4,12 @@
 
 [Release ](https://githubfast.com/SongZihui-sudo/e-Conversion-html-maker/releases)
 
-illustrate:
+illustrate:   
+
+After v1.0, there are no impact bugs, but the degree of perfection is different.
+
+The v2.5 version is currently the most complete and stable version and can be used normally. 
+
 Based on the v2.0 version, the v2.1 version has improved almost all markdown tags (some changes have been made)
 
 The v2.0 version is currently a stable version, and there are no obvious bugs when translating tags. But currently does not support the use of overlay tags
@@ -125,6 +130,7 @@ output: <blockquote>hello world</blockquote>
 The theme name is the name of the file in the theme folder    
 ## About the nested use of tags   
 
+using it in the front of the file....!!!!!
 It's not perfect yet, uh, hahaha   
 It only supports one-level nesting of title tags and link tags.     
 Syntax: Title tag (multiple #) spaces Link tag (url) spaces URL (or directory) spaces name    
@@ -135,7 +141,11 @@ Embed a hyperlink in the body:
 Syntax: body url URL (url) name   
 example:     
 welcome to visit url https://github.com github hahah.....   
-
+### Expand tags   
+#expand Extension   
+The currently supported extensions are:   
+[Pi-dashboard]https://github.com/nxez/pi-dashboard)    
+More open source projects will be supported in the future 
 ## About the topic
 
 This function is not perfect at present, hahaha. . . . . . .
