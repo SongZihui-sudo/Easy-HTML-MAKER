@@ -128,7 +128,8 @@ output: <blockquote>hello world</blockquote>
 ### 拓展标签    
 #expand 拓展名     
 目前支持的拓展为：     
-[Pi-dashboard 作者：NXEZ ](https://github.com/nxez/pi-dashboard)         
+[Pi-dashboard 作者：NXEZ ](https://github.com/nxez/pi-dashboard)       
+[Weather.io 作者：Haiyong](https://github.com/wanghao221/Weather.io)     
 后续还会支持更多开源项目       
 ## 关于标签的嵌套使用   
 目前还不完善，额，哈哈哈    
