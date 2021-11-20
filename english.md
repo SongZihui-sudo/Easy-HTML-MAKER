@@ -1,4 +1,4 @@
-# E-conversion-HTMLgeneration tool  
+# E-conversion-HTML-generation tool  
 EasyHtml language    
 [Use documentation](https://github.com/SongZihui-sudo/EasyHtml-language/blob/main/Use_documentation_english.md) [中文](https://github.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/README.md)   
 A tool that can convert markdown to HTML. Welcome to visit s-zh.space, a website made with this tool.
@@ -38,7 +38,9 @@ Welcome to visit url https://github.com github haha....
 ## Expand function
 Use extended tags
 #expand Extension
-You can add other open source projects (or link to other open source projects) on your website      
+You can add other open source projects (or link to other open source projects) on your website    
+Currently supported extensions:    
+[pi-dashboard](https://github.com/nxez/pi-dashboard) 
 # Refactored the existing code, and also changed the writing of some tags as follows:    
 ```
 Title tag: #
