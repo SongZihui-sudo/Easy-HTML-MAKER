@@ -204,6 +204,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
         }
     }
     if( split_line_bit ){
+        fout<<"<hr>";
         Syntax_interpreter_arr.clear();
         split_line_bit = 0;
         return 0;
