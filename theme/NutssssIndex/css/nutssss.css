@@ -8,16 +8,15 @@ html, body {
     height: 100%;
 }
 
-body {
+body {    
+    background-image: linear-gradient(to left, rgba(255, 0, 149, 0.2), rgba(0, 247, 255, 0.2)), url(../img/bg.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
 }
 
 .cmd {
-    background-image: linear-gradient(to left, rgba(255, 0, 149, 0.2), rgba(0, 247, 255, 0.2)), url(../img/bg.jpg);
-    width: 1600px;
-    height: 800px;
+    width: 1550px;
     border-radius: 10px 10px 5px 5px;
     overflow: hidden;
     transition: all 0.3s;
