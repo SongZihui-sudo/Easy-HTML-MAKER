@@ -35,7 +35,7 @@ git clone https://github.com/SongZihui-sudo/EasyHtml-language
 ### DEMO   
 MARKDOWN     
 ```
-#theme text_center
+#theme default
 
 # Song Zihui’s Website 
 
