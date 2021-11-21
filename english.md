@@ -32,7 +32,7 @@ Or download the source code directly and compile it.
 ### DEMO
 MARKDOWN    
 ```
-#theme text_center
+#theme default
 
 # Song Zihui’s Website 
 
