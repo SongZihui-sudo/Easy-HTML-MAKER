@@ -1,4 +1,5 @@
-# Pi Dashboard
+# Pi Dashboard   
+# author  NXEZ Studio    
 A WebUI dashboard for IoT devices likes raspberry pi.
 
 Project details: (https://make.quwj.com/project/10)
