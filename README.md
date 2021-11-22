@@ -1,5 +1,7 @@
 # EasyHtml-langage      
-可在[wiki](https://github.com/SongZihui-sudo/EasyHtml-language/wiki)中查看支持的主题与拓展,以及与之相关的其他项目。    
+可在[wiki](https://github.com/SongZihui-sudo/EasyHtml-language/wiki)中查看支持的主题与拓展,以及与之相关的其他项目。 
+
+如果您想贡献代码代码[CONTRIBUTING](https://github.com/SongZihui-sudo/EasyHtml-language/blob/main/CONTRIBUTING.md)    
 
 [使用文档](https://github.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/Use_documentation.md) [ENGLISH](https://github.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/english.md)   
 
