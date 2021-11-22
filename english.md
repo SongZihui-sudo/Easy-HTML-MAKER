@@ -1,4 +1,6 @@
 # EasyHtml language    
+You can view the supported themes and extensions, and other related projects in [wiki](https://github.com/SongZihui-sudo/EasyHtml-language/wiki).    
+
 [Use documentation](https://github.com/SongZihui-sudo/EasyHtml-language/blob/main/Use_documentation_english.md) [中文](https://github.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/README.md)   
 A tool that can convert markdown-like languages into HTML.    
 ```
