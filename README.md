@@ -5,7 +5,7 @@
 
 [使用文档](https://github.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/Use_documentation.md) [ENGLISH](https://github.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/english.md)   
 
- 一个可以将类markdown语言转换成HTML的工具。 
+ 一个可以将类markdown语言转换成HTML的工具。您可以用它来搭建您自己的博客，哈哈哈
  
 ```
 标题标签：#
