@@ -101,48 +101,49 @@
             return "1";
         }
     }
-
     //选择主题
     int chose_theme(vector <char> theme_name){
-        int theme_0_bit = 0;
-        int theme_1_bit = 0;
-        char theme_01[13] = {'p','i','c','t','u','r','e','_','t','h','e','m','e'};
-        char theme_0[11] = {'t','e','x','t','_','c','e','n','t','e','r'};
-        string txt = ".txt";  
-        string na_theme;
-        for (int i = 0; i < theme_name.size(); i++){
-            if (theme_0[i] == theme_name[i]){
-                theme_0_bit = 1;
+        fstream theme_conf;
+        theme_conf.open("theme.conf");
+        string Name;
+        vector <string> theme_list ;
+        if (theme_conf){
+            while ( getline(theme_conf, Name)){
+                theme_list.push_back(Name);
+            }
+        }
+        else{
+            cout<<"Can not open file!"<<endl;
+            return 0;
+        }
+        int theme_bit = 0;
+        //#theme
+        string str_theme(theme_name.begin(), theme_name.end());
+        for (int i = 0; i < theme_list.size(); i++){
+            if (theme_list[i] == str_theme){
+                theme_bit = 1;
+                break;
             }
             else{
-                theme_0_bit = 0;
-                break;
+                continue;
             }
         }
-        for (int i = 0; i < theme_name.size(); i++){
-            if (theme_01[i] == theme_name[i]){
-                theme_1_bit = 1;
-            }
-            else{   
-                theme_1_bit = 0;
-                break;
-            }
+        if(theme_bit){
+            ifstream file_in;//切换主题
+            file_in.open(string("theme/")+str_theme+string(".txt"));
+                if(file_in){   
+                    char t;
+                    while ((t = file_in.get()) != EOF){
+                        fout<<t;
+                    }        
+                }
+                else    
+                    return 1;
+                theme_list.clear();
+            return 0;
         }
-        if(theme_1_bit)
-            na_theme = "theme/" + string("picture_theme") + txt;
-        else if(theme_0_bit)
-            na_theme = "theme/" + string("text_center") + txt;
-        else;
-        ifstream file_in;//切换主题
-        file_in.open(na_theme);
-            if(file_in){   
-                char t;
-                while ((t = file_in.get()) != EOF){
-                    fout<<t;
-                }        
-            }
-            else    
-                return 1;
-        return 0;
+        else{
+            return -1;
+        }
     }
 #endif
