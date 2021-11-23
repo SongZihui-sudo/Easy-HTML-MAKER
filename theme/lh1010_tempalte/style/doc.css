@@ -1,0 +1,199 @@
+.doc-navbar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    font-size: 1rem;
+}
+.doc-navbar .navbar {
+    min-height: 3.5rem;
+}
+.doc-detail-sidebar {
+    position: -webkit-sticky;
+    position: sticky;
+    height: calc(100vh - 3.5rem);
+    top: 3.5rem;
+    border-right: 1px solid #eee;
+    overflow-y: auto;
+    font-size: .85rem;
+}
+.doc-detail-sidebar .box {
+    padding: 1rem 0;
+}
+.doc-detail-sidebar ul.nav li, .doc-detail-sidebar ul.nav li a {
+    display: block;
+    width: 100%;
+    position: relative;
+}
+.doc-detail-sidebar ul.nav li i {
+    color: #666;
+    font-size: 1rem;
+    margin-right: .5rem;
+}
+.doc-detail-sidebar ul.nav li i.files::before {
+    content: "\e600";
+}
+.doc-detail-sidebar ul.nav li i.file::before {
+    content: "\e630";
+}
+.doc-detail-sidebar ul.nav li {
+    padding: .3rem 1rem;
+    cursor: pointer;
+}
+.doc-detail-sidebar ul.nav li a {
+    color: #333;
+    text-decoration: none;
+}
+.doc-detail-sidebar ul.nav li:hover {
+    background-color: #eee;
+}
+.doc-detail-sidebar ul.nav li.li1 {}
+.doc-detail-sidebar ul.nav li.li2 {
+    padding-left: 2rem;
+}
+.doc-detail-sidebar ul.nav li.li3 {
+    padding-left: 3rem;
+}
+.doc-detail-sidebar ul.nav li.li4 {
+    padding-left: 4rem;
+}
+.doc-detail-sidebar ul.nav li.li5 {
+    padding-left: 5rem;
+}
+.doc-detail-node {
+    position: -webkit-sticky;
+    position: sticky;
+    height: calc(100vh - 3.5rem);
+    top: 3.5rem;
+    overflow-y: auto;
+    font-size: .85rem;
+}
+.doc-detail-node .box {
+    padding: 1rem 0;
+}
+.doc-detail-node ul {
+    margin-bottom: 0;
+    padding-left: 0;
+    border-left: 1px solid #eee;
+}
+.doc-detail-node ul li {
+    display: block;
+    padding: .125rem 0;
+    color: #999;
+    cursor: pointer;
+}
+.doc-detail-node ul li:hover {
+    color: #666;
+}
+.doc-detail-node ul li.li1 {
+    padding-left: 1rem;
+}
+.doc-detail-node ul li.li2 {
+    padding-left: 2rem;
+}
+.doc-detail-node ul li.li3 {
+    padding-left: 3rem;
+}
+.doc-detail-node ul li.li4 {
+    padding-left: 4rem;
+}
+.doc-detail-node ul li.li5 {
+    padding-left: 5rem;
+}
+.doc-detail-node ul li.li6 {
+    padding-left: 6rem;
+}
+.doc-detail-content .box {
+    padding: 1rem 0;
+}
+.doc-detail-content .title {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+.doc-detail-content {
+    font-size: .85rem;
+}
+.doc-detail-content pre {
+    padding: 1.2rem;
+    //background-color: #343a40;
+    //color: #bbb;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 1rem 0;
+    font-size: .8rem;
+}
+.doc-detail-content blockquote {
+    color: #666;
+    border-left: 4px solid #ddd;
+    padding-left: 1rem;
+    margin-left: 0;
+    font-style: italic;
+}
+.doc-detail-content h1 {
+    //font-size: 2.5rem;
+    font-size: 2rem;
+}
+.doc-detail-content h2 {
+    //font-size: 2rem;
+    font-size: 1.75rem;
+}
+.doc-detail-content h3 {
+    //font-size: 1.75rem;
+    font-size: 1.5rem;
+}
+.doc-detail-content h4 {
+    //font-size: 1.5rem;
+    font-size: 1.25rem;
+}
+.doc-detail-content h5 {
+    //font-size: 1.25rem;
+    font-size: 1rem;
+}
+.doc-detail-content h6 {
+    //font-size: 1rem;
+    font-size: .75rem;
+}
+.doc-detail-content h1,h2,h3,h4,h5,h6 {
+    margin-bottom: 1rem;
+}
+.doc-detail-content p {}
+.doc-detail-content table {
+    border: 1px solid #dee2e6;
+    width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+}
+.doc-detail-content table thead tr th {
+    color: #495057;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+}
+.doc-detail-content table th, .doc-detail-content table td {
+    padding: 0.75rem;
+    border: 1px solid #dee2e6;
+}
+
+.docs .card-body {
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.055);
+    transition: all .2s ease-in-out;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    position: relative;
+}
+.docs .card-body:hover {
+    border-color: #f2f5e9;
+    box-shadow: none;
+    background-color: #f2f5e9;
+}
+.docs .card-body .label {
+    position: absolute;
+    top: .2rem;
+    left: .5rem;
+}
+.docs .card-body .label i {
+    font-size: .85rem;
+}
