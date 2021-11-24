@@ -36,15 +36,20 @@ git clone https://github.com/SongZihui-sudo/e-Conversion-html-maker
 ## 关于语言  
 
 关键词如下：   
-1.标题标签：#     
-2.图像标签：‘![img]()’     
-3.链接标签：url      
-4.代码块标签：三个 ` 表示开始    
-             *** 表示结束  
-5.强调标签：__  
-6.引用标签：>  
-7.分割线标签：---  
-8. 主题标签 #theme
+```
+标题标签：#
+图像标签：![img]()
+链接标签：url 网址 名称
+代码块标签：
+三个` 表示开始  
+三个* 表示结束  
+中间的内容表示代码  
+引用标签 > 
+分割线标签 --- 再单独一行
+强调（加粗） __ 两个_
+主题标签 #theme 主题名    
+拓展标签 #expand 拓展名
+```
 ### 说明
 
 #### 标题标签 
@@ -125,12 +130,14 @@ output: <blockquote>hello world</blockquote>
 注意主题标签要写在文件首行    
 #theme 主题名   
 主题名为theme文件夹中文件的名称  
+
 ### 拓展标签    
 #expand 拓展名     
 目前支持的拓展为：     
 [Pi-dashboard 作者：NXEZ ](https://github.com/nxez/pi-dashboard)       
 [Weather.io 作者：Haiyong](https://github.com/wanghao221/Weather.io)     
-后续还会支持更多开源项目       
+后续还会支持更多开源项目  
+
 ## 关于标签的嵌套使用   
 目前还不完善，额，哈哈哈    
 只是支持标题标签与链接标签的一层嵌套使用。  
@@ -142,13 +149,19 @@ output: <blockquote>hello world</blockquote>
 语法：正文 url 网址（url） 名称  
 例子：   
 welcome to visit url https://github.com github hahah.....     
-## 关于主题
 
-该功能目前还不完善，哈哈哈。。。。。。。
+## 关于主题与拓展两个配置文件   
+这两个文件的主要作用是减少后续增加主题与拓展的步骤，因为原来是把文件名写死在了程序中，每次增加都要重写一段函数来实用于新加入的内容。现在做出改进建立这两个文件。       
+### 这两个文件的内容：   
+#### theme_list.conf    
+每一行都是主题名。每一个主题名都要写在单独的一行里。
+#### expand_list.conf      
+每一行是拓展名+空格+拓展名的url。这些都要写在单独的一行里。     
 
 ## 其他一些说明
 
 在程序中进行文件名输入时，并不需要输入后缀（不要忘，不要忘，不要忘）.
+
 # 重要
 所有语句都要顶格书写，尤其带有关键词的语句。
 
