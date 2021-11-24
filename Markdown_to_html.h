@@ -104,7 +104,7 @@
     //选择主题
     int chose_theme(vector <char> theme_name){
         fstream theme_conf;
-        theme_conf.open("theme.conf");
+        theme_conf.open("theme_list.conf");
         string Name;
         vector <string> theme_list ;
         if (theme_conf){
@@ -119,7 +119,7 @@
         int theme_bit = 0;
         //#theme
         string str_theme(theme_name.begin(), theme_name.end());
-        for (int i = 0; i < theme_list.size(); i++){
+        for (int i = 1; i < theme_list.size(); i++){
             if (theme_list[i] == str_theme){
                 theme_bit = 1;
                 break;
