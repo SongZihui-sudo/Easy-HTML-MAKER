@@ -1,15 +1,5 @@
 # EasyHtml-langage
 <div>
-````
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JYBL33K2ZS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-JYBL33K2ZS');
-</script>
-````
 </div>
 <div align='center'><a href='https://www.hit-counts.com/'><img src='http://www.hit-counts.com/counter.php?t=MTQ2MDE2OA==' border='0' alt=''></a><BR><a href='https://www.glowgraphics.co.uk/'>logo design</a></div>
 
