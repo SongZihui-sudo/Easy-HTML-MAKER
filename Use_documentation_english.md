@@ -39,15 +39,20 @@ git clone https://githubfast.com/SongZihui-sudo/e-Conversion-html-maker
 ## About language 
 
 The keywords are as follows:
-1. Title tag: #
-2. Image tag: ‘![img]()’
-3. Link label: url
-4. Code block label: three `means start
-   *** means the end
-5. Emphasize the label: __
-6. Quote tag:>
-7. Dividing line label: ---
-8. Theme tag #theme 
+```
+Title tag: #
+Image tag: ![img]()
+Link label: url URL name
+Code block label:
+Three` means start
+Three * means the end
+The content in the middle represents the code
+Quote tags>
+Divider label --- one more line
+Emphasis (bold) __ two_
+Theme tag #theme theme name
+Expansion tags #expand Expansion 
+```
 
 ### illustrate 
 
@@ -128,6 +133,7 @@ output: <blockquote>hello world</blockquote>
 ### Topic tags
 #theme Theme name
 The theme name is the name of the file in the theme folder    
+
 ## About the nested use of tags   
 
 using it in the front of the file....!!!!!
@@ -140,19 +146,24 @@ For example:
 Embed a hyperlink in the body:   
 Syntax: body url URL (url) name   
 example:     
-welcome to visit url https://github.com github hahah.....    
+welcome to visit url https://github.com github hahah.....   
+
 ### Expand tags   
 #expand Extension   
 The currently supported extensions are:   
 [Pi-dashboard author：NXEZ ](https://github.com/nxez/pi-dashboard)        
 [Weather.io author:Haiyong ](https://github.com/wanghao221/Weather.io)             
 More open source projects will be supported in the future 
-## About the topic
 
-This function is not perfect at present, hahaha. . . . . . .
+## About the theme and expansion of the two configuration files      
+The main function of these two files is to reduce the subsequent steps to add themes and expansions, because the file name was originally written in the program, and a section of function must be rewritten every time it is added to apply the newly added content. Now make improvements to establish these two files.        
+### The contents of these two files:     
+#### theme_list.conf     
+Each line is the subject name. Each topic name must be written on a separate line.     
+#### expand_list.conf     
+Each line is the url of extension + space + extension. These must be written on a single line.      
+## Some other instructions    
 
-## Some other instructions
-
-When entering the file name in the program, there is no need to enter the suffix (don't forget, don't forget, don't forget).
+When entering the file name in the program, there is no need to enter the suffix (don't forget, don't forget, don't forget).     
 # important
-All sentences should be written in the top case, especially sentences with keywords. 
+All sentences should be written in the top case, especially sentences with keywords.            
