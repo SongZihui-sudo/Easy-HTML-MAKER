@@ -12,7 +12,6 @@
     align-items: center;
     min-height: 100vh;
     background-color: #F8F005;
-
 }
 button,button::after{
     position: absolute;
