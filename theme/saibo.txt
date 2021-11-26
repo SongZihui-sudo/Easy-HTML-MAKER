@@ -12,13 +12,14 @@
     align-items: center;
     min-height: 100vh;
     background-color: #F8F005;
+
 }
 button,button::after{
     position: absolute;
     top: 10px;
     bottom: 0px;
     right: 0;
-    left: 250px;
+    left: 230px;
     width: 380px;
     height: 86px;
     font-size: 36px;
@@ -119,7 +120,7 @@ button:hover::after{
     top: 10px;
     bottom: 0px;
     right: 0;
-    left: 600px;
+    left: 700px;
     width: 380px;
     height: 86px;
     font-size: 36px;
@@ -165,14 +166,12 @@ div:hover::after{
     animation-timing-function: steps(2,end);
 }
 .main{
-    text-align: center; /*让div内部文字居中*/
-	    border-radius: 20px;
-	    width: 600px;
+     border-radius: 20px;
 	    margin: auto;
 	    position: absolute;
 	    top: 120px;
-	    left: 0;
-	    right: 0;
+	    left:50px;
+	    right:0;
 	    bottom: 0;
 }
 .main:hover{
