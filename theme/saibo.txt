@@ -11,31 +11,93 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #F8F005;
+    background-image: linear-gradient(to left, rgba(255, 0, 149, 0.2), rgba(0, 247, 255, 0.2)), url("https://gmedia.playstation.com/is/image/SIEPDC/cyberpunk-texture-section-background-desktop-tablet-01-ps4-en-29may19?$native$");
 
 }
-button,button::after{
+.main{
+      text-align: center; /*让div内部文字居中*/
+	    border-radius: 30px;
+	    width: 900px;
+	    margin: auto;
+	    position: absolute;
+	    top: 80px;
+	    left: 5px;
+	    right: 5000px;
+	    bottom: 0px;
+    }
+    .main:hover{
+            box-shadow: 0 3px 15px 3px rgb(241, 3, 3);
+    }
+    .eat {
+    width: 0;
+    height: 0;
+    border: 80px solid #e92c2c;
+    border-radius: 100%;
+    border-right-color: transparent;
     position: absolute;
-    top: 10px;
+    top: 110px;
+    bottom: 0px;
+    right: 0px;
+    left: 1000px;
+}
+.eat2 {
+    width: 0;
+    height: 0;
+    border: 80px solid #e92c2c;
+    border-radius: 100%;
+    border-right-color: transparent;
+    position: absolute;
+    top: 110px;
+    bottom: 0px;
+    right: 0px;
+    left: 1200px;
+}
+.eat3 {
+    width: 0;
+    height: 0;
+    border: 80px solid #e92c2c;
+    border-radius: 100%;
+    border-right-color: transparent;
+    position: absolute;
+    top: 300px;
+    bottom: 0px;
+    right: 0px;
+    left: 1200px;
+}
+.eat4 {
+    width: 0;
+    height: 0;
+    border: 80px solid #e92c2c;
+    border-radius: 100%;
+    border-right-color: transparent;
+    position: absolute;
+    top: 300px;
+    bottom: 0px;
+    right: 0px;
+    left: 1000px;
+}
+.back,.back::after{
+    position: absolute;
+    top: 0px;
     bottom: 0px;
     right: 0;
-    left: 230px;
-    width: 380px;
-    height: 86px;
+    left: 0px;
+    width: auto;
+    height: 75px;
     font-size: 36px;
     font-family: 'Bebas Neuc',cursive;
     /* 这里改为5%，可以做到只有左下角一点的颜色变化 */
-    background-color:#ff3c01 ;
-    border: outset;
+    border: 0;
     color: #fff;
     /* 这里设置字体间距 */
     letter-spacing: 3px;
     line-height: 88px;
     box-shadow: 6px 0px 0px #00E6F6;
     outline: transparent;
+    background-color: crimson;
 }
 /* 想要将按钮设置为一个朋克破坏风，先将上面重叠一个一摸一样的按钮 */
-button::after{
+.back::after{
     /* 保存切下来的元素的数据，一共五个切片，一个预设值 */
     --slice-0: inset(50% 50% 50% 50%);
     --slice-1: inset(80% -6px 0 0);
@@ -44,7 +106,7 @@ button::after{
     --slice-4: inset(40% -6px 43% 0);
     --slice-5: inset(80% -6px 5% 0);
 
-    content: 'Welcome';
+    content: 'WELCOME';
     display: block;
     position: absolute;
     top: 0px;
@@ -61,7 +123,7 @@ button::after{
     /* 由于元素在重叠状态所以看不出来切割的部分，可以移动一下元素就可以看到 */
     /* transform: translate(-20px,10px); */
 }
-button:hover::after{
+.back:hover::after{
     animation: 1s glitch;
     animation-timing-function: steps(2,end);
 }
@@ -112,76 +174,15 @@ button:hover::after{
         transform: translate(-5px,0px);
     }
 }
-
-
-
-        .tianqi,.tianqi::after{
-    position: absolute;
-    top: 10px;
-    bottom: 0px;
-    right: 0;
-    left: 700px;
-    width: 380px;
-    height: 86px;
-    font-size: 36px;
-    font-family: 'Bebas Neuc',cursive;
-    /* 这里改为5%，可以做到只有左下角一点的颜色变化 */
-    background-color:#ff3c01 ;
-    border: outset;
-    color: #fff;
-    /* 这里设置字体间距 */
-    letter-spacing: 3px;
-    line-height: 88px;
-    box-shadow: 6px 0px 0px #00f6d5;
-    outline: transparent;
-}
-/* 想要将按钮设置为一个朋克破坏风，先将上面重叠一个一摸一样的按钮 */
-.tianqi::after{
-    /* 保存切下来的元素的数据，一共五个切片，一个预设值 */
-    --slice-0: inset(50% 50% 50% 50%);
-    --slice-1: inset(80% -6px 0 0);
-    --slice-2: inset(50% -6px 30% 0);
-    --slice-3: inset(10% -6px 85% 0);
-    --slice-4: inset(40% -6px 43% 0);
-    --slice-5: inset(80% -6px 5% 0);
-    content: 'Weather';
-    display: block;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0;
-    bottom: 0;
-    /* 可以确定元素已经重叠 */
-    /* background: #000; */
-    background: linear-gradient(45deg,transparent 3%,#00E6F6,#00E6F6 5%,#ff3c01 5%);
-    text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #00E6F6;
-    /* 四个值分别为上下左右，就是向内缩小多少的意思 */
-    /* 因为右边有一个6px的蓝色边框不在容器的计算范围之内 */
-    clip-path: var(--slice-0);
-    /* 由于元素在重叠状态所以看不出来切割的部分，可以移动一下元素就可以看到 */
-    /* transform: translate(-20px,10px); */
-}
-div:hover::after{
-    animation: 1s glitch;
-    animation-timing-function: steps(2,end);
-}
-.main{
-     border-radius: 20px;
-	    margin: auto;
-	    position: absolute;
-	    top: 120px;
-	    left:50px;
-	    right:0;
-	    bottom: 0;
-}
-.main:hover{
-            box-shadow: 0 3px 15px 3px rgba(251, 255, 0, 0.911);
-    }
 </style
 </head>
 <body>
-    <button>My Website</button>
-
-    <div class="tianqi"><iframe scrolling="no" src="https://tianqiapi.com/api.php?style=tb&skin=pitaya" frameborder="0"
-        width="350" height="24" allowtransparency="true"></iframe></div>
-        <div class="main">
+    <div class="back">
+       My Website
+        s-zh.space Welcome to visit
+            </div>
+    <div class="eat"></div>
+    <div class="eat2"></div>
+    <div class="eat3"></div>
+    <div class="eat4"></div>
+    <div class="main"> 
