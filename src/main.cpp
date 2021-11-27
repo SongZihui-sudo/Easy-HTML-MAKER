@@ -22,6 +22,7 @@ int main(){
     string md_name; //md文件名称   
     md_name = str + t;        
     MtH->Lexical_interpreter(md_name,str);//转换
+    system("pause");
     return 0;
 }
 //词法解释器
