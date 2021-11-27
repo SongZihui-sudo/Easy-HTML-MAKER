@@ -4,6 +4,9 @@
 </div>
 <div align='center'><a href='https://www.hit-counts.com/'><img src='http://www.hit-counts.com/counter.php?t=MTQ2MDE2OA==' border='0' alt=''></a><BR><a href='https://www.glowgraphics.co.uk/'>logo design</a></div>
 
+![img](https://img.shields.io/github/issues/SongZihui-sudo/EasyHtml-language-HTML-MAKER)
+![img](https://img.shields.io/github/stars/SongZihui-sudo/EasyHtml-language-HTML-MAKER)        
+	
 可在[wiki](https://github.com/SongZihui-sudo/EasyHtml-language/wiki)中查看支持的主题与拓展,以及与之相关的其他项目。 
 
 如果您想贡献代码代码[CONTRIBUTING](https://github.com/SongZihui-sudo/EasyHtml-language/blob/main/CONTRIBUTING.md)    
