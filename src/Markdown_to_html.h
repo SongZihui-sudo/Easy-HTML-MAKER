@@ -119,6 +119,10 @@
         int theme_bit = 0;
         //#theme
         string str_theme(theme_name.begin(), theme_name.end());
+        //if you are linux user delete "//"
+        //string str_name = str_theme;
+        //str_theme = str_theme + string("\r"); 
+        //if you windows user 
         for (int i = 1; i < theme_list.size(); i++){
             if (theme_list[i] == str_theme){
                 theme_bit = 1;
@@ -128,6 +132,9 @@
                 continue;
             }
         }
+        //if you are linux delete "//"
+        //str_theme = str_name; 
+        //if you are windows
         if(theme_bit){
             ifstream file_in;//切换主题
             file_in.open(string("../")+string("theme/")+str_theme+string(".txt"));
