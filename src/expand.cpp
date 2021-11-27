@@ -10,7 +10,7 @@ vector <char> expand::expand_function(vector <char> expand_arr){
     int expand_bit = 0;
     vector <string> expand_list;
     fstream expand_conf;
-    expand_conf.open("../expand_list.conf");
+    expand_conf.open("../conf/expand_list.conf");
     string Name;
     if (expand_conf){
         char e;
