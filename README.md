@@ -35,7 +35,11 @@
 ### Installing    
 linux  
 ```
-sudo git clone https://github.com/SongZihui-sudo/EasyHtml-language-HTML-MAKER
+sudo git clone https://github.com/SongZihui-sudo/EasyHtml-language-HTML-MAKER    
+```
+and then input command    
+```
+sudo chmod 777 file_name
 ```
 windows
 ```
