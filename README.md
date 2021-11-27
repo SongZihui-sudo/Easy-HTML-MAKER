@@ -34,11 +34,11 @@
 ### Installing    
 linux  
 ```
-sudo git clone https://github.com/SongZihui-sudo/EasyHtml-language
+sudo git clone https://github.com/SongZihui-sudo/EasyHtml-language-HTML-MAKER
 ```
 windows
 ```
-git clone https://github.com/SongZihui-sudo/EasyHtml-language
+git clone https://github.com/SongZihui-sudo/EasyHtml-language-HTML-MAKER
 ```
 或者直接下载源码，编译。   
 #### 使用IDE编译
