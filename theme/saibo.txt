@@ -12,70 +12,37 @@
     align-items: center;
     min-height: 100vh;
     background-image: linear-gradient(to left, rgba(255, 0, 149, 0.2), rgba(0, 247, 255, 0.2)), url("https://gmedia.playstation.com/is/image/SIEPDC/cyberpunk-texture-section-background-desktop-tablet-01-ps4-en-29may19?$native$");
-
 }
 .main{
       text-align: center; /*让div内部文字居中*/
 	    border-radius: 30px;
-	    width: 900px;
+	    width: 750px;
 	    margin: auto;
+        height: max-content;
 	    position: absolute;
 	    top: 80px;
-	    left: 5px;
-	    right: 5000px;
+	    left: 220px;
+	    right: 0px;
 	    bottom: 0px;
     }
     .main:hover{
             box-shadow: 0 3px 15px 3px rgb(241, 3, 3);
     }
-    .eat {
-    width: 0;
-    height: 0;
-    border: 80px solid #e92c2c;
-    border-radius: 100%;
-    border-right-color: transparent;
-    position: absolute;
-    top: 110px;
-    bottom: 0px;
-    right: 0px;
-    left: 1000px;
-}
-.eat2 {
-    width: 0;
-    height: 0;
-    border: 80px solid #e92c2c;
-    border-radius: 100%;
-    border-right-color: transparent;
-    position: absolute;
-    top: 110px;
-    bottom: 0px;
-    right: 0px;
-    left: 1200px;
-}
-.eat3 {
-    width: 0;
-    height: 0;
-    border: 80px solid #e92c2c;
-    border-radius: 100%;
-    border-right-color: transparent;
-    position: absolute;
-    top: 300px;
-    bottom: 0px;
-    right: 0px;
-    left: 1200px;
-}
-.eat4 {
-    width: 0;
-    height: 0;
-    border: 80px solid #e92c2c;
-    border-radius: 100%;
-    border-right-color: transparent;
-    position: absolute;
-    top: 300px;
-    bottom: 0px;
-    right: 0px;
-    left: 1000px;
-}
+  .eat{
+    text-align: center; /*让div内部文字居中*/
+	    border-radius: 30px;
+	    width: 300px;
+	    margin: auto;
+        height: max-content;
+	    position: absolute;
+	    top: 0px;
+	    left: 0px;
+	    right: 900px;
+	    bottom: 50px;
+  }
+  .eat:hover{
+            box-shadow: 0 3px 15px 3px rgb(241, 3, 3);
+    }
 .back,.back::after{
     position: absolute;
     top: 0px;
@@ -181,8 +148,8 @@
        My Website
         s-zh.space Welcome to visit
             </div>
-    <div class="eat"></div>
-    <div class="eat2"></div>
-    <div class="eat3"></div>
-    <div class="eat4"></div>
-    <div class="main"> 
+    <div class="eat">The man with a new idea is a crank until the idea succeeds .
+    <iframe scrolling="no" src="https://tianqiapi.com/api.php?style=tb&skin=pitaya" frameborder="0"
+                        width="350" height="24" allowtransparency="true"></iframe>
+    </div>
+    <div class="main">
