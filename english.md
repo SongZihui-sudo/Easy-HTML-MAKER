@@ -34,7 +34,10 @@ windows
 ```
 git clone https://github.com/SongZihui-sudo/EasyHtml-language
 ```
-Or download the source code directly and compile it.     
+Or download the source code directly and compile it.      
+#### Compile with IDE   
+#### Use makefile to compile      
+Enter the ```make``` command or the ```mingw32-make``` command in the terminal to get the compiled binary file.      
 ## Running the tests   
 ### DEMO
 MARKDOWN    
