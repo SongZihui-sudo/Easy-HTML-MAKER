@@ -1,17 +1,13 @@
-########################################################################
-####################### Makefile Template ##############################
-########################################################################
-
 # Compiler settings - Can be customized.
 CC = g++
 CXXFLAGS = -std=c++11 -Wall
 LDFLAGS = 
 
 # Makefile settings - Can be customized.
-APPNAME = myapp
+APPNAME = easyhtml
 EXT = .cpp
-SRCDIR = src
-OBJDIR = obj
+SRCDIR = ../src
+OBJDIR = ../obj
 
 ############## Do not change anything from here downwards! #############
 SRC = $(wildcard $(SRCDIR)/*$(EXT))
