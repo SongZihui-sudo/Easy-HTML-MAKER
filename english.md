@@ -28,11 +28,11 @@ Expansion tags #expand Expansion
 ### Installing  
 linux
 ```
-sudo git clone https://github.com/SongZihui-sudo/EasyHtml-language
+sudo git clone https://github.com/SongZihui-sudo/EasyHtml-language-HTML-MAKER
 ```
 windows
 ```
-git clone https://github.com/SongZihui-sudo/EasyHtml-language
+git clone https://github.com/SongZihui-sudo/EasyHtml-language-HTML-MAKER
 ```
 Or download the source code directly and compile it.      
 #### Compile with IDE   
