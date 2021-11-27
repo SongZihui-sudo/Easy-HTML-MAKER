@@ -104,7 +104,7 @@
     //选择主题
     int chose_theme(vector <char> theme_name){
         fstream theme_conf;
-        theme_conf.open("../theme_list.conf");
+        theme_conf.open("../conf/theme_list.conf");
         string Name;
         vector <string> theme_list ;
         if (theme_conf){
