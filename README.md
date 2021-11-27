@@ -1,4 +1,4 @@
-# EasyHtml-langage-HTML-MAKER
+# EasyHtml-language-HTML-MAKER
 ## IMPRTEANT [SOME VERY BAD BUG IN LINUX](https://github.com/SongZihui-sudo/EasyHtml-language-HTML-MAKER/issues/7)
 <div>
 </div>
