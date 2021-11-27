@@ -40,7 +40,10 @@ windows
 ```
 git clone https://github.com/SongZihui-sudo/EasyHtml-language
 ```
-或者直接下载源码，编译。
+或者直接下载源码，编译。   
+#### 使用IDE编译
+#### 使用makefile编译    
+在终端输入```make```命令或者```mingw32-make```命令即可得到编译生成的二进制文件。
 ### Running the tests    
 ### DEMO   
 MARKDOWN     
