@@ -1,27 +1,39 @@
 #include <iostream>
-#include <string>
-#include <vector>
 #include "expand.h"
-#include <fstream>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <string.h>
+#include <vector>
 
 using namespace std;
 
 vector <char> expand::expand_function(vector <char> expand_arr){
     int expand_bit = 0;
     vector <string> expand_list;
-    fstream expand_conf;
-    expand_conf.open("../conf/expand_list.conf");
+    int expand_conf;
+    expand_conf = open("../conf/expand_list.conf",O_RDONLY|O_CREAT);
     string Name;
-    if (expand_conf){
-        char e;
-        while (getline(expand_conf,Name)){
-            expand_list.push_back(Name);
-        }
-    }
-    else{
-        cout<<"can not open the file!!!"<<endl;
+    if (expand_conf == -1 ){ 
+        cout<<"can not open the expand file!!!"<<endl;
         expand_arr.clear();
         return expand_arr;
+    }
+    else{
+        vector <char> buffer;
+        char buf[1];
+        while (read(expand_conf,buf,1)){ //read the file
+            if (buf[0] == '\n'){
+                string str_expand_name(buffer.begin(),buffer.end());
+                expand_list.push_back(str_expand_name);
+                buffer.clear();
+                continue;
+            }
+            else{
+                buffer.push_back(buf[0]);
+            }
+        }           
     }
     int space_pation;
     vector <string> expand_name;
@@ -78,3 +90,4 @@ vector <char> expand::expand_function(vector <char> expand_arr){
     }
     return expand_arr;
 }
+
