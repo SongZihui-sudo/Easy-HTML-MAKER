@@ -28,7 +28,7 @@ Expansion tags #expand Expansion
 ### Installing  
 linux
 ```
-sudo git clone https://github.com/SongZihui-sudo/EasyHtml-language-HTML-MAKER
+sudo git clone -b https://github.com/SongZihui-sudo/EasyHtml-language-HTML-MAKER/tree/Linux    
 ```
 and then input command    
 ```
