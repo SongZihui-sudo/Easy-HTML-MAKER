@@ -22,37 +22,35 @@ int main(){
     string md_name; //md文件名称   
     md_name = str + t;        
     MtH->Lexical_interpreter(md_name,str);//转换
-    //if you are windows user delete //
-    //if you are linux user stay //
-    //system("pause");
     return 0;
 }
 //词法解释器
 int Markdown_to_html::Lexical_interpreter(string Md_name,string html_name){ 
     Markdown_to_html *p;   
-    p = new(Markdown_to_html);
+    p = new(Markdown_to_html);//make new space
     Md_name = string("../")+"md/"+Md_name; //md file postion
-    fin.open(Md_name); //open md file
-    string html_file_name = chose_file_postion(html_name);
+    const char* md_file_path = Md_name.c_str();
+    int fin =  open(md_file_path,O_RDONLY|O_CREAT);//open md file
+    string html_file_name = chose_file_postion(html_name);//html path
     fout.open(html_file_name);
-    if(fin){     
-        char c;
-        while ((c = fin.get()) != EOF){
-            //每次提取一行到数组中
-            if( c == '\n' ){
+    if( fin == -1 ){   
+        cout<<"cannot open the file"<<endl;
+        return Error;   
+    }
+    else{
+        char buf[1];
+        while (read(fin,buf,1)){ //read the file
+            if (buf[0] == '\n'){     
                 Syntax_interpreter(p->arr);
                 p->arr.clear();
                 fout<<"<br>"<<"\n";
+                continue;
             }
             else{
-                p->arr.push_back(c);
+                p->arr.push_back(buf[0]);
             }
         }
         fout<<"</div>"<<"</body>"<<"</html>";
-    }
-    else{//error
-        cout<<"cannot open the file"<<endl;
-        return Error; 
     }   
     free(p);
     return 0;
@@ -67,7 +65,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
     if(Syntax_interpreter_arr.empty())
         return 0;
     //标题标签
-    for(int i = 0;i < Syntax_interpreter_arr.size();i++){
+    for(auto i = 0;i < Syntax_interpreter_arr.size();i++){
         if(Syntax_interpreter_arr[i] == '#'){
             bit_head++;
             continue;
@@ -100,7 +98,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
         return 0;
     }
     //图像标签
-    for (int i = 0; i < 7; i++){ 
+    for (auto i = 0; i < 7; i++){ 
         if(Syntax_interpreter_arr[i] == m->Img[i]){
             Syntax_interpreter_arr[i] = 48;
             bit_img = 1;
@@ -120,7 +118,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
         return 0;
     }
     //代码块开始标签
-    for (int i = 0; i < 3; i++){
+    for (auto i = 0; i < 3; i++){
         if (Syntax_interpreter_arr[i] == m->code_begin[i]){
             bit_code_begin = 1;
         }
@@ -138,7 +136,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
         return 0;
     }
     //代码块结束标签
-    for (int i = 0; i < 3; i++){
+    for (auto i = 0; i < 3; i++){
         if (Syntax_interpreter_arr[i] == m->code_end[i]){
             bit_code_end = 1;
         }
@@ -154,7 +152,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
             return 0; 
         }
         //链接标签
-    for (int i = 0; i < 3; i++){
+    for (auto i = 0; i < 3; i++){
         if (Syntax_interpreter_arr[i] == m->Url[i]){
             bit_url = 1;
         }
@@ -175,7 +173,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
         return 0;
     }
         //处理引用语句
-    for (int i = 0; i < 1; i++){
+    for (auto i = 0; i < 1; i++){
         if( Syntax_interpreter_arr[i] == m->Quote[i]){
             bit_quote = 1;
         }
@@ -194,7 +192,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
         return 0;
     }
     //处理分割线语句
-    for (int i = 0; i < 3; i++){
+    for (auto i = 0; i < 3; i++){
         if(Syntax_interpreter_arr[i] == m->split_line[i]){
             split_line_bit = 1;
         }
@@ -210,7 +208,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
         return 0;
     }
     //处理强调语句
-    for (int i = 0; i < 2; i++){
+    for (auto i = 0; i < 2; i++){
         if( Syntax_interpreter_arr[i] == m->Strong[i]){
             strong_bit = 1;
             }
@@ -229,7 +227,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
         return 0;
     }
     //主题标签
-    for (int i = 0; i < 5; i++){
+    for (auto i = 0; i < 5; i++){
         if(Syntax_interpreter_arr[i] == m->theme_[i])
             bit_theme = 1;
         else{
@@ -249,7 +247,7 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
         return 0;
     }
     //拓展标签
-    for (int i = 0; i < 7; i++){
+    for (auto i = 0; i < 7; i++){
         if (Syntax_interpreter_arr[i] == m->expand_[i]){
             expand_bit = 1;
         }
@@ -274,13 +272,13 @@ int Markdown_to_html::Syntax_interpreter(vector <char> Syntax_interpreter_arr){
 //处理标题标签
 vector <char> Markdown_to_html::head(int number,vector <char> Array){     
         vector <char> parr;
-        for (int k = number; k < Array.size(); k++){
+        for (auto k = number; k < Array.size(); k++){
             parr.push_back(Array[k]);
         }//暂时存储标题内容
         Array = {0};
         Array.push_back('<');Array.push_back('h');
         Array.push_back(number+48);Array.push_back('>');//生成html标题标签
-        for (int k = 0; k < parr.size(); k++){
+        for (auto k = 0; k < parr.size(); k++){
             Array.push_back(parr[k]);//插入标题内容
         }
         Array.push_back('<');Array.push_back('/');//标签结尾
@@ -300,7 +298,7 @@ vector <char> Markdown_to_html::img(vector <char> img_arr){
     img_arr = {48};
     for( int k = 0;k < 10;k++)
         img_arr.push_back(html_img[k]);
-    for (int k = 0; k < parr.size(); k++)
+    for (auto k = 0; k < parr.size(); k++)
         img_arr.push_back(parr[k]);
     img_arr.push_back('"');img_arr.push_back('/');
     img_arr.push_back('>');    
@@ -313,7 +311,7 @@ vector <char> Markdown_to_html::url(vector <char> url_arr){
     vector <char> parr_url;
     int len;
     char html_url[9] = {'<','a',' ','h','r','e','f','=','"'};
-    for (int k = 4; k < url_arr.size(); k++){
+    for (auto k = 4; k < url_arr.size(); k++){
         if(url_arr[k] == ' '){
             len = k;
             break;
@@ -321,14 +319,14 @@ vector <char> Markdown_to_html::url(vector <char> url_arr){
         else
             parr_url.push_back(url_arr[k]);
     }
-    for (int h = len; h < url_arr.size(); h++){
+    for (auto h = len; h < url_arr.size(); h++){
         parr_name.push_back(url_arr[h]);
     }
     url_arr.clear();
     for (int k = 0; k < 9; k++){
         url_arr.push_back(html_url[k]);
     }
-    for (int k = 0; k < parr_url.size(); k++){
+    for (auto k = 0; k < parr_url.size(); k++){
         url_arr.push_back(parr_url[k]);
     }
     url_arr.push_back('"');url_arr.push_back('>');
@@ -344,7 +342,7 @@ vector <char> Markdown_to_html::url(vector <char> url_arr){
 //引用标签
 vector <char> Markdown_to_html::quote(vector <char> quote_arr){
     vector <char> parr;
-    for( int k = 2;k < quote_arr.size() ; k++){
+    for( auto k = 2;k < quote_arr.size() ; k++){
         parr.push_back(quote_arr[k]);
     }
     quote_arr.clear();
@@ -352,7 +350,7 @@ vector <char> Markdown_to_html::quote(vector <char> quote_arr){
     char html_quote_end[13] = {'<','/','b','l','o','c','k','q','u','o','t','e','>'};
     for( int g = 0;g < 12;g++)
         quote_arr.push_back(html_quote_begin[g]);
-    for (int g = 0; g < parr.size(); g++){
+    for (auto g = 0; g < parr.size(); g++){
         quote_arr.push_back(parr[g]);
     }
     for (int g = 0; g < 13; g++){
@@ -364,7 +362,7 @@ vector <char> Markdown_to_html::quote(vector <char> quote_arr){
 //处理强调语句
 vector <char> Markdown_to_html::strong(vector <char> strong_arr){
     vector <char> parr;
-    for (int k = 3; k < strong_arr.size(); k++){
+    for (auto k = 3; k < strong_arr.size(); k++){
         parr.push_back(strong_arr[k]);
     }
     strong_arr.clear();
@@ -373,7 +371,7 @@ vector <char> Markdown_to_html::strong(vector <char> strong_arr){
     for (int k = 0; k < 8; k++){
         strong_arr.push_back(html_strong_begin[k]);
     }
-    for (int k = 0; k < parr.size(); k++){
+    for (auto k = 0; k < parr.size(); k++){
         strong_arr.push_back(parr[k]);
     }
     for (int k = 0; k < 9; k++){
@@ -404,7 +402,7 @@ int Markdown_to_html::simple(vector <char> simple_Arr){
     }
     if(not_found){
         long long length = 0;
-        for ( int k = num - 3; k < simple_Arr.size(); k++){
+        for ( auto k = num - 3; k < simple_Arr.size(); k++){
             if(simple_Arr[k] == ' '){
                 parr.push_back(simple_Arr[k]);
                 num_space++;
@@ -421,12 +419,12 @@ int Markdown_to_html::simple(vector <char> simple_Arr){
             fout<<simple_Arr[j];
         }
         Markdown_to_html::Syntax_interpreter(parr);
-        for ( int j = length; j < simple_Arr.size(); j++){
+        for ( auto j = length; j < simple_Arr.size(); j++){
             fout<<simple_Arr[j];
         }
     }
     else{
-        for (int j = 0; j < simple_Arr.size(); j++){
+        for (auto j = 0; j < simple_Arr.size(); j++){
             if(simple_Arr[j] == '<'){
                 fout<<"&lt";
             }
@@ -440,3 +438,4 @@ int Markdown_to_html::simple(vector <char> simple_Arr){
     }
     return 0;
 }
+
