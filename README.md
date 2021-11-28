@@ -38,7 +38,7 @@
 linux  
 [ABOUT THE PROBLEM OF CAN NOT OPEN THE FIEL OR CAN NOT CREAT THE HTML FILE](https://github.com/SongZihui-sudo/EasyHtml-language-HTML-MAKER/issues/7)     
 ```
-sudo git clone https://github.com/SongZihui-sudo/EasyHtml-language-HTML-MAKER    
+sudo git clone -b https://github.com/SongZihui-sudo/EasyHtml-language-HTML-MAKER/tree/Linux    
 ```
 and then input command    
 ```
