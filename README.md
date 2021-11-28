@@ -41,7 +41,7 @@ sudo git clone https://github.com/SongZihui-sudo/EasyHtml-language-HTML-MAKER
 ```
 and then input command    
 ```
-sudo chmod -R 777 EasyHtml-language-HTML-MAKER/
+sudo chmod 777 EasyHtml-language-HTML-MAKER
 ```
 windows
 ```
