@@ -1,15 +1,20 @@
 #ifndef _Markdown_to_html_h
 #define _Markdown_to_html_h
+    //include file 
     #include<iostream>
-    #include <fstream>
     #include <vector>
+    #include <sys/stat.h>
+    #include <fcntl.h>
+    #include <sys/types.h>
+    #include <unistd.h>
+    #include <fstream>
+
     //宏定义
     #define Error -1;
     #define OK 0;
     using namespace std;
     //文件
     ofstream fout;
-    ifstream  fin;
     //状态
     int bit_head = 0;
     int bit_img = 0;
@@ -103,27 +108,35 @@
     }
     //选择主题
     int chose_theme(vector <char> theme_name){
-        fstream theme_conf;
-        theme_conf.open("../conf/theme_list.conf");
+        //theme_conf.open("../conf/theme_list.conf");
+        int theme_conf = open("../conf/theme_list.conf",O_RDONLY|O_CREAT);
         string Name;
         vector <string> theme_list ;
-        if (theme_conf){
-            while ( getline(theme_conf, Name)){
-                theme_list.push_back(Name);
-            }
+        if ( theme_conf == -1 ){ 
+            cout<<"can not open the theme file!!!"<<endl;
+            return -1;
         }
         else{
-            cout<<"Can not open file!"<<endl;
-            return 0;
+            vector <char> buffer;
+            char buf[1];
+            while (read(theme_conf,buf,1)){ //read the file
+                if (buf[0] == '\n'){
+                    string str_theme_name(buffer.begin(),buffer.end());
+                    theme_list.push_back(str_theme_name);
+                    buffer.clear();
+                    continue;
+                }
+                else{
+                    buffer.push_back(buf[0]);
+                }
+            }
         }
         int theme_bit = 0;
         //#theme
         string str_theme(theme_name.begin(), theme_name.end());
-        //if you are linux user delete "//"
-        //string str_name = str_theme;
-        //str_theme = str_theme + string("\r"); 
-        //if you windows user 
-        for (int i = 1; i < theme_list.size(); i++){
+        string str_name = str_theme;
+        str_theme = str_theme + string("\r"); 
+        for (auto i = 1; i < theme_list.size(); i++){
             if (theme_list[i] == str_theme){
                 theme_bit = 1;
                 break;
@@ -132,9 +145,7 @@
                 continue;
             }
         }
-        //if you are linux delete "//"
-        //str_theme = str_name; 
-        //if you are windows
+        str_theme = str_name; 
         if(theme_bit){
             ifstream file_in;//切换主题
             file_in.open(string("../")+string("theme/")+str_theme+string(".txt"));
@@ -154,3 +165,4 @@
         }
     }
 #endif
+
