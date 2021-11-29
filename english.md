@@ -2,6 +2,8 @@
 
 <div align='center'><a href='https://www.hit-counts.com/'><img src='http://www.hit-counts.com/counter.php?t=MTQ2MDE2OA==' border='0' alt=''></a><BR><a href='https://www.glowgraphics.co.uk/'>logo design</a></div>
 
+[关于EASYHTMLEDITOR](https://github.com/SongZihui-sudo/easyhtmleaitor)      
+
 You can view the supported themes and extensions, and other related projects in [wiki](https://github.com/SongZihui-sudo/EasyHtml-language/wiki).    
 
 If you want to contribute code [CONTRIBUTING](https://github.com/SongZihui-sudo/EasyHtml-language/blob/main/CONTRIBUTING.md)    
