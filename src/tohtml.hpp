@@ -139,6 +139,7 @@ private:
     vector <Symbol_table> table2;
     vector <int> state_machine;
     vector <int> end_state_machine;
+    vector <string> data_share;
     int num = 0;
 public:
     friend read_emakefile;
@@ -157,7 +158,6 @@ public:
                 getFiles(filePath, files );
                 char str[30];
                 int size = files.size();
-                
             }
             else if(table1[i].name == re->keyword1)
             {
@@ -178,6 +178,7 @@ public:
     int trans_tohtml(string file_path)
     {
         fstream fout;
+        toh.open(save_path+string(".html"));
         fout.open(file_path);
         vector <string> save_mdfile;                
         if (fout)
@@ -185,11 +186,13 @@ public:
             string line;
             while (getline(fout,line)){
                 save_mdfile = re->Participle(line);
-                if ( run_task(save_mdfile[0],save_mdfile))
+                if ( run_task(save_mdfile))
                 {
                     save_mdfile.pop_back();
                 }
-                else;
+                else{
+                    toh<<"<br>"<<endl;
+                }
             }
         }
         else
@@ -198,192 +201,207 @@ public:
         }
         return 0;
     }
-    int run_task(string inputfile,vector <string> inputarr)
+    int run_task(vector <string> inputarr)
     {
-        toh.open(save_path+string(".html"));
-        //词法检查
-        if (Lexical_analyzer(inputfile))
+        int bit = 0;
+        while(inputarr.begin()!=inputarr.end())
         {
-            //OK          
+            bit = Lexical_analyzer(inputarr);
+            Grammatical_analyer(bit,num,data_share);
+            inputarr = data_share;
         }
-        else
-        {
-            toh<<inputfile;//直接输出
-            return 1;
-        }
-        //词法分析
-        Grammatical_analyer(inputarr);
         return 0;
     }
     //词法分析器
-    bool Lexical_analyzer(string analyer1)
-    {
-        if (analyer1 == md_keyword0|| analyer1 == md_keyword1||analyer1 == md_keyword2||analyer1 == md_keyword3||analyer1 == md_keyword4||analyer1 == md_keyword5||analyer1 == md_keyword6||analyer1 == md_keyword7)
-        {
-            return true;
-        }
-        else {
-            return false;
-        }
-        return true;
-    }
-    //文法分析器
-    int Grammatical_analyer(vector <string> analyer2)
+    int Lexical_analyzer(vector <string> analyer1)
     {
         int bit = 0;
-        if (analyer2[0][0] == '#')
+        if (analyer1[0][0] == '#')
         {
-            for (int i = 0; i < analyer2.size(); i++)
+            for (int i = 0; i < analyer1[0].size(); i++)
             {
-                if (analyer2[0][i] == '#')
+                if (analyer1[0][i] == '#') //确定几级标题
                 {
                     num++;
                 }
             }
             bit = 1;
-            analyer2.erase(analyer2.begin());
+            analyer1.erase(analyer1.begin());
             state_machine.push_back(bit);
-            Grammatical_analyer(analyer2);
+            data_share = analyer1;
+            return bit;
         }
-        else if(analyer2[0] == md_keyword0)
+        else if(analyer1[0] == md_keyword0)
         {
             bit = 2;
-            analyer2.erase(analyer2.begin());
+            analyer1.erase(analyer1.begin());
             state_machine.push_back(bit);
-            Grammatical_analyer(analyer2);
+            data_share = analyer1;
+            return bit;
         }
-        else if (analyer2[0] == md_keyword2)
+        else if (analyer1[0] == md_keyword2)
         {
             bit = 3;
-            analyer2.erase(analyer2.begin());
+            analyer1.erase(analyer1.begin());
             state_machine.push_back(bit);
-            Grammatical_analyer(analyer2);
+            data_share = analyer1;
+            return bit;
         }
-        else if (analyer2[0] == md_keyword3)
+        else if (analyer1[0] == md_keyword3)
         {
             bit = 4;
-            analyer2.erase(analyer2.begin());
+            analyer1.erase(analyer1.begin());
             state_machine.push_back(bit);
-            Grammatical_analyer(analyer2);
+            data_share = analyer1;
+            return bit;
         }
-        else if (analyer2[0] == md_keyword4)
+        else if (analyer1[0] == md_keyword4)
         {
             bit = 5;
-            analyer2.erase(analyer2.begin());
+            analyer1.erase(analyer1.begin());
             state_machine.push_back(bit);
-            Grammatical_analyer(analyer2);
+            data_share = analyer1;
+            return bit;
         }
-        else if (analyer2[1] == md_keyword5)
+        else if (analyer1[0] == md_keyword5)
         {
             bit = 6;
-            analyer2.erase(analyer2.begin());
+            analyer1.erase(analyer1.begin());
             state_machine.push_back(bit);
-            Grammatical_analyer(analyer2);
+            data_share = analyer1;
+            return bit;
         }
-        else if (analyer2[0] == md_keyword6){
+        else if (analyer1[0] == md_keyword6){
             bit = 7;
-            analyer2.erase(analyer2.begin());
+            analyer1.erase(analyer1.begin());
             state_machine.push_back(bit);
-            Grammatical_analyer(analyer2);
+            data_share = analyer1;
+            return bit;
         }
-        else if (analyer2[0] == md_keyword7)
+        else if (analyer1[0] == md_keyword7)
         {
             bit = 8;
-            analyer2.erase(analyer2.begin());
+            analyer1.erase(analyer1.begin());
             state_machine.push_back(bit);
-            Grammatical_analyer(analyer2);
+            data_share = analyer1;
+            return bit;
         }
-        else{
-            //state_machine
-            State_Machine(state_machine,num,analyer2);
-        }
-        return 0;
-    }
-    int State_Machine(vector <int> State,int number,vector <string> arr)
-    {   
-        for (int i = 0; i < State.size(); i++)
+        else
         {
-            int pattern = 0;
-            int bit1 = State[i];
-            switch (bit1)
-            {
-                case 1:
-                    toh<<"<h"<<number<<">";     
-                    State.erase(State.begin());
-                    pattern = 1;
-                    for (int i = 0; i < arr.size(); i++)
+            bit = 0;
+            state_machine.push_back(bit);
+            data_share = analyer1;
+            return bit;
+        }
+        return 10;
+    }
+    //文法分析器
+    int Grammatical_analyer(int State,int number,vector <string> arr)
+    {   
+        int pattern = 0;
+        int bit1 = State;
+        switch (bit1)
+        {
+            case 1:
+                toh<<"<h"<<number<<">";     
+                pattern = 1;
+                end_state_machine.push_back(pattern);    
+                bit1 = 0;
+                Grammatical_analyer(bit1,number,arr);              
+                break;
+            case 2:                     
+                toh<<"< img src=";
+                pattern = 2;
+                end_state_machine.push_back(pattern);
+                bit1 = 0;
+                Grammatical_analyer(bit1,number,arr);              
+            case 3:
+                toh<<"<q>";
+                pattern = 3;
+                end_state_machine.push_back(pattern);
+                bit1 = 0;
+                Grammatical_analyer(bit1,number,arr);                                  
+                break;
+            case 4:
+                toh<<"<a href=\"";
+                toh<<arr[0]<<"\">";
+                arr.erase(arr.begin());
+                for (int i = 0; i < arr.size(); i++)
+                {
+                    toh<<arr[i]<<" ";
+                }
+                toh<<"</a>";
+                end_state_machine.push_back(pattern);                    
+                bit1 = 0;                
+                arr.clear();
+                Grammatical_analyer(bit1,number,arr);              
+                break;
+            case 5:
+                toh<<"<strong>";
+                pattern = 5;
+                end_state_machine.push_back(pattern);
+                bit1 = 0;
+                Grammatical_analyer(bit1,number,arr);              
+                break;
+            case 6:
+                toh<<"<code>";
+                Grammatical_analyer(bit1,number,arr);              
+                bit1 = 0;
+                break;
+            case 7:                    
+                toh<<"</code>";
+                bit1 = 0;
+                Grammatical_analyer(bit1,number,arr);              
+                break;
+            case 8:
+                toh<<"<hr>";
+                bit1 = 0;
+                Grammatical_analyer(bit1,number,arr);              
+                break;
+            default: 
+                for (int i = 0; i < arr.size(); i++)
+                {
+                    int bit2 = 0;
+                    if (bit2 = Lexical_analyzer(arr))
+                    {
+                        arr.erase(arr.begin());
+                        Grammatical_analyer(bit2,number,arr);
+                        arr.clear();
+                    }
+                    else
                     {
                         toh<<arr[i]<<" ";
+                        arr.erase(arr.begin());
+                        i--;
                     }
-                    end_state_machine.push_back(pattern);                  
-                    State_Machine(State,number,arr);
-                    break;
-                case 2:                     
-                    toh<<"< img src=";
-                    for (int i = 0; i < arr.size(); i++)
-                    {
-                        toh<<arr[i];
-                    }
-                    toh<<">";
-                    State_Machine(State,number,arr);
-                case 3:
-                    toh<<"<q>";
-                    pattern = 3;
-                    end_state_machine.push_back(pattern);                    
-                    State_Machine(State,number,arr);
-                    break;
-                case 4:
-                    toh<<"<a href=\"";
-                    toh<<arr[0]<<">";
-                    arr.erase(arr.begin());
-                    toh<<arr[1]<<"</a>";
-                    arr.erase(arr.begin());
-                    State.erase(State.begin());
-                    pattern = 4;
-                    end_state_machine.push_back(pattern);                    
-                    State_Machine(State,number,arr);
-                    break;
-                case 5:
-                    toh<<"<strong>";
-                    for (int i = 0; i < arr.size(); i++)
-                    {
-                        toh<<arr[i];
-                    }
-                    toh<<"</strong>";                    
-                    break;
-                case 6:
-                    toh<<"<code>";
-                    break;
-                case 7:
-                    break;
-                    toh<<"</code>";
-                case 8:
-                    toh<<"<hr>";
-                    break;
-                default:
-                    break;
-            }
-        }            
-        State.clear();  
+                }
+                arr.clear();
+                data_share = arr;
+                break;
+        } 
+        //输出结尾部分  
         for (int i = 0; i < end_state_machine.size(); i++)
         {
             int bit2 = end_state_machine[i];
             switch (bit2)
             {
-            case 1:
-                toh<<"<"<<"/"<<"h"<<number<<">";
-                break;
-            case 3:
-                toh<<"</q>";
-                break;
-            case 4:
-                toh<<"</a>";
-                break;
-            default:
-                break;
+                case 1:
+                    toh<<"<"<<"/"<<"h"<<number<<">";
+                    end_state_machine.erase(end_state_machine.begin());
+                    break;
+                case 2:
+                    toh<<">";
+                    break;
+                case 3:
+                    toh<<"</q>";
+                    end_state_machine.erase(end_state_machine.begin());
+                    break;
+                case 5:
+                    toh<<"</strong>";
+                default:
+                    break;
             }
-        } 
-       
+        }
         return 0;
     }
 };
