@@ -11,6 +11,9 @@
 using namespace std;
 
 class tohtml;
+class read_emakefile;
+
+string save_path;
 
 ofstream toh;
 
@@ -18,7 +21,6 @@ typedef struct Symbol_table
 {
     string name;
     string next;
-    Symbol_table* NextandNext;
 }Symbol_table;
 
 vector <Symbol_table> table1;
@@ -28,7 +30,7 @@ class read_emakefile
 private:
     string keyword0 = "#INPUTFILE";
     string keyword1 = "#OUTPUTFILE";
-    string keyword2 = "THEME";
+    string keyword2 = "#THEME";
 public:
     friend tohtml;
    //按照空格划分语句
@@ -90,6 +92,9 @@ public:
             if (input_src1[i] == keyword0 || input_src1[i] == keyword1 || input_src1[i] == keyword2){
                 s1.name = input_src1[i];
                 s1.next = input_src1[i+1];
+                if(s1.name == keyword1)
+                    save_path = s1.next;
+                else;
                 table1.push_back(s1);
             }
             else;
@@ -135,7 +140,6 @@ private:
             _findclose(hFile);
         }
     }         
-    string save_path;
     vector <Symbol_table> table2;
     vector <int> state_machine;
     vector <int> end_state_machine;
@@ -159,10 +163,6 @@ public:
                 char str[30];
                 int size = files.size();
             }
-            else if(table1[i].name == re->keyword1)
-            {
-                save_path = table1[i].next;
-            }
             else
             {
                 continue;
@@ -178,7 +178,6 @@ public:
     int trans_tohtml(string file_path)
     {
         fstream fout;
-        toh.open(save_path+string(".html"));
         fout.open(file_path);
         vector <string> save_mdfile;                
         if (fout)
@@ -198,7 +197,9 @@ public:
         else
         {
             cout<<"can not open the file!!!"<<endl;
+            return -1;
         }
+        toh<<"</body>"<<"</html>";
         return 0;
     }
     int run_task(vector <string> inputarr)
@@ -413,6 +414,54 @@ tohtml::tohtml()
 tohtml::~tohtml()
 {
     delete(re);
+}
+
+class Preprocessor
+{
+private:
+    string theme_key = "#THEME";
+    fstream theme_out;
+public:
+    Preprocessor();
+    int read_themefile()
+    {                       
+        toh.open(save_path+string(".html"));        
+        for (int i = 0; i < table1.size(); i++)
+        {
+            if (table1[i].name == theme_key)
+            {
+                theme_out.open(table1[i].next+string(".txt"));
+                if (theme_out)
+                {
+                    string line;
+                    while (getline(theme_out,line))
+                    {
+                        toh<<line<<"\n";
+                    }
+                    break;
+                }
+                else
+                {
+                    cerr<<"can not open the file!!!"<<endl;
+                    return -1;
+                }
+            }
+            else
+            {
+                continue;
+            }
+        }
+        return 0;
+    }
+    ~Preprocessor();
+};
+
+Preprocessor::Preprocessor(/* args */)
+{
+}
+
+Preprocessor::~Preprocessor()
+{
 }
 
 #endif
