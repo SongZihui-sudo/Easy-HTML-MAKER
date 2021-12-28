@@ -464,4 +464,12 @@ Preprocessor::~Preprocessor()
 {
 }
 
+class Extension{
+
+private:
+
+public:
+
+};
+
 #endif
