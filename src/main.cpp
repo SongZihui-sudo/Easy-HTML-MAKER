@@ -5,9 +5,10 @@
 #include <string>
 
 using namespace std;
-
 //主函数
 int main(){
+    Extension *e2;
+    e2 = new Extension();
     read_emakefile *r;
     r = new read_emakefile();
     tohtml *t;
@@ -20,6 +21,7 @@ int main(){
     delete(r);
     delete(t);
     delete(p);
+    delete(e2);
     return 0;
 }
 

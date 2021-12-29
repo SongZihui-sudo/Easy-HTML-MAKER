@@ -1,3 +1,4 @@
 #INPUTFILE ../md
 #OUTPUTFILE ../html/test
 #THEME ../theme/default
+#EXPAND ON

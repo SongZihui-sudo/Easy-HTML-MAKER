@@ -14,6 +14,8 @@ class tohtml;
 class read_emakefile;
 
 string save_path;
+string expand_name;
+string expand_State;
 
 ofstream toh;
 
@@ -31,6 +33,7 @@ private:
     string keyword0 = "#INPUTFILE";
     string keyword1 = "#OUTPUTFILE";
     string keyword2 = "#THEME";
+    string keyword3 = "#EXPAND";
 public:
     friend tohtml;
    //按照空格划分语句
@@ -89,11 +92,13 @@ public:
     int make_symboltable1(vector <string> input_src1){
         Symbol_table s1;
         for (int i = 0; i < input_src1.size(); i++){
-            if (input_src1[i] == keyword0 || input_src1[i] == keyword1 || input_src1[i] == keyword2){
+            if (input_src1[i] == keyword0 || input_src1[i] == keyword1 || input_src1[i] == keyword2 || input_src1[i] == keyword3){
                 s1.name = input_src1[i];
                 s1.next = input_src1[i+1];
                 if(s1.name == keyword1)
                     save_path = s1.next;
+                else if(s1.name == keyword3)
+                    expand_State = s1.next;
                 else;
                 table1.push_back(s1);
             }
@@ -102,6 +107,60 @@ public:
         return 0;
     }
 };
+    
+class Extension{
+private:
+    vector <Symbol_table> table3;
+    string extension_key = "#EXPAND";
+public:
+    //拓展管理
+    read_emakefile *re3;
+    // 拓展一 增加功能性页面
+    vector <string> add_new_page(){
+        Symbol_table s3;    
+        fstream conf_expan_out;
+        conf_expan_out.open("../conf/expand_list.conf");
+        vector <string> save_conffile;
+        vector <string> gotogrammer;
+        if (conf_expan_out)
+        {
+            string line;
+            while (getline(conf_expan_out,line))
+            {
+                save_conffile.push_back(line);
+            }
+        }
+        else
+        {
+            cerr<<"can not open the file!!!"<<endl;
+        }
+        save_conffile = re3->Participle(save_conffile);
+        for (int i = 2; i < save_conffile.size(); i+=2)
+        {
+            s3.name = save_conffile[i];
+            s3.next = save_conffile[i+1];
+            if (s3.name == expand_name)
+            {
+                gotogrammer.push_back(s3.next+string(" "));
+                gotogrammer.push_back(s3.name);
+                return gotogrammer;
+            }
+            else;
+            table3.push_back(s3);
+        }
+        gotogrammer.clear();
+        return gotogrammer;
+    }
+
+    Extension(){
+        re3 = new read_emakefile();
+    }
+    ~Extension(){
+        delete(re3);
+    }
+};
+
+
 class tohtml
 {
 private:
@@ -113,6 +172,7 @@ private:
     string md_keyword5 = "```";
     string md_keyword6 = "***";
     string md_keyword7 = "---"; 
+    string md_keyword8 = "::";
     void getFiles( string path, vector<string>& files )
     {
         //文件句柄
@@ -148,6 +208,7 @@ private:
 public:
     friend read_emakefile;
     read_emakefile *re;
+    Extension *e2;
     tohtml();
     ~tohtml();
     int open_mdfile()
@@ -287,6 +348,14 @@ public:
             data_share = analyer1;
             return bit;
         }
+        else if(analyer1[0] == md_keyword8)
+        {
+            bit = 9;
+            analyer1.erase(analyer1.begin());
+            state_machine.push_back(bit);
+            data_share = analyer1;
+            return bit;
+        }
         else
         {
             bit = 0;
@@ -359,6 +428,16 @@ public:
                 bit1 = 0;
                 Grammatical_analyer(bit1,number,arr);              
                 break;
+            case 9:
+                expand_name = arr[0];
+                if (expand_State == "ON")
+                {
+                    vector <string> in_grammer;
+                    in_grammer = e2->add_new_page();
+                    Grammatical_analyer(4,0,in_grammer);
+                }
+                else;
+                break;
             default: 
                 for (int i = 0; i < arr.size(); i++)
                 {
@@ -409,11 +488,13 @@ public:
 tohtml::tohtml()
 {
     re = new read_emakefile();
+    e2 = new Extension();
 }
 
 tohtml::~tohtml()
 {
     delete(re);
+    delete(e2);
 }
 
 class Preprocessor
@@ -463,13 +544,5 @@ Preprocessor::Preprocessor(/* args */)
 Preprocessor::~Preprocessor()
 {
 }
-
-class Extension{
-
-private:
-
-public:
-
-};
 
 #endif
