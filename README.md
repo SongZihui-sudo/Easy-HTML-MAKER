@@ -5,20 +5,20 @@
 ### 在EMAKEFILE文件中也存在这一些简单的语法    
 注意：不用添加文件名后缀     
 1、定义变量     
-var的数据类型为字符串，可以用此来存放文件地址等 语法```var str```    
-int的数据类型为短整型数字，主要用来批量设置输出的html文件名 ```int num```     
+```var```的数据类型为字符串，可以用此来存放文件地址等 语法```var str```    
+```int```的数据类型为短整型数字，主要用来批量设置输出的html文件名 ```int num```     
 2、for     
 语法 ``` for i```     
 递减i次i     
 3、static 在使用变量时要进行声明      
-var str     
-``` static str```    
-4、#INPUTFILE 输入文件地址，不用精确到文件，到上层目录即可。    
+```var str     
+   static str```    
+4、```#INPUTFILE``` 输入文件地址，不用精确到文件，到上层目录即可。    
 ``` #INPUTFILE var``` or ``` #INPUTFILE ../md```    
-5、#OUTPUTFILE 输出文件地址    
+5、```#OUTPUTFILE``` 输出文件地址    
 ``` #OUTPUTFILE var``` or ```#OUTPUTFILE ../html/test ```   
-6、#THEME 选择的主题的地址，语法同上。   
-7、#EXPAND 是否打开拓展功能 打开 ON 关闭 OFF   
+6、```#THEME``` 选择的主题的地址，语法同上。   
+7、```#EXPAND``` 是否打开拓展功能 打开 ON 关闭 OFF   
 其次是也改变了图像标签的写法。   
 改为 ```img 图片链接 ```的格式   
 <div align='center'><a href='https://www.hit-counts.com/'><img src='http://www.hit-counts.com/counter.php?t=MTQ2MDE2OA==' border='0' alt=''></a><BR><a href='https://www.glowgraphics.co.uk/'>logo design</a></div>   
