@@ -12,31 +12,61 @@ using namespace std;
 
 class tohtml;
 class read_emakefile;
+class Extension;
 
 string save_path;
 string expand_name;
 string expand_State;
+string theme_path;
+string md_path;
+
+int save_path_state = 0;
 
 ofstream toh;
 
 typedef struct Symbol_table
 {
     string name;
-    string next;
+    string value;
+    Symbol_table *next;
 }Symbol_table;
+
+typedef struct strock_int
+{
+    vector <int> int_arr;
+}strock_int;
+
+typedef struct strock_string
+{
+    vector <string> string_arr;
+}strock_string;
 
 vector <Symbol_table> table1;
 
 class read_emakefile
 {
 private:
+    //关键字
     string keyword0 = "#INPUTFILE";
     string keyword1 = "#OUTPUTFILE";
     string keyword2 = "#THEME";
     string keyword3 = "#EXPAND";
-public:
+    string keyword4 = "var";//定义字符串
+    string keyword5 = "int";//定义数字变量
+    string keyword6 = "for";
+    string keyword7 = "static";
+    string keyword8 = "++";
+    //栈 存单个变量
+    vector <Symbol_table> Variable_stack;
+    //栈 存储 字符串或者数字数组
+    vector <strock_string> Variable_stack_string_arr;
+    vector <strock_int> Variable_stack_int_arr;
+    //友类
     friend tohtml;
+    friend Extension;
+    string finding;
    //按照空格划分语句
+   public:
     vector <string> Participle(vector <string> input_file) 
     {
 		string space = " ";
@@ -79,7 +109,9 @@ public:
             string line;
             while (getline(emakefileout,line))
             {
-                save_data.push_back(line);
+                save_data = Participle(line);
+                E_make_lexicalandgrammer_analysis(save_data);
+                save_data.clear();
             }
         }
         else
@@ -89,20 +121,147 @@ public:
         save_data = Participle(save_data);
         return save_data;
     }
-    int make_symboltable1(vector <string> input_src1){
-        Symbol_table s1;
-        for (int i = 0; i < input_src1.size(); i++){
-            if (input_src1[i] == keyword0 || input_src1[i] == keyword1 || input_src1[i] == keyword2 || input_src1[i] == keyword3){
-                s1.name = input_src1[i];
-                s1.next = input_src1[i+1];
-                if(s1.name == keyword1)
-                    save_path = s1.next;
-                else if(s1.name == keyword3)
-                    expand_State = s1.next;
-                else;
-                table1.push_back(s1);
+
+    //Emakefile文件的词法分析
+    int E_make_lexicalandgrammer_analysis(vector <string> ready_to_make){
+        string name;
+        Symbol_table *next;
+        Symbol_table *head;
+        Symbol_table *node;
+        for (int i = 0; i < ready_to_make.size(); i+=2)
+        {
+            //先去掉注释语句
+            if (ready_to_make[i] == "//")
+            {
+                continue; 
             }
-            else;
+            else if(ready_to_make[i] == keyword0||ready_to_make[i] == keyword1||ready_to_make[i]==keyword2||ready_to_make[i]==keyword3||ready_to_make[i]==keyword4||ready_to_make[i]==keyword5||ready_to_make[i]==keyword6||ready_to_make[i]==keyword7)
+            {        
+                head = new Symbol_table();
+                head->name = ready_to_make[i];
+                head->value = ready_to_make[i+1];  
+                head->next = next;
+                next = head;            
+            }
+            else
+            {
+                break;
+            }
+        }
+        for (int i = 0; i < ready_to_make.size(); i++)
+        {
+            if (ready_to_make[0] == keyword0)
+            {
+                for (int i = 0; i < Variable_stack.size(); i++)
+                {
+                    if (finding == Variable_stack[i].name)
+                    {
+                        md_path = Variable_stack[i].value;
+                        break;
+                    }
+                    else;
+                }
+            }
+            else if (ready_to_make[0] == keyword1)
+            {
+                for (int i = 0; i < Variable_stack.size(); i++)
+                {
+                    if (finding == Variable_stack[i].name)
+                    {
+                        save_path = Variable_stack[i].value;    
+                        break;
+                    }
+                    else
+                        save_path = ready_to_make[1];
+                }
+            }
+            else if(ready_to_make[0] == keyword2)
+            {
+                for (int i = 0; i < Variable_stack.size(); i++)
+                {
+                    if(finding == Variable_stack[i].name){
+                        theme_path = Variable_stack[i].value;
+                        break;
+                    }
+                    else;
+                }
+            }
+            else if(ready_to_make[0] == keyword3)
+            {
+                expand_State = ready_to_make[1];
+            }
+            else if(ready_to_make[0] == keyword4)
+            {
+                Symbol_table svar;
+                svar.name = ready_to_make[1];
+                svar.value="1";
+                Variable_stack.push_back(svar);
+            }
+            else if(ready_to_make[0] == keyword5)
+            {
+                Symbol_table svar;
+                svar.name = ready_to_make[1];
+                svar.value = "0";
+                Variable_stack.push_back(svar);
+            }
+            else if(ready_to_make[0] == keyword6)
+            {
+                strock_int parr_int;
+                int size;
+                for (int i = 0; i < Variable_stack.size(); i++)
+                {
+                    if (finding == Variable_stack[i].name)
+                    {
+                        size = stoi(Variable_stack[i].value);
+                    }
+                    else;
+                }
+                for (int i = 1; i < size; i++)
+                {
+                    parr_int.int_arr.push_back(i);                    
+                }
+                Variable_stack_int_arr.push_back(parr_int);
+            }
+            else if(ready_to_make[0] == keyword7)
+            {
+                finding = ready_to_make[1];
+            }
+            else if(ready_to_make[0] == keyword8)
+            {
+                int num;
+                for (int i = 0; i < Variable_stack.size(); i++)
+                {
+                    if (ready_to_make[1] == Variable_stack[i].name)
+                    {
+                        num = stoi(Variable_stack[i].value);
+                    }
+                }
+                save_path_state = num;
+            }
+            else{
+                for (int i = 0; i < Variable_stack.size(); i++)
+                {
+                    if (Variable_stack[i].name == ready_to_make[0])
+                    {
+                        if (Variable_stack[i].value == "1")
+                        {
+                            Variable_stack[i].value = ready_to_make[1];
+                        }
+                        else if(Variable_stack[i].value == "0")
+                        {
+                            Variable_stack[i].value = ready_to_make[1];
+                        }
+                        else;
+                        if (Variable_stack[i].value == "++")
+                        {
+                            Variable_stack[i].value.clear();
+                        }
+                        else;
+                    }
+                    else;
+                }
+            }
+            //head = head->next;
         }
         return 0;
     }
@@ -138,10 +297,10 @@ public:
         for (int i = 2; i < save_conffile.size(); i+=2)
         {
             s3.name = save_conffile[i];
-            s3.next = save_conffile[i+1];
+            s3.value = save_conffile[i+1];
             if (s3.name == expand_name)
             {
-                gotogrammer.push_back(s3.next+string(" "));
+                gotogrammer.push_back(s3.value+string(" "));
                 gotogrammer.push_back(s3.name);
                 return gotogrammer;
             }
@@ -214,21 +373,11 @@ public:
     int open_mdfile()
     {                
         vector<string> files;
-        for (int i = 0; i < table1.size(); i++)
-        {
-            if ( table1[i].name == re->keyword0)
-            {
-                char * filePath = (char*)table1[i].next.c_str();
-                ////获取该路径下的所有文件
-                getFiles(filePath, files );
-                char str[30];
-                int size = files.size();
-            }
-            else
-            {
-                continue;
-            }
-        }  
+        char * filePath = (char*)md_path.c_str();
+        ////获取该路径下的所有文件
+        getFiles(filePath, files );
+        char str[30];
+        int size = files.size();
         for (int i = 0; i < files.size(); i++)
         {
             trans_tohtml(files[i]);
@@ -500,38 +649,30 @@ tohtml::~tohtml()
 class Preprocessor
 {
 private:
-    string theme_key = "#THEME";
     fstream theme_out;
 public:
     Preprocessor();
     int read_themefile()
-    {                       
-        toh.open(save_path+string(".html"));        
-        for (int i = 0; i < table1.size(); i++)
+    {                  
+        for (int j = 0; j < save_path_state; j++)
         {
-            if (table1[i].name == theme_key)
+            toh.open(save_path+to_string(j)+string(".html"));        
+            theme_out.open(theme_path+string(".txt"));
+            if (theme_out)
             {
-                theme_out.open(table1[i].next+string(".txt"));
-                if (theme_out)
+                string line;
+                while (getline(theme_out,line))
                 {
-                    string line;
-                    while (getline(theme_out,line))
-                    {
-                        toh<<line<<"\n";
-                    }
-                    break;
+                    toh<<line<<"\n";
                 }
-                else
-                {
-                    cerr<<"can not open the file!!!"<<endl;
-                    return -1;
-                }
+                break;
             }
             else
             {
-                continue;
+                cerr<<"can not open the file!!!"<<endl;
+                return -1;
             }
-        }
+        } 
         return 0;
     }
     ~Preprocessor();

@@ -10,8 +10,8 @@ jobs:
       - name: Mirror the Github organization repos to Gitee.
         uses: SongZihui-sudo/EasyHtml-language-HTML-MAKER@Windows
         with:
-          src: 'gitee/EasyHtml-language-HTML-MAKER'
-          dst: 'github/EasyHtml-language-HTML-MAKER'
+          src: 'github/EasyHtml-language-HTML-MAKER'
+          dst: 'gitee/EasyHtml-language-HTML-MAKER'
           dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
           dst_token:  ${{ secrets.GITEE_TOKEN }}
           static_list: "learn-typescript"

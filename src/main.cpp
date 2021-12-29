@@ -13,7 +13,7 @@ int main(){
     r = new read_emakefile();
     tohtml *t;
     t = new tohtml();
-    r->make_symboltable1(r->readout_emakefile());
+    r->readout_emakefile();
     Preprocessor *p;
     p = new Preprocessor();
     p->read_themefile();
