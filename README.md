@@ -11,8 +11,7 @@
 语法 ``` for i```     
 递减i次i     
 3、static 在使用变量时要进行声明      
-```var str     
-   static str```    
+```var str     static str```    
 4、```#INPUTFILE``` 输入文件地址，不用精确到文件，到上层目录即可。    
 ``` #INPUTFILE var``` or ``` #INPUTFILE ../md```    
 5、```#OUTPUTFILE``` 输出文件地址    
