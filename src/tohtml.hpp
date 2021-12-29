@@ -409,7 +409,7 @@ public:
             cout<<"can not open the file!!!"<<endl;
             return -1;
         }
-        toh<<"</body>"<<"</html>";
+        toh<<"</div>"<<"</body>"<<"</html>";
         return 0;
     }
     int run_task(vector <string> inputarr)
