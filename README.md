@@ -20,6 +20,29 @@
 7、```#EXPAND``` 是否打开拓展功能 打开 ON 关闭 OFF   
 其次是也改变了图像标签的写法。   
 改为 ```img 图片链接 ```的格式   
+e.g.
+```
+var name3
+name3 ../md
+static name3
+#INPUTFILE name3 
+var name
+var name2
+name2 ../theme/default
+name ../html/test
+int i
+i 1
+static i
+for i
+// Declare before using variables
+static name
+name ++
+++ i
+#OUTPUTFILE name
+static name2
+#THEME name2
+#EXPAND ON
+```
 <div align='center'><a href='https://www.hit-counts.com/'><img src='http://www.hit-counts.com/counter.php?t=MTQ2MDE2OA==' border='0' alt=''></a><BR><a href='https://www.glowgraphics.co.uk/'>logo design</a></div>   
 	
 [关于EASYHTML编辑器](https://github.com/SongZihui-sudo/easyhtmleaitor)      
