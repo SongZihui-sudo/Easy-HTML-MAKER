@@ -9,8 +9,8 @@
 #include <istream>
 
 using namespace std;
-
-class tohtml;
+namespace mth{
+    class tohtml;
 class read_emakefile;
 class Extension;
 
@@ -698,5 +698,7 @@ Preprocessor::Preprocessor(/* args */)
 Preprocessor::~Preprocessor()
 {
 }
+}
+
 
 #endif

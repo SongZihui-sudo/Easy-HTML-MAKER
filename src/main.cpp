@@ -5,6 +5,8 @@
 #include <string>
 
 using namespace std;
+using namespace mth;
+
 //主函数
 int main(){
     Extension *e2;
