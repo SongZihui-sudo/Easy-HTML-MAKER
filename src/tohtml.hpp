@@ -272,14 +272,14 @@ private:
 class Extension{
 private:
     vector <Symbol_table> table3;
-    string extension_key = "#EXPAND";
+    string extension_key = "#EXPAND";        
+    fstream conf_expan_out;
 public:
     //拓展管理
     read_emakefile *re3;
     // 拓展一 增加功能性页面
     vector <string> add_new_page(){
         Symbol_table s3;    
-        fstream conf_expan_out;
         conf_expan_out.open("../conf/expand_list.conf");
         vector <string> save_conffile;
         vector <string> gotogrammer;
@@ -312,7 +312,49 @@ public:
         gotogrammer.clear();
         return gotogrammer;
     }
-
+    int Websocket(vector <string> ws){
+        string ip;
+        for (int i = 0; i < ws.size(); i++)
+        {
+            if (ws[i] == "websocket")
+            {
+                ip = ws[i+1];
+                break;
+            }
+            else;
+        }
+        conf_expan_out.open("../conf/expand_list.conf");
+        string line;
+        string ex_path;
+        while (getline(conf_expan_out,line))
+        {
+            if (line == "websocket")
+            {
+                getline(conf_expan_out,line);
+                ex_path = line;
+                break;
+            }
+            else;
+        }
+        fstream open_ws;
+        open_ws.open(ex_path);
+        if (open_ws)
+        {
+            while (getline(open_ws,line))
+            {
+                if (line == "var ip")
+                {
+                    toh<<"var ip =\""<<ip<<"\""<<endl;
+                }   
+                else
+                {
+                    toh<<line;
+                }
+            }
+        }
+        else;
+        return 0;
+    }
     Extension(){
         re3 = new read_emakefile();
     }
