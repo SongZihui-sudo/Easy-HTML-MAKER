@@ -1,4 +1,4 @@
-# EasyHtml-language-HTML-MAKER
+# Easy-HTML-MAKER
  
 ## 关于 2021-12-29 更新     
 首先加入了EMAKEFILE文件，意在可以批量完成对HTML的转换而不用在每次转换时都要进行选择。    
