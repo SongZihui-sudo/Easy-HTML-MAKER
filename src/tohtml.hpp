@@ -20,6 +20,8 @@ string expand_State;
 string theme_path;
 string md_path;
 
+int nums_of_div = 0;
+
 int save_path_state = 0;
 
 ofstream toh;
@@ -409,7 +411,12 @@ public:
             cout<<"can not open the file!!!"<<endl;
             return -1;
         }
-        toh<<"</div>"<<"</body>"<<"</html>";
+        for (int i = 0; i < nums_of_div ; i++)
+        {
+            toh<<"</div>";
+
+        }
+        toh<<"</body>"<<"</html>";
         return 0;
     }
     int run_task(vector <string> inputarr)
@@ -651,6 +658,7 @@ class Preprocessor
 private:
     fstream theme_out;
 public:
+    friend tohtml;
     Preprocessor();
     int read_themefile()
     {                  
@@ -664,6 +672,11 @@ public:
                 while (getline(theme_out,line))
                 {
                     toh<<line<<"\n";
+                    if (line == string("div"))
+                    {
+                        nums_of_div++;
+                    }
+                    else;
                 }
                 break;
             }
