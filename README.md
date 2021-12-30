@@ -100,8 +100,6 @@ git clone https://github.com/SongZihui-sudo/EasyHtml-language-HTML-MAKER
 ### DEMO   
 MARKDOWN     
 ```
-#theme default
-
 # Song Zihui’s Website 
 
 Every problems has its Solution
