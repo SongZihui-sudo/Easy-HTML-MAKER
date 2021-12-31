@@ -1,5 +1,5 @@
-#ifndef _tohtml_hpp
-#define _tohtml_hpp
+#ifndef _Article_device
+#define _Article_device
 
 #include <iostream>
 #include <vector>
@@ -9,10 +9,10 @@
 #include <istream>
 
 using namespace std;
+
 namespace mth{
-    class tohtml;
-class read_emakefile;
-class Extension;
+
+vector <string> read_out;
 
 string save_path;
 string expand_name;
@@ -63,9 +63,6 @@ private:
     //栈 存储 字符串或者数字数组
     vector <strock_string> Variable_stack_string_arr;
     vector <strock_int> Variable_stack_int_arr;
-    //友类
-    friend tohtml;
-    friend Extension;
     string finding;
    //按照空格划分语句
    public:
@@ -275,26 +272,29 @@ private:
     string extension_key = "#EXPAND";        
     fstream conf_expan_out;
 public:
-    //拓展管理
     read_emakefile *re3;
-    // 拓展一 增加功能性页面
-    vector <string> add_new_page(){
-        Symbol_table s3;    
+    //读取拓展配置文件
+    vector <string> read_conf_expend(){
+        vector <string> readout_confexpend;
         conf_expan_out.open("../conf/expand_list.conf");
-        vector <string> save_conffile;
-        vector <string> gotogrammer;
         if (conf_expan_out)
         {
             string line;
             while (getline(conf_expan_out,line))
             {
-                save_conffile.push_back(line);
+                readout_confexpend.push_back(line);
             }
         }
         else
         {
-            cerr<<"can not open the file!!!"<<endl;
+            cerr<<"excan not open the file!!!"<<endl;
         }
+        return readout_confexpend;
+    }
+    // 拓展一 增加功能性页面
+    vector <string> add_new_page(vector <string> save_conffile){
+        Symbol_table s3;    
+        vector <string> gotogrammer;
         save_conffile = re3->Participle(save_conffile);
         for (int i = 2; i < save_conffile.size(); i+=2)
         {
@@ -309,10 +309,11 @@ public:
             else;
             table3.push_back(s3);
         }
+        conf_expan_out.close();
         gotogrammer.clear();
         return gotogrammer;
     }
-    int Websocket(vector <string> ws){
+    int Websocket(vector <string> ws,vector <string> conffile2){
         string ip;
         for (int i = 0; i < ws.size(); i++)
         {
@@ -323,13 +324,10 @@ public:
             }
             else;
         }
-        conf_expan_out.open("../conf/expand_list.conf");
         string line;
         string ex_path;
-        while (getline(conf_expan_out,line))
-        {
-            if (line == "websocket")
-            {
+        for (int i = 0; i < conffile2.size(); i++){
+            if (conffile2[i] == "websocket"){
                 getline(conf_expan_out,line);
                 ex_path = line;
                 break;
@@ -459,6 +457,7 @@ public:
 
         }
         toh<<"</body>"<<"</html>";
+        cout<<"ebuild finish!!!"<<endl;
         return 0;
     }
     int run_task(vector <string> inputarr)
@@ -631,7 +630,7 @@ public:
                 if (expand_State == "ON")
                 {
                     vector <string> in_grammer;
-                    in_grammer = e2->add_new_page();
+                    in_grammer = e2->add_new_page(read_out);
                     Grammatical_analyer(4,0,in_grammer);
                 }
                 else;
@@ -740,7 +739,30 @@ Preprocessor::Preprocessor(/* args */)
 Preprocessor::~Preprocessor()
 {
 }
-}
 
+class run_build_artical{
+public:
+    int Article_device_run(){
+        cout<<"ebuild runing waiting while"<<endl;
+        Extension *e2;
+        e2 = new Extension();
+        read_emakefile *r;
+        r = new read_emakefile();
+        tohtml *t;
+        t = new tohtml();
+        r->readout_emakefile();
+        Preprocessor *p;
+        p = new Preprocessor();
+        p->read_themefile();
+        t->open_mdfile();
+        delete(r);
+        delete(t);
+        delete(p);
+        delete(e2);
+        return 0;
+    };
+private:
+};
+}
 
 #endif

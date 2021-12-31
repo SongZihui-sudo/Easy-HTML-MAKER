@@ -69,8 +69,7 @@ static name2
 引用标签 > 
 分割线标签 --- 再单独一行
 强调（加粗） __ 两个_
-主题标签 #theme 主题名    
-拓展标签 #expand 拓展名
+拓展标签 :: 拓展名
 ``` 
 
 ## Getting Started   
