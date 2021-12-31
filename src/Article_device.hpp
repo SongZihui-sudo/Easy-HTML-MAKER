@@ -276,7 +276,7 @@ public:
     //读取拓展配置文件
     vector <string> read_conf_expend(){
         vector <string> readout_confexpend;
-        conf_expan_out.open("../conf/expand_list.conf");
+        conf_expan_out.open("../Website/conf/expand_list.conf");
         if (conf_expan_out)
         {
             string line;

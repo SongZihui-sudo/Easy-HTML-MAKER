@@ -4,6 +4,7 @@
 #include "Article_device.hpp"
 #include <string>
 #include "Command_parser.hpp"
+#include "Website_manager.hpp"
 
 using namespace mth;
 using namespace std;
@@ -14,6 +15,7 @@ int main(int argc, char const *argv[]){
     run_build_artical rba;
     Command_parser cper;
     Extension exn;
+    Website_manager webmer;
     string line;
     vector <string> after_input;
     read_out = exn.read_conf_expend();

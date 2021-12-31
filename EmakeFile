@@ -4,8 +4,8 @@ static name3
 #INPUTFILE name3 
 var name
 var name2
-name2 ../theme/default
-name ../html/test
+name2 ../Website/theme/default
+name ../Website/html/test
 int i
 i 1
 static i
