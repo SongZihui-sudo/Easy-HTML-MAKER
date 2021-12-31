@@ -15,7 +15,7 @@ class Command_parser
 
 private:
     int bit = 0;
-    string keyword[3] = {"quit","ebuild"};
+    string keyword[3] = {"quit","emake"};
 public:        
     deque <int> state_machine2;
     int Lexical_analysis_of_commands(vector <string> ready_todo){
