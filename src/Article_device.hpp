@@ -631,7 +631,6 @@ public:
                     cout<<"<q>";
                 }
                 pattern = 3;
-                arr.erase(arr.begin());
                 end_state_machine.push_back(pattern);
                 bit1 = 0;
                 Grammatical_analyer(bit1,number,arr,bit3);                                  
@@ -674,7 +673,6 @@ public:
                     cout<<"<strong>";                    
                 }
                 pattern = 5;
-                arr.erase(arr.begin());
                 end_state_machine.push_back(pattern);
                 bit1 = 0;
                 Grammatical_analyer(bit1,number,arr,bit3);              
