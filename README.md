@@ -50,9 +50,9 @@ url ../Blog/Blog.html Blog
 
 url ../About/contact_me.html contact me  
 
-#expand pi-dashboard
+:: pi-dashboard
 
-#expand Weather.io
+:: Weather.io
 
 This Website made by url https://githubfast.com/SongZihui-sudo/e-Conversion-html-maker e-Conversion html maker     
 
