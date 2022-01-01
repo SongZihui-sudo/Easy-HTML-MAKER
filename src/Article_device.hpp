@@ -610,13 +610,12 @@ public:
             case 2:              
                 if (bit3 == 0)
                 {
-                    toh<<"< img src=";
+                    toh<<"<img src=\"";
                 }
                 else
                 {
-                    cout<<"< img src=";
+                    cout<<"<img src=";
                 }
-                arr.erase(arr.begin());
                 pattern = 2;
                 end_state_machine.push_back(pattern);
                 bit1 = 0;
@@ -795,11 +794,11 @@ public:
                 case 2:
                     if (bit3 == 0)
                     {
-                        toh<<">";
+                        toh<<"\"/>";
                     }
                     else
                     {
-                        cout<<">";
+                        cout<<"\"/>";
                     }
                     break;
                 case 3:
