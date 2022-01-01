@@ -36,37 +36,44 @@ int main(int argc, char const *argv[]){
         }
         else if(module[i] == "Command_parser" && module[i+1] == "ON"){
             while (getline(cin,line)){
-                int bit = 0;
-                after_input = emk.Participle(line);
-                cper.Lexical_analysis_of_commands(after_input);
-                bit = cper.Syntax_analysis_of_commands();
-                switch (bit)
+                if (line == "")
                 {
-                    case 1:
-                        return 1;
-                    case 2:
-                        rba.Article_device_run();
-                        break;
-                    case 3:
-                        if (module[i-1] == "ON"){
-                            ehr.run_eim();
-                        }
-                        else{
-                            return -1;
-                        }
-                        break;    
-                    case -1:
-                        cerr<<"do not find"<<" "<<line<<" !!!"<<endl;
-                        return -1;
-                    default:
-                        break;
+                    continue;
                 }
-                cper.state_machine2.clear();
+                else{
+                    int bit = 0;
+                    after_input = emk.Participle(line);
+                    cper.Lexical_analysis_of_commands(after_input);
+                    bit = cper.Syntax_analysis_of_commands();
+                    switch (bit)
+                    {
+                        case 1:
+                            return 1;
+                        case 4:
+                            rba.Article_device_run();
+                            break;
+                        case 2:
+                            rba.Article_device_run();
+                            break;
+                        case 3:
+                            if (module[i-1] == "ON"){
+                                ehr.run_eim();
+                            }
+                            else{
+                                return -1;
+                            }
+                            break;    
+                        case -1:
+                            cerr<<"do not find"<<" "<<line<<" !!!"<<endl;
+                            return -1;
+                        default:
+                            break;
+                    }
+                    cper.state_machine2.clear();
+                }
             }
         }
         else;
     }
-    
-    
     return 0;
 }

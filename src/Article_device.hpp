@@ -8,6 +8,7 @@
 #include <io.h>
 #include <istream>
 #include <deque>
+#include "estack.hpp"
 
 using namespace std;
 

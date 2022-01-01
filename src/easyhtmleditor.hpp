@@ -27,10 +27,12 @@
         }
         estack <string> input_str(estack <string> input){
             string line;
-            while (getline(cin,line)){
+            while (getline(cin,line)){                    
                 if (line == "wq")
                 {
+                    cin>>line;
                     save_file(line,input);
+                    return input;
                 }
                 else if (line == "q")
                 {
@@ -39,18 +41,18 @@
                 }
                 else
                 {
-                    line = convert(line);
-                    input.Push(line);
+                    convert(line);                    
+                    input.Push(line);                    
                 }
             }
             return input;
         }
-        string convert(string readytoconvert){
+        int convert(string readytoconvert){
             vector <string> arr_input;
             arr_input = re5.Participle(readytoconvert);
             int bit = toh2.Lexical_analyzer(arr_input);
             toh2.Grammatical_analyer(bit,toh2.num,arr_input,1); 
-            return readytoconvert;
+            return 0;
         }
         int save_file(string save_path1,estack <string> arr_str){
             cout<<"Saving file"<<endl;

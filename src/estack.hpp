@@ -44,12 +44,12 @@ public:
     }
     ~estack()
     {
-        delete[] data;
+        //delete[] data;
     }
     //是否为空
     bool Empty();
     //压栈
-    void Push(type tp);
+    int Push(type tp);
     //出栈
     void Pop();
     //栈大小
@@ -87,16 +87,22 @@ bool estack<type>::Empty()
 }
 
 template<class type>
-void estack<type>::Push(type tp)
+int estack<type>::Push(type tp)
 {
     if(top+1<maxsize){
-        data[++top]=tp;
+        if (tp == "")
+        {
+            return 1;   
+        }
+        else
+            data[++top]=tp;
     }
     else
     {
         cout<<"full!!!\n";
         exit(1);
     }
+    return 0;
 }
 
 template<class type>
