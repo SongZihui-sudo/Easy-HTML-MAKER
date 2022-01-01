@@ -7,6 +7,7 @@
 #include <fstream>
 #include <io.h>
 #include <istream>
+#include <deque>
 
 using namespace std;
 
@@ -70,6 +71,24 @@ private:
     {
 		string space = " ";
 		vector <string> Participle_file;
+        for (int i = 0; i < input_file.size(); i++)
+        {		
+            char* s = new char[input_file[i].size() + 1];
+            strcpy(s, input_file[i].c_str());
+            char* p = strtok(s, " ");
+            while(p) 
+            {
+	            Participle_file.push_back(p);
+	            p = strtok(NULL, " ");
+            }
+        }
+		return Participle_file;
+    }
+    //重载
+    deque <string> Participle(deque <string> input_file) 
+    {
+		string space = " ";
+		deque <string> Participle_file;
         for (int i = 0; i < input_file.size(); i++)
         {		
             char* s = new char[input_file[i].size() + 1];
@@ -405,8 +424,8 @@ private:
     vector <int> state_machine;
     vector <int> end_state_machine;
     vector <string> data_share;
+public:    
     int num = 0;
-public:
     friend read_emakefile;
     read_emakefile *re;
     Extension *e2;
@@ -466,7 +485,7 @@ public:
         while(inputarr.begin()!=inputarr.end())
         {
             bit = Lexical_analyzer(inputarr);
-            Grammatical_analyer(bit,num,data_share);
+            Grammatical_analyer(bit,num,data_share,0);
             inputarr = data_share;
         }
         return 0;
@@ -474,6 +493,10 @@ public:
     //词法分析器
     int Lexical_analyzer(vector <string> analyer1)
     {
+        if (analyer1.begin() == analyer1.end())
+        {
+            return 10;   
+        }
         int bit = 0;
         if (analyer1[0][0] == '#')
         {
@@ -563,67 +586,137 @@ public:
         return 10;
     }
     //文法分析器
-    int Grammatical_analyer(int State,int number,vector <string> arr)
+    int Grammatical_analyer(int State,int number,vector <string> arr,int bit2)
     {   
         int pattern = 0;
         int bit1 = State;
         switch (bit1)
         {
             case 1:
-                toh<<"<h"<<number<<">";     
+                if (bit2 == 0)
+                {
+                    toh<<"<h"<<number<<">";     
+                }
+                else
+                {
+                    cout<<"<h"<<number<<">";
+                }
                 pattern = 1;
                 end_state_machine.push_back(pattern);    
                 bit1 = 0;
-                Grammatical_analyer(bit1,number,arr);              
+                Grammatical_analyer(bit1,number,arr,bit2);              
                 break;
-            case 2:                     
-                toh<<"< img src=";
+            case 2:              
+                if (bit2 == 0)
+                {
+                    toh<<"< img src=";
+                }
+                else
+                {
+                    cout<<"< img src=";
+                }
+                arr.erase(arr.begin());
                 pattern = 2;
                 end_state_machine.push_back(pattern);
                 bit1 = 0;
-                Grammatical_analyer(bit1,number,arr);              
+                Grammatical_analyer(bit1,number,arr,bit2);       
+                break;       
             case 3:
-                toh<<"<q>";
+                if (bit2 == 0)
+                {
+                    toh<<"<q>";
+                }
+                else
+                {
+                    cout<<"<q>";
+                }
                 pattern = 3;
+                arr.erase(arr.begin());
                 end_state_machine.push_back(pattern);
                 bit1 = 0;
-                Grammatical_analyer(bit1,number,arr);                                  
+                Grammatical_analyer(bit1,number,arr,bit2);                                  
                 break;
             case 4:
-                toh<<"<a href=\"";
-                toh<<arr[0]<<"\">";
-                arr.erase(arr.begin());
-                for (int i = 0; i < arr.size(); i++)
+                if (bit2 == 0)
                 {
-                    toh<<arr[i]<<" ";
+                    toh<<"<a href=\"";
+                    toh<<arr[0]<<"\">";
+                    arr.erase(arr.begin());
+                    for (int i = 0; i < arr.size(); i++)
+                    {
+                        toh<<arr[i]<<" ";
+                    }
+                    toh<<"</a>";
                 }
-                toh<<"</a>";
+                else
+                {
+                    cout<<"<a href=\"";
+                    cout<<arr[0]<<"\">";
+                    arr.erase(arr.begin());
+                    for (int i = 0; i < arr.size(); i++)
+                    {
+                        cout<<arr[i]<<" ";
+                    }
+                    cout<<"</a>";
+                }
                 end_state_machine.push_back(pattern);                    
                 bit1 = 0;                
                 arr.clear();
-                Grammatical_analyer(bit1,number,arr);              
+                Grammatical_analyer(bit1,number,arr,bit2);              
                 break;
             case 5:
-                toh<<"<strong>";
+                if (bit2 == 0)
+                {
+                    toh<<"<strong>";               
+                }
+                else
+                {
+                    cout<<"<strong>";                    
+                }
                 pattern = 5;
+                arr.erase(arr.begin());
                 end_state_machine.push_back(pattern);
                 bit1 = 0;
-                Grammatical_analyer(bit1,number,arr);              
+                Grammatical_analyer(bit1,number,arr,bit2);              
                 break;
             case 6:
-                toh<<"<code>";
-                Grammatical_analyer(bit1,number,arr);              
+                if (bit2 == 0)
+                {
+                    toh<<"<code>";
+                }
+                else
+                {
+                    cout<<"<code>";
+                }
+                arr.clear();
+                Grammatical_analyer(bit1,number,arr,bit2);              
                 bit1 = 0;
                 break;
-            case 7:                    
-                toh<<"</code>";
+            case 7:   
+                if (bit2 == 0)
+                {
+                    toh<<"</code>";
+                }
+                else
+                {
+                    cout<<"</code>";
+                }         
                 bit1 = 0;
-                Grammatical_analyer(bit1,number,arr);              
+                arr.clear();
+                Grammatical_analyer(bit1,number,arr,bit2);              
                 break;
             case 8:
-                toh<<"<hr>";
+                if (bit2 == 0)
+                {
+                    toh<<"<hr>";
+                }
+                else
+                {
+                    cout<<"<hr>";
+                }
                 bit1 = 0;
-                Grammatical_analyer(bit1,number,arr);              
+                arr.clear();
+                Grammatical_analyer(bit1,number,arr,bit2);              
                 break;
             case 9:
                 expand_name = arr[0];
@@ -631,25 +724,47 @@ public:
                 {
                     vector <string> in_grammer;
                     in_grammer = e2->add_new_page(read_out);
-                    Grammatical_analyer(4,0,in_grammer);
+                    Grammatical_analyer(4,0,in_grammer,bit2);
                 }
                 else;
                 break;
             default: 
-                for (int i = 0; i < arr.size(); i++)
+                if (bit2 == 0)
                 {
-                    int bit2 = 0;
-                    if (bit2 = Lexical_analyzer(arr))
+                    for (int i = 0; i < arr.size(); i++)
                     {
-                        arr.erase(arr.begin());
-                        Grammatical_analyer(bit2,number,arr);
-                        arr.clear();
+                        int bit2 = 0;
+                        if (bit2 = Lexical_analyzer(arr))
+                        {
+                            arr.erase(arr.begin());
+                            Grammatical_analyer(bit2,number,arr,bit2);
+                            arr.clear();
+                        }
+                        else
+                        {
+                            toh<<arr[i]<<" ";
+                            arr.erase(arr.begin());
+                            i--;
+                        }
                     }
-                    else
+                }
+                else
+                {
+                   for (int i = 0; i < arr.size(); i++)
                     {
-                        toh<<arr[i]<<" ";
-                        arr.erase(arr.begin());
-                        i--;
+                        int bit2 = 0;
+                        if (bit2 = Lexical_analyzer(arr))
+                        {
+                            arr.erase(arr.begin());
+                            Grammatical_analyer(bit2,number,arr,bit2);
+                            arr.clear();
+                        }
+                        else
+                        {
+                            cout<<arr[i]<<" ";
+                            arr.erase(arr.begin());
+                            i--;
+                        }
                     }
                 }
                 arr.clear();
@@ -663,22 +778,51 @@ public:
             switch (bit2)
             {
                 case 1:
-                    toh<<"<"<<"/"<<"h"<<number<<">";
+                    if (bit2 == 0)
+                    {
+                        toh<<"<"<<"/"<<"h"<<number<<">";
+                    }
+                    else
+                    {
+                        cout<<"<"<<"/"<<"h"<<number<<">";
+                    }
                     end_state_machine.erase(end_state_machine.begin());
                     break;
                 case 2:
-                    toh<<">";
+                    if (bit2 == 0)
+                    {
+                        toh<<">";
+                    }
+                    else
+                    {
+                        cout<<">";
+                    }
                     break;
                 case 3:
-                    toh<<"</q>";
+                    if (bit2 == 0)
+                    {
+                        toh<<"</q>";
+                    }
+                    else
+                    {
+                        cout<<"</q>";
+                    }
                     end_state_machine.erase(end_state_machine.begin());
                     break;
                 case 5:
-                    toh<<"</strong>";
+                    if (bit2 == 0)
+                    {
+                        toh<<"</strong>";
+                    }
+                    else
+                    {
+                        cout<<"</strong>";
+                    }
                 default:
                     break;
             }
         }
+        end_state_machine.clear();
         return 0;
     }
 };

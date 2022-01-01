@@ -8,6 +8,7 @@ using namespace std;
 
 #include<iostream>
 #include<stdlib.h>
+
 using namespace std;
 
 #define MAXSIZE 0xffff
@@ -15,12 +16,14 @@ using namespace std;
 template<class type>
 class estack
 {
+public:
+    
     int top;
     type* data;
     int maxsize;
-public:
     type* start;
     type* finish;
+
 public:
     estack():top(-1),maxsize(MAXSIZE){
         data=new type[maxsize];

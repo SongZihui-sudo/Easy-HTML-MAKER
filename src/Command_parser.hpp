@@ -15,7 +15,7 @@ class Command_parser
 
 private:
     int bit = 0;
-    string keyword[3] = {"quit","emake"};
+    string keyword[3] = {"quit","emake","eim"};
 public:        
     deque <int> state_machine2;
     int Lexical_analysis_of_commands(vector <string> ready_todo){
@@ -28,7 +28,7 @@ public:
         ready_todo.erase(ready_todo.begin());
         if (ready_todo.begin() == ready_todo.end())
         {
-            return 2;   
+            return -2;   
         }
         else
             Lexical_analysis_of_commands(ready_todo);
@@ -41,12 +41,12 @@ public:
         {
         case 1:
             return 1;
-            break;
         case 2:
             return 2;
-            break;
-        default:
+        case 3:
             return 3;
+        default:
+            return -1;
             break;
         }
         state_machine2.erase(state_machine2.begin());

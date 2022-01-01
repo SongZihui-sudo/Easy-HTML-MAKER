@@ -21,8 +21,10 @@ int main(int argc, char const *argv[]){
     Moudule_manager moumer;
     string line;
     vector <string> after_input;
+    easyhtmleditor ehr;
     read_out = exn.read_conf_expend();
     module = moumer.readout_modellist();
+    module = emk.Participle(module);
     for (int i = 1; i < module.size(); i++){
         if (module[i] == "switch"){
             if (module[i+1] == "ON"){
@@ -31,9 +33,6 @@ int main(int argc, char const *argv[]){
             else{
                 return 1;
             }
-        }
-        else if (module[i] == "Editor" && module[i+1] == "ON"){
-            cout<<"Easy Html Editor"<<endl;
         }
         else if(module[i] == "Command_parser" && module[i+1] == "ON"){
             while (getline(cin,line)){
@@ -49,6 +48,14 @@ int main(int argc, char const *argv[]){
                         rba.Article_device_run();
                         break;
                     case 3:
+                        if (module[i-1] == "ON"){
+                            ehr.run_eim();
+                        }
+                        else{
+                            return -1;
+                        }
+                        break;    
+                    case -1:
                         cerr<<"do not find"<<" "<<line<<" !!!"<<endl;
                         return -1;
                     default:
@@ -57,11 +64,7 @@ int main(int argc, char const *argv[]){
                 cper.state_machine2.clear();
             }
         }
-        else
-        {
-            cerr<<"ERROR!!!"<<endl;
-            return -1;
-        }   
+        else;
     }
     
     
