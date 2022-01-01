@@ -199,7 +199,8 @@ int main(){
 5、```#OUTPUTFILE``` 输出文件地址    
 ``` #OUTPUTFILE var``` or ```#OUTPUTFILE ../html/test ```   
 6、```#THEME``` 选择的主题的地址，语法同上。   
-7、```#EXPAND``` 是否打开拓展功能 打开 ON 关闭 OFF   
+7、```#EXPAND``` 是否打开拓展功能 打开 ON 关闭 OFF  
+8、```//``` 注释  用法：// 空格 内容    
 其次是也改变了图像标签的写法。   
 改为 ```img 图片链接 ```的格式   
 e.g.
