@@ -587,14 +587,14 @@ public:
         return 10;
     }
     //文法分析器
-    int Grammatical_analyer(int State,int number,vector <string> arr,int bit2)
+    int Grammatical_analyer(int State,int number,vector <string> arr,int bit3)
     {   
         int pattern = 0;
         int bit1 = State;
         switch (bit1)
         {
             case 1:
-                if (bit2 == 0)
+                if (bit3 == 0)
                 {
                     toh<<"<h"<<number<<">";     
                 }
@@ -605,10 +605,10 @@ public:
                 pattern = 1;
                 end_state_machine.push_back(pattern);    
                 bit1 = 0;
-                Grammatical_analyer(bit1,number,arr,bit2);              
+                Grammatical_analyer(bit1,number,arr,bit3);              
                 break;
             case 2:              
-                if (bit2 == 0)
+                if (bit3 == 0)
                 {
                     toh<<"< img src=";
                 }
@@ -620,10 +620,10 @@ public:
                 pattern = 2;
                 end_state_machine.push_back(pattern);
                 bit1 = 0;
-                Grammatical_analyer(bit1,number,arr,bit2);       
+                Grammatical_analyer(bit1,number,arr,bit3);       
                 break;       
             case 3:
-                if (bit2 == 0)
+                if (bit3 == 0)
                 {
                     toh<<"<q>";
                 }
@@ -635,10 +635,10 @@ public:
                 arr.erase(arr.begin());
                 end_state_machine.push_back(pattern);
                 bit1 = 0;
-                Grammatical_analyer(bit1,number,arr,bit2);                                  
+                Grammatical_analyer(bit1,number,arr,bit3);                                  
                 break;
             case 4:
-                if (bit2 == 0)
+                if (bit3 == 0)
                 {
                     toh<<"<a href=\"";
                     toh<<arr[0]<<"\">";
@@ -663,10 +663,10 @@ public:
                 end_state_machine.push_back(pattern);                    
                 bit1 = 0;                
                 arr.clear();
-                Grammatical_analyer(bit1,number,arr,bit2);              
+                Grammatical_analyer(bit1,number,arr,bit3);              
                 break;
             case 5:
-                if (bit2 == 0)
+                if (bit3 == 0)
                 {
                     toh<<"<strong>";               
                 }
@@ -678,10 +678,10 @@ public:
                 arr.erase(arr.begin());
                 end_state_machine.push_back(pattern);
                 bit1 = 0;
-                Grammatical_analyer(bit1,number,arr,bit2);              
+                Grammatical_analyer(bit1,number,arr,bit3);              
                 break;
             case 6:
-                if (bit2 == 0)
+                if (bit3 == 0)
                 {
                     toh<<"<code>";
                 }
@@ -690,11 +690,11 @@ public:
                     cout<<"<code>";
                 }
                 arr.clear();
-                Grammatical_analyer(bit1,number,arr,bit2);              
+                Grammatical_analyer(bit1,number,arr,bit3);              
                 bit1 = 0;
                 break;
             case 7:   
-                if (bit2 == 0)
+                if (bit3 == 0)
                 {
                     toh<<"</code>";
                 }
@@ -704,10 +704,10 @@ public:
                 }         
                 bit1 = 0;
                 arr.clear();
-                Grammatical_analyer(bit1,number,arr,bit2);              
+                Grammatical_analyer(bit1,number,arr,bit3);              
                 break;
             case 8:
-                if (bit2 == 0)
+                if (bit3 == 0)
                 {
                     toh<<"<hr>";
                 }
@@ -717,28 +717,31 @@ public:
                 }
                 bit1 = 0;
                 arr.clear();
-                Grammatical_analyer(bit1,number,arr,bit2);              
+                Grammatical_analyer(bit1,number,arr,bit3);              
                 break;
             case 9:
-                expand_name = arr[0];
-                if (expand_State == "ON")
+                if (bit3 == 0)
                 {
-                    vector <string> in_grammer;
-                    in_grammer = e2->add_new_page(read_out);
-                    Grammatical_analyer(4,0,in_grammer,bit2);
+                    expand_name = arr[0];
+                    if (expand_State == "ON")
+                    {
+                        vector <string> in_grammer;
+                        in_grammer = e2->add_new_page(read_out);
+                        Grammatical_analyer(4,0,in_grammer,bit3);
+                    }
+                    else;
                 }
-                else;
                 break;
             default: 
-                if (bit2 == 0)
+                if (bit3 == 0)
                 {
                     for (int i = 0; i < arr.size(); i++)
                     {
-                        int bit2 = 0;
-                        if (bit2 = Lexical_analyzer(arr))
+                        int bit4 = 0;
+                        if (bit4 = Lexical_analyzer(arr))
                         {
                             arr.erase(arr.begin());
-                            Grammatical_analyer(bit2,number,arr,bit2);
+                            Grammatical_analyer(bit4,number,arr,bit3);
                             arr.clear();
                         }
                         else
@@ -753,11 +756,11 @@ public:
                 {
                    for (int i = 0; i < arr.size(); i++)
                     {
-                        int bit2 = 0;
-                        if (bit2 = Lexical_analyzer(arr))
+                        int bit3 = 0;
+                        if (bit3 = Lexical_analyzer(arr))
                         {
                             arr.erase(arr.begin());
-                            Grammatical_analyer(bit2,number,arr,bit2);
+                            Grammatical_analyer(bit3,number,arr,bit3);
                             arr.clear();
                         }
                         else
@@ -779,7 +782,7 @@ public:
             switch (bit2)
             {
                 case 1:
-                    if (bit2 == 0)
+                    if (bit3 == 0)
                     {
                         toh<<"<"<<"/"<<"h"<<number<<">";
                     }
@@ -790,7 +793,7 @@ public:
                     end_state_machine.erase(end_state_machine.begin());
                     break;
                 case 2:
-                    if (bit2 == 0)
+                    if (bit3 == 0)
                     {
                         toh<<">";
                     }
@@ -800,7 +803,7 @@ public:
                     }
                     break;
                 case 3:
-                    if (bit2 == 0)
+                    if (bit3 == 0)
                     {
                         toh<<"</q>";
                     }
@@ -811,7 +814,7 @@ public:
                     end_state_machine.erase(end_state_machine.begin());
                     break;
                 case 5:
-                    if (bit2 == 0)
+                    if (bit3 == 0)
                     {
                         toh<<"</strong>";
                     }
