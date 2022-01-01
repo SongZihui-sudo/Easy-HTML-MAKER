@@ -34,7 +34,6 @@ int main(int argc, char const *argv[]){
         }
         else if (module[i] == "Editor" && module[i+1] == "ON"){
             cout<<"Easy Html Editor"<<endl;
-            easyediter();
         }
         else if(module[i] == "Command_parser" && module[i+1] == "ON"){
             while (getline(cin,line)){
