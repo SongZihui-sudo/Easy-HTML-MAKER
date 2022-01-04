@@ -9,8 +9,8 @@
     <meta name="description"
         content="个人编程知识分享">
     <meta name="keywords" content="编程知识">
-    <link rel="stylesheet" type="text/css" href="./theme/NutssssIndex/css/FiraCode.css">
-    <link rel="stylesheet" type="text/css" href="./theme/NutssssIndex/css/nutssss.css">
+    <link rel="stylesheet" type="text/css" href="../theme/NutssssIndex/css/FiraCode.css">
+    <link rel="stylesheet" type="text/css" href="../theme/NutssssIndex/css/nutssss.css">
     <link rel="icon" href="./favicon.ico">
 </head>
 
