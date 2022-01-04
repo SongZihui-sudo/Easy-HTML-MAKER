@@ -27,6 +27,7 @@ int nums_of_div = 0;
 int save_path_state = 0;
 
 ofstream toh;
+fstream theme_out;
 
 typedef struct Symbol_table
 {
@@ -381,6 +382,45 @@ public:
     }
 };
 
+class Preprocessor
+{
+private:
+    
+public:
+    Preprocessor();
+    int read_themefile()
+    {                  
+        if (theme_out)
+        {
+            string line;
+            while (getline(theme_out,line))
+            {
+                toh<<line<<"\n";
+                if (line == string("div"))
+                {
+                    nums_of_div++;
+                }
+                else;
+            }
+        }
+        else
+        {
+            cerr<<"can not open the file!!!"<<endl;
+            return -1;
+        }
+        theme_out.close();
+        return 0;
+    }
+    ~Preprocessor();
+};
+
+Preprocessor::Preprocessor(/* args */)
+{
+}
+
+Preprocessor::~Preprocessor()
+{
+}
 
 class tohtml
 {
@@ -432,6 +472,7 @@ public:
     Extension *e2;
     tohtml();
     ~tohtml();
+    Preprocessor *p;  
     int open_mdfile()
     {                
         vector<string> files;
@@ -440,9 +481,17 @@ public:
         getFiles(filePath, files );
         char str[30];
         int size = files.size();
+        save_path_state = size ;
+        
         for (int i = 0; i < files.size(); i++)
-        {
+        {            
+            string theme_name_path = theme_path+string(".txt");
+            theme_out.open(theme_name_path);
+            string path = save_path+to_string(i)+string(".html");
+            toh.open(path);
+            p->read_themefile();
             trans_tohtml(files[i]);
+            toh.close();
         }
         return 0;   
     }
@@ -487,6 +536,7 @@ public:
         {
             bit = Lexical_analyzer(inputarr);
             Grammatical_analyer(bit,num,data_share,0);
+            num =0 ;
             inputarr = data_share;
         }
         return 0;
@@ -687,8 +737,8 @@ public:
                     cout<<"<code>";
                 }
                 arr.clear();
-                Grammatical_analyer(bit1,number,arr,bit3);              
                 bit1 = 0;
+                Grammatical_analyer(bit1,number,arr,bit3);              
                 break;
             case 7:   
                 if (bit3 == 0)
@@ -831,58 +881,14 @@ tohtml::tohtml()
 {
     re = new read_emakefile();
     e2 = new Extension();
+    p = new Preprocessor(); 
 }
 
 tohtml::~tohtml()
 {
     delete(re);
     delete(e2);
-}
-
-class Preprocessor
-{
-private:
-    fstream theme_out;
-public:
-    friend tohtml;
-    Preprocessor();
-    int read_themefile()
-    {                  
-        for (int j = 0; j < save_path_state; j++)
-        {
-            toh.open(save_path+to_string(j)+string(".html"));        
-            theme_out.open(theme_path+string(".txt"));
-            if (theme_out)
-            {
-                string line;
-                while (getline(theme_out,line))
-                {
-                    toh<<line<<"\n";
-                    if (line == string("div"))
-                    {
-                        nums_of_div++;
-                    }
-                    else;
-                }
-                break;
-            }
-            else
-            {
-                cerr<<"can not open the file!!!"<<endl;
-                return -1;
-            }
-        } 
-        return 0;
-    }
-    ~Preprocessor();
-};
-
-Preprocessor::Preprocessor(/* args */)
-{
-}
-
-Preprocessor::~Preprocessor()
-{
+    delete(p);
 }
 
 class run_build_artical{
@@ -896,13 +902,9 @@ public:
         tohtml *t;
         t = new tohtml();
         r->readout_emakefile();
-        Preprocessor *p;
-        p = new Preprocessor();
-        p->read_themefile();
-        t->open_mdfile();
+        t->open_mdfile();                 
         delete(r);
         delete(t);
-        delete(p);
         delete(e2);
         return 0;
     };
