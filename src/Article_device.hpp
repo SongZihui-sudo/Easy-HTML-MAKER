@@ -60,15 +60,16 @@ private:
     string keyword5 = "int";//定义数字变量
     string keyword6 = "for";
     string keyword7 = "static";
-    string keyword8 = "++";
+    string keyword8 = "++";   
+    string finding;
     //栈 存单个变量
     vector <Symbol_table> Variable_stack;
     //栈 存储 字符串或者数字数组
     vector <strock_string> Variable_stack_string_arr;
     vector <strock_int> Variable_stack_int_arr;
-    string finding;
-   //按照空格划分语句
+    //按照空格划分语句
    public:
+
     vector <string> Participle(vector <string> input_file) 
     {
 		string space = " ";
@@ -551,18 +552,33 @@ public:
         int bit = 0;
         if (analyer1[0][0] == '#')
         {
+            int bit_return = 0;
             for (int i = 0; i < analyer1[0].size(); i++)
             {
                 if (analyer1[0][i] == '#') //确定几级标题
                 {
                     num++;
                 }
+                else
+                {
+                    if (i == 0)
+                    {
+                        toh<<"#";
+                    }
+                    toh<<analyer1[0][i];
+                    bit_return = 1;
+                }
             }
             bit = 1;
             analyer1.erase(analyer1.begin());
             state_machine.push_back(bit);
             data_share = analyer1;
-            return bit;
+            if (bit_return)
+            {
+                return 10;
+            }
+            else
+                return bit;
         }
         else if(analyer1[0] == md_keyword0)
         {
