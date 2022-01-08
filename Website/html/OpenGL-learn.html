@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <title>s-zh.space</title>
+    <meta name="description"
+        content="个人编程知识分享">
+    <meta name="keywords" content="编程知识">
+    <link rel="stylesheet" type="text/css" href="../theme/NutssssIndex/css/FiraCode.css">
+    <link rel="stylesheet" type="text/css" href="../theme/NutssssIndex/css/nutssss.css">
+    <link rel="icon" href="./favicon.ico">
+</head>
+
+<body>
+            <div class="cmd">
+                <!-- 三个按钮 -->
+                <div class="click">
+                    <div class="red"></div>
+                    <div class="yellow"></div>
+                    <div class="green"></div>
+                </div>
+                <!-- 顶部标题 -->
+                <div class="title">
+                    <script type="text/javascript" src="https://v1.cnzz.com/z_stat.php?id=1280598106&web_id=1280598106"></script>
+                </div>
+                    <span style="color: rgb(0, 190, 0);">root@nutssss</span>
+                    <span style="color: blue;">~</span>
+                    <span style="color: rgb(39, 39, 39);">./tianqi.sh</span>
+                    <br />
+                    <iframe scrolling="no" src="https://tianqiapi.com/api.php?style=tb&skin=pitaya" frameborder="0"
+                        width="350" height="24" allowtransparency="true"></iframe>
+                    <br />
+                    <span style="color: rgb(0, 190, 0);">root@nutssss</span>
+                    <span style="color: blue;">~</span>
+                    <span style="color: rgb(39, 39, 39);">cat /me.txt</span>
+<h1><h1>OpenGL学习 OpenGL环境配置 </h1><br>
+<a href="https://learnopengl-cn.github.io/01%20Getting%20started/03%20Hello%20Window/">一个很好的教程网站 </a><br>
+<h2><h2>关于OpenGL </h2><br>
+OpenGL本身并不是一个API，它仅仅是一个由Khronos组织制定并维护的规范(Specification)。规范的具体实现最是由各个显卡厂商实现的。 <br>
+<img src="https://learnopengl-cn.github.io/img/01/01/opengl.jpg "/><br>
+<h2><h2>配置OpenGL环境 </h2><br>
+<h3><h3>配置GLFW 与 glad </h3><br>
+<h3><h3>GLFW </h3><br>
+<a href="https://github.com/glfw/glfw/releases/download/3.3.6/glfw-3.3.6.bin.WIN32.zip">32位下载链接 </a><br>
+最好下载32位的版本，64位可能会有一些问题。 <br>
+下载完后解压。 <br>
+可以得到 <br>
+<img src="https://pcsdata.baidu.com/thumbnail/1d0cedd8am05d6f187d839ec9cefaa0b?fid=3125802318-16051585-130720250415078&rt=pr&sign=FDTAER-yUdy3dSFZ0SVxtzShv1zcMqd-JhZLMrUIFHP3cxvVnWHy94GADG8%3D&expires=2h&chkv=0&chkbd=0&chkpc=&dp-logid=87417812020389280&dp-callid=0&time=1641290400&bus_no=26&size=c1600_u1600&quality=100&vuk=-&ft=video "/><br>
+这些文件 <br>
+IDE我选择了VS2017，可以任选 <br>
+在VS中新建一个工程 <br>
+<img src="https://pcsdata.baidu.com/thumbnail/0bea20226me584162243a04536d6d6b8?fid=3125802318-16051585-335457992857205&rt=pr&sign=FDTAER-yUdy3dSFZ0SVxtzShv1zcMqd-spGRAoCl8wLLRyG9HEKtnXx6M3Q%3D&expires=2h&chkv=0&chkbd=0&chkpc=&dp-logid=87462279073030318&dp-callid=0&time=1641290400&bus_no=26&size=c1600_u1600&quality=100&vuk=-&ft=video "/><br>
+然后打开文件所在的文件夹 <br>
+新建出include和lib两个文件夹 <br>
+<img src="https://pcsdata.baidu.com/thumbnail/b013491d2v8a0dc9f10eb1b5a3b6fff6?fid=3125802318-16051585-660741239604933&rt=pr&sign=FDTAER-yUdy3dSFZ0SVxtzShv1zcMqd-prgEJAGPRfJVXj%2BTbwJ%2FjDMwAms%3D&expires=2h&chkv=0&chkbd=0&chkpc=&dp-logid=87503499270988480&dp-callid=0&time=1641290400&bus_no=26&size=c1600_u1600&quality=100&vuk=-&ft=video "/><br>
+在解决方案下的属性进行配置 <br>
+C/C++ 常规 填入include <br>
+<img src="https://pcsdata.baidu.com/thumbnail/90a701f03te0d439e20d214d1a8c1186?fid=3125802318-16051585-763173784561248&rt=pr&sign=FDTAER-yUdy3dSFZ0SVxtzShv1zcMqd-J1516R%2FtroU47ksdPemHWbQVb7E%3D&expires=2h&chkv=0&chkbd=0&chkpc=&dp-logid=87538920679548815&dp-callid=0&time=1641290400&bus_no=26&size=c1600_u1600&quality=100&vuk=-&ft=video "/><br>
+链接器-常规-附加库目录 填入lib <br>
+https://pcsdata.baidu.com/thumbnail/42565ecfaje87bcda01c688a8095a03c?fid=3125802318-16051585-141244025989518&rt=pr&sign=FDTAER-yUdy3dSFZ0SVxtzShv1zcMqd-sTkxcPYvDl42nBWVpn9aS9V38iE%3D&expires=2h&chkv=0&chkbd=0&chkpc=&dp-logid=88794033686956931&dp-callid=0&time=1641294000&bus_no=26&size=c1600_u1600&quality=100&vuk=-&ft=video <br>
+链接器-输出-附加依赖项填入 glfw3.lib glfw3_mt.lib glfw3dll.lib <br>
+https://pcsdata.baidu.com/thumbnail/b2152d2d5ke6fd6b4a5bec4e474ebafa?fid=3125802318-16051585-201489156442923&rt=pr&sign=FDTAER-yUdy3dSFZ0SVxtzShv1zcMqd-kV1vAJ7yIfEJt5PJGA%2FoakVaUPE%3D&expires=2h&chkv=0&chkbd=0&chkpc=&dp-logid=88794033686956931&dp-callid=0&time=1641294000&bus_no=26&size=c1600_u1600&quality=100&vuk=-&ft=video <br>
+到刚刚下载的glfw的文件夹下把include文件夹下的文件复制到项目文件夹下的include中。 <br>
+在下载的glfw文件夹中找到相应VS版本的文件。 <br>
+例如：VS2017就选择lib-vc2017 <br>
+把那些文件都复制到项目文件夹的lib文件夹中。 <br>
+<h3><h3>GLAD </h3><br>
+<a href="https://glad.dav1d.de/">glad的在线平台 </a><br>
+Language 选择C/C++ <br>
+Profile 选择core <br>
+API下gl 可以选择最新版本 <br>
+之后是得到一个压缩包，下载下来。 <br>
+得到这些文件。 <br>
+<img src="https://pcsdata.baidu.com/thumbnail/24efe4eaao5e21315f82b0341fda03df?fid=3125802318-16051585-837834949131180&rt=pr&sign=FDTAER-yUdy3dSFZ0SVxtzShv1zcMqd-y%2BNRg4Qxtd9vvuBnf1LeDScVomk%3D&expires=2h&chkv=0&chkbd=0&chkpc=&dp-logid=87769624150591533&dp-callid=0&time=1641290400&bus_no=26&size=c1600_u1600&quality=100&vuk=-&ft=video "/><br>
+把src中的glad.c放到项目文件夹与main.cpp在同一个目录下。 <br>
+include下的文件（glad和KHR两个文件夹）复制到项目的include的文件夹下。 <br>
+进行测试： <br>
+<code><br>
+<br>
+<br>
+#include &lt;glad/glad.h&gt; <br>
+#include &lt;GLFW/glfw3.h&gt; <br>
+<br>
+#include &lt;iostream&gt; <br>
+<br>
+void framebuffer_size_callback(GLFWwindow* window, int width, int height); <br>
+void processInput(GLFWwindow *window); <br>
+<br>
+// settings <br>
+const unsigned int SCR_WIDTH = 800; <br>
+const unsigned int SCR_HEIGHT = 600; <br>
+<br>
+const char *vertexShaderSource = "#version 330 core\n" <br>
+"layout (location = 0) in vec3 aPos;\n" <br>
+"void main()\n" <br>
+"{\n" <br>
+" gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n" <br>
+"}\0"; <br>
+const char *fragmentShaderSource = "#version 330 core\n" <br>
+"out vec4 FragColor;\n" <br>
+"void main()\n" <br>
+"{\n" <br>
+" FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n" <br>
+"}\n\0"; <br>
+<br>
+int main() <br>
+{ <br>
+// glfw: initialize and configure <br>
+// ------------------------------ <br>
+glfwInit(); <br>
+glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3); <br>
+glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3); <br>
+glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); <br>
+<br>
+#ifdef __APPLE__ <br>
+glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); <br>
+#endif <br>
+<br>
+// glfw window creation <br>
+// -------------------- <br>
+GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL); <br>
+if (window == NULL) <br>
+{ <br>
+std::cout &lt;&lt; "Failed to create GLFW window" &lt;&lt; std::endl; <br>
+glfwTerminate(); <br>
+return -1; <br>
+} <br>
+glfwMakeContextCurrent(window); <br>
+glfwSetFramebufferSizeCallback(window, framebuffer_size_callback); <br>
+<br>
+// glad: load all OpenGL function pointers <br>
+// --------------------------------------- <br>
+if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) <br>
+{ <br>
+std::cout &lt;&lt; "Failed to initialize GLAD" &lt;&lt; std::endl; <br>
+return -1; <br>
+} <br>
+<br>
+<br>
+// build and compile our shader program <br>
+// ------------------------------------ <br>
+// vertex shader <br>
+unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER); <br>
+glShaderSource(vertexShader, 1, &vertexShaderSource, NULL); <br>
+glCompileShader(vertexShader); <br>
+// check for shader compile errors <br>
+int success; <br>
+char infoLog[512]; <br>
+glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success); <br>
+if (!success) <br>
+{ <br>
+glGetShaderInfoLog(vertexShader, 512, NULL, infoLog); <br>
+std::cout &lt;&lt; "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" &lt;&lt; infoLog &lt;&lt; std::endl; <br>
+} <br>
+// fragment shader <br>
+unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER); <br>
+glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL); <br>
+glCompileShader(fragmentShader); <br>
+// check for shader compile errors <br>
+glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success); <br>
+if (!success) <br>
+{ <br>
+glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog); <br>
+std::cout &lt;&lt; "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" &lt;&lt; infoLog &lt;&lt; std::endl; <br>
+} <br>
+// link shaders <br>
+unsigned int shaderProgram = glCreateProgram(); <br>
+glAttachShader(shaderProgram, vertexShader); <br>
+glAttachShader(shaderProgram, fragmentShader); <br>
+glLinkProgram(shaderProgram); <br>
+// check for linking errors <br>
+glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success); <br>
+if (!success) { <br>
+glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog); <br>
+std::cout &lt;&lt; "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" &lt;&lt; infoLog &lt;&lt; std::endl; <br>
+} <br>
+glDeleteShader(vertexShader); <br>
+glDeleteShader(fragmentShader); <br>
+<br>
+// set up vertex data (and buffer(s)) and configure vertex attributes <br>
+// ------------------------------------------------------------------ <br>
+float vertices[] = { <br>
+-0.5f, -0.5f, 0.0f, // left <br>
+0.5f, -0.5f, 0.0f, // right <br>
+0.0f, 0.5f, 0.0f // top <br>
+}; <br>
+<br>
+unsigned int VBO, VAO; <br>
+glGenVertexArrays(1, &VAO); <br>
+glGenBuffers(1, &VBO); <br>
+// bind the Vertex Array Object first, then bind and set vertex buffer(s), and then configure vertex attributes(s). <br>
+glBindVertexArray(VAO); <br>
+<br>
+glBindBuffer(GL_ARRAY_BUFFER, VBO); <br>
+glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW); <br>
+<br>
+glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0); <br>
+glEnableVertexAttribArray(0); <br>
+<br>
+// note that this is allowed, the call to glVertexAttribPointer registered VBO as the vertex attribute's bound vertex buffer object so afterwards we can safely unbind <br>
+glBindBuffer(GL_ARRAY_BUFFER, 0); <br>
+<br>
+// You can unbind the VAO afterwards so other VAO calls won't accidentally modify this VAO, but this rarely happens. Modifying other <br>
+// VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary. <br>
+glBindVertexArray(0); <br>
+<br>
+<br>
+// uncomment this call to draw in wireframe polygons. <br>
+//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); <br>
+<br>
+// render loop <br>
+// ----------- <br>
+while (!glfwWindowShouldClose(window)) <br>
+{ <br>
+// input <br>
+// ----- <br>
+processInput(window); <br>
+<br>
+// render <br>
+// ------ <br>
+glClearColor(0.2f, 0.3f, 0.3f, 1.0f); <br>
+glClear(GL_COLOR_BUFFER_BIT); <br>
+<br>
+// draw our first triangle <br>
+glUseProgram(shaderProgram); <br>
+glBindVertexArray(VAO); // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized <br>
+glDrawArrays(GL_TRIANGLES, 0, 3); <br>
+// glBindVertexArray(0); // no need to unbind it every time <br>
+<br>
+// glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.) <br>
+// ------------------------------------------------------------------------------- <br>
+glfwSwapBuffers(window); <br>
+glfwPollEvents(); <br>
+} <br>
+<br>
+// optional: de-allocate all resources once they've outlived their purpose: <br>
+// ------------------------------------------------------------------------ <br>
+glDeleteVertexArrays(1, &VAO); <br>
+glDeleteBuffers(1, &VBO); <br>
+glDeleteProgram(shaderProgram); <br>
+<br>
+// glfw: terminate, clearing all previously allocated GLFW resources. <br>
+// ------------------------------------------------------------------ <br>
+glfwTerminate(); <br>
+return 0; <br>
+} <br>
+<br>
+// process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly <br>
+// --------------------------------------------------------------------------------------------------------- <br>
+void processInput(GLFWwindow *window) <br>
+{ <br>
+if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) <br>
+glfwSetWindowShouldClose(window, true); <br>
+} <br>
+<br>
+// glfw: whenever the window size changed (by OS or user resize) this callback function executes <br>
+// --------------------------------------------------------------------------------------------- <br>
+void framebuffer_size_callback(GLFWwindow* window, int width, int height) <br>
+{ <br>
+// make sure the viewport matches the new window dimensions; note that width and <br>
+// height will be significantly larger than specified on retina displays. <br>
+glViewport(0, 0, width, height); <br>
+} <br>
+</code><br>
+如果屏幕上出现一个三角形，则环境配置成功。 <br>
+<img src="https://pcsdata.baidu.com/thumbnail/3c8d29b13nde840a9b79f91b10968119?fid=3125802318-16051585-466801189607147&rt=pr&sign=FDTAER-yUdy3dSFZ0SVxtzShv1zcMqd-W7ejhaG4RGNnhUohgEuJ9Yfklho%3D&expires=2h&chkv=0&chkbd=0&chkpc=&dp-logid=88794033686956931&dp-callid=0&time=1641294000&bus_no=26&size=c1600_u1600&quality=100&vuk=-&ft=video "/><br>
+</body></html>
