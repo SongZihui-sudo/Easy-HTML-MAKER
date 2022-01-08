@@ -486,9 +486,13 @@ public:
         
         for (int i = 0; i < files.size(); i++)
         {            
+            string output_name;
             string theme_name_path = theme_path+string(".txt");
             theme_out.open(theme_name_path);
-            string path = save_path+to_string(i)+string(".html");
+            output_name = files[i];
+            output_name.erase(output_name.size()-3,output_name.size());
+            output_name.erase(0,10);
+            string path = save_path+output_name+string(".html");
             toh.open(path);
             p->read_themefile();
             trans_tohtml(files[i]);
@@ -558,27 +562,26 @@ public:
                 if (analyer1[0][i] == '#') //确定几级标题
                 {
                     num++;
+                    bit_return = 0;
                 }
                 else
                 {
-                    if (i == 0)
-                    {
-                        toh<<"#";
-                    }
-                    toh<<analyer1[0][i];
                     bit_return = 1;
+                    break;
                 }
             }
-            bit = 1;
-            analyer1.erase(analyer1.begin());
-            state_machine.push_back(bit);
             data_share = analyer1;
             if (bit_return)
             {
+                state_machine.push_back(10);
                 return 10;
             }
-            else
+            else{
+                bit = 1;
+                state_machine.push_back(bit);
+                analyer1.erase(analyer1.begin());
                 return bit;
+            }
         }
         else if(analyer1[0] == md_keyword0)
         {
@@ -648,7 +651,7 @@ public:
             bit = 0;
             state_machine.push_back(bit);
             data_share = analyer1;
-            return bit;
+            return 10;
         }
         return 10;
     }
@@ -801,7 +804,8 @@ public:
                     for (int i = 0; i < arr.size(); i++)
                     {
                         int bit4 = 0;
-                        if (bit4 = Lexical_analyzer(arr))
+                        bit4 = Lexical_analyzer(arr);
+                        if (bit4!=10)
                         {
                             arr.erase(arr.begin());
                             Grammatical_analyer(bit4,number,arr,bit3);
@@ -809,18 +813,33 @@ public:
                         }
                         else
                         {
-                            toh<<arr[i]<<" ";
-                            arr.erase(arr.begin());
-                            i--;
+                            for (int j = 0; j < arr[i].size(); j++)
+                            {
+                                if (arr[i][j] == '>')
+                                {
+                                    toh<<"&gt;";
+                                }
+                                else if (arr[i][j] == '<')
+                                {
+                                    toh<<"&lt;";
+                                }
+                                else
+                                {
+                                    toh<<arr[i][j];     
+                                }
+                            }
+                            toh<<" ";
                         }
                     }
+                    arr.clear();
                 }
                 else
                 {
                    for (int i = 0; i < arr.size(); i++)
                     {
                         int bit3 = 0;
-                        if (bit3 = Lexical_analyzer(arr))
+                        bit3 = Lexical_analyzer(arr);
+                        if (bit3!=10)
                         {
                             arr.erase(arr.begin());
                             Grammatical_analyer(bit3,number,arr,bit3);
@@ -829,8 +848,6 @@ public:
                         else
                         {
                             cout<<arr[i]<<" ";
-                            arr.erase(arr.begin());
-                            i--;
                         }
                     }
                 }
