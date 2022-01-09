@@ -7,6 +7,7 @@
 #include "Module_manager.hpp"
 #include <deque>
 #include "easyhtmleditor.hpp"
+#include "database.h"
 
 using namespace mth;
 using namespace std;
@@ -26,6 +27,19 @@ int main(int argc, char const *argv[]){
     module = moumer.readout_modellist();
     module = emk.Participle(module);
     for (int i = 1; i < module.size(); i++){
+        int bit_database;
+        if (module[i] == "DataBase")
+        {
+            if (module[i] == "ON")
+            {
+                /* code */
+                bit_database = 1;
+            }
+            else
+            {
+                bit_database = 0;
+            }
+        }
         if (module[i] == "switch"){
             if (module[i+1] == "ON"){
                 continue;
@@ -66,6 +80,15 @@ int main(int argc, char const *argv[]){
                         case -1:
                             cerr<<"do not find"<<" "<<line<<" !!!"<<endl;
                             return -1;
+                        case 5:
+                            if (bit_database)
+                            {
+                                Database();
+                            }
+                            else
+                            {
+                                continue;
+                            }
                         default:
                             break;
                     }
