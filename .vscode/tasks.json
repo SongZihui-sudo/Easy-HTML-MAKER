@@ -9,7 +9,6 @@
 				"-fdiagnostics-color=always",
 				"-g",
 				"${file}",
-				"${fileDirname}\\main.cpp",
 				"${fileDirname}\\database.cpp",
 				"-o",
 				"${fileDirname}\\${fileBasenameNoExtension}.exe"
