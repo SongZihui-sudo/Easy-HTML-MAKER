@@ -5,7 +5,7 @@
 [ENGLISH](https://github.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/english.md)   
 
 这个工具会进行不定时更新！！！   
-
+## [EasyCoding_编辑器](https://github.com/SongZihui-sudo/EasyCoding_editor)  
 ## About
 关于这个工具，它可以把有以下标签（```#```,```url```,```img```,```---```,```___```,```>```.```::```,```,***）的文章，解析成为html。
 可以用于批量生成网页，当然最主要的目的时你可以用它来搭建您的小型网站。
