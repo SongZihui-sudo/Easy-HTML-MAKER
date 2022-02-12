@@ -4,8 +4,11 @@
 ![img](https://tse2-mm.cn.bing.net/th/id/OIP-C.EwgonFYrdaUF5ofu4YNougHaD4?pid=ImgDet&rs=1)    
 [ENGLISH](https://github.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/english.md)   
 
-这个工具会进行不定时更新！！！   
-## [EasyCoding_编辑器](https://github.com/SongZihui-sudo/EasyCoding_editor)  
+这个工具会进行不定时更新！！！  
+
+## [EasyCoding_编辑器](https://github.com/SongZihui-sudo/EasyCoding_editor)     
+在EasyCoding编辑器的1.0版本以后都内置的Easy-HTML-MAKE，支持html的转换。   
+
 ## About
 关于这个工具，它可以把有以下标签（```#```,```url```,```img```,```---```,```___```,```>```.```::```,```,***）的文章，解析成为html。
 可以用于批量生成网页，当然最主要的目的时你可以用它来搭建您的小型网站。
