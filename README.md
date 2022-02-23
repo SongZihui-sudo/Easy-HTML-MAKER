@@ -37,7 +37,7 @@ git clone https://github.com/SongZihui-sudo/EasyHtml-language-HTML-MAKER
 在终端输入```make```命令或者```mingw32-make```命令即可得到编译生成的二进制文件。
 ## Running the tests    
 ### DEMO   
-MARKDOWN     
+EASYHTML     
 ```
 # Song Zihui’s Website 
 
