@@ -1,4 +1,6 @@
-# Easy-HTML-MAKER	
+# Easy-HTML-MAKER
+
+> 一个静态博客生成器
 
 ![img](https://img.shields.io/github/issues/SongZihui-sudo/EasyHtml-language-HTML-MAKER) ![img](https://img.shields.io/badge/-Easyhtml-blue) ![img](https://img.shields.io/badge/author-szh-red)    
 ![img](https://tse2-mm.cn.bing.net/th/id/OIP-C.EwgonFYrdaUF5ofu4YNougHaD4?pid=ImgDet&rs=1)    
