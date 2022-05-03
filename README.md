@@ -1,29 +1,26 @@
 # Easy-HTML-MAKER
 
-> 一个静态博客生成器
+> A static blog generator
 
 ![img](https://img.shields.io/github/issues/SongZihui-sudo/EasyHtml-language-HTML-MAKER) ![img](https://img.shields.io/badge/-Easyhtml-blue) ![img](https://img.shields.io/badge/author-szh-red)    
 ![img](https://tse2-mm.cn.bing.net/th/id/OIP-C.EwgonFYrdaUF5ofu4YNougHaD4?pid=ImgDet&rs=1)    
 [ENGLISH](https://github.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/english.md)   
 
-这个工具会进行不定时更新！！！  
-
-## [EasyCoding_编辑器](https://github.com/SongZihui-sudo/EasyCoding_editor)     
-在EasyCoding编辑器的1.0版本以后都内置的Easy-HTML-MAKE，支持html的转换。   
-
+## [EasyCoding_editor](https://github.com/SongZihui-sudo/EasyCoding_editor)     
+After the 1.0 version of the EasyCoding editor, the built-in Easy-HTML-MAKE supports html conversion.   
 ## About
-关于这个工具，它可以把有以下标签（```#```,```url```,```img```,```---```,```___```,```>```.```::```,```,***）的文章，解析成为html。
-可以用于批量生成网页，当然最主要的目的时你可以用它来搭建您的小型网站。
+Regarding this tool, it can put the following tags (````#```, ```url```, ```img```, ```---```, ```___` ``,```>```.```::``,```,***) articles, parsed into html.
+It can be used to generate web pages in batches, of course, you can use it to build your small website for the main purpose.    
 ## Getting Started   
 
 ### Prerequisites  
-（可选）安装git       
+(optional) install git     
 
 ### Installing    
-linux  
+If you are linux  
 [ABOUT THE PROBLEM OF CAN NOT OPEN THE FIEL OR CAN NOT CREAT THE HTML FILE](https://github.com/SongZihui-sudo/EasyHtml-language-HTML-MAKER/issues/7)     
 ```
-sudo git clone -b https://github.com/SongZihui-sudo/EasyHtml-language-HTML-MAKER/tree/Linux    
+sudo git clone   
 ```
 and then input command    
 ```
@@ -33,11 +30,10 @@ windows
 ```
 git clone https://github.com/SongZihui-sudo/EasyHtml-language-HTML-MAKER
 ```
-或者直接下载源码，编译。   
-#### 使用IDE编译
-#### 使用makefile编译    
-在终端输入```make```命令或者```mingw32-make```命令即可得到编译生成的二进制文件。
-## Running the tests    
+Or download the source code directly and compile it.     
+#### Compile with makefile   
+Enter the ```make``` command or the ```mingw32-make``` command in the terminal to get the compiled binary file.    
+## Running the tests        
 ### DEMO   
 EASYHTML     
 ```
@@ -110,109 +106,109 @@ This Website made by <a href="https://githubfast.com/SongZihui-sudo/e-Conversion
 ``` 
 
 ## Using it  
-转换器支持的标签:
-```
-标题标签：#
-图像标签：img 图片的链接
-链接标签：url 网址 名称
-代码块标签：
-三个` 表示开始  
-三个* 表示结束  
-中间的内容表示代码  
-引用标签 > 
-分割线标签 --- 再单独一行
-强调（加粗） __ 两个_
-拓展标签 :: 拓展名  
-``` 
-### 标签语法
-标题标签 #   
-标题，在单词或短语前面添加井号 (#) 。   
-\# 的数量代表了标题的级别。   
-例如   
-\# XXXXX   
+Tags supported by the converter:    
+````
+Title Tag: #   
+image tag: link to img image   
+Link label: url URL name
+Code block label:
+Three ` to start
+Three * means end
+The content in the middle represents the code
+Citation Tags >
+Split line label --- one more line
+Emphasis (bold) __ two_
+extension tag :: extension name
+````   
+### Label syntax
+#### title tag #    
+Title, add a pound sign (#) in front of the word or phrase.    
+The number of \# represents the level of the title.     
+E.g      
+\# XXXXX     
    
-图片标签 img   
-插入图片就是在图片的链接前加入img,例如 img https://githubcom
+#### image tag img     
+To insert a picture is to add img before the link of the picture, such as img https://githubcom     
 
-链接标签 url  
-插入连接就是在超链接语法代码：url 链接 名
+#### link tag url    
+Inserting a connection is in the hyperlink syntax code: url link name    
 
-代码块标签   
-开始\`\`\`,结束\*\*\*.  
-在这两个标签之间插入，代码段。  
-例如  
+#### code block label    
+Start \`\`\`, end \*\*\*.    
+Insert between these two tags, the code snippet.     
+E.g     
 \`\`\`   
-#include<iostream>
+#include<iostream>     
 
-using namespace std;
+using namespace std;   
 
-int main(){
-	cout<<"hello world";
-	return 0;
-}
+int main(){     
+cout<<"hello world";     
+return 0;     
+}     
 
-\*\*\*    
+\*\*\*  
 
-引用标签 \>
-要创建引用，请在段落前添加一个 > 符号。  
-例如：    
-``` > hello world```  
+#### Quote labels \>      
+To create a citation, add a > sign before the paragraph.       
+E.g:      
+``` > hello world```     
 
-分割线标签  \---   
-若要创建分割线，则可以在一空白行输入```---```   
+#### Split line label \---     
+To create a dividing line, you can enter ```---``` on a blank line     
 
-强调标签 ___    
-若要加粗某一个句子或短语，则可在该短语前加入```___```;(_*3)   
+#### Emphasis Label ___    
+To bold a sentence or phrase, add ```___```;(_*3) before the phrase     
 
-拓展标签  ::   
-若要在页面上增加拓展则是在拓展名前，加入::  
-例如：
-```
-:: pi-dashboard
-```   
-所有支持的拓展都在Website文件夹下的conf中的expand_list.conf中。  
-### 步骤   
-### Firstly 配置EmakeFile文件
-很简单，语法在下面。       
-主要是来设置原文件的入口与生成文件的存放目录，还有是否打开拓展，与要用的主题目录（后续可能还会改进）。  
-### Secondly 编译运行文件
-在仓库中会有二进制文件，但是可能不会是最新的。  
-所以可以用上面的在LINUX与WINDOWS下的方法进行编译。
-### Thirdly 运行文件  
-在命令行输入    
-```./easyhtml```运行可执行文件。   
-之后你可以输入两个命令   
-```emake``` 转换source目录下的文件(注意：文件的后缀为.eh)   
-```quit``` 退出程序   
-## End    
-## 关于 2021-12-29 更新     
-进行了一些改变   
-首先加入了EMAKEFILE文件，意在可以批量完成对HTML的转换而不用在每次转换时都要进行选择。      
-### 在EMAKEFILE文件中也存在这一些简单的语法    
-注意：不用添加文件名后缀     
-1、定义变量     
-```var```的数据类型为字符串，可以用此来存放文件地址等 语法```var str```    
-```int```的数据类型为短整型数字，主要用来批量设置输出的html文件名 ```int num```     
-2、for     
-语法 ``` for i```     
-递减i次i     
-3、static 在使用变量时要进行声明      
-```var str     static str```    
-4、```#INPUTFILE``` 输入文件地址，不用精确到文件，到上层目录即可。    
-``` #INPUTFILE var``` or ``` #INPUTFILE ../md```    
-5、```#OUTPUTFILE``` 输出文件地址    
-``` #OUTPUTFILE var``` or ```#OUTPUTFILE ../html/test ```   
-6、```#THEME``` 选择的主题的地址，语法同上。   
-7、```#EXPAND``` 是否打开拓展功能 打开 ON 关闭 OFF  
-8、```//``` 注释  用法：// 空格 内容    
-其次是也改变了图像标签的写法。   
-改为 ```img 图片链接 ```的格式   
-e.g.
-```
+#### Extended tags ::    
+To add an extension to the page, add :: before the extension name    
+E.g:    
+````    
+:: pi-dashboard    
+````    
+All supported extensions are in expand_list.conf in the conf under the Website folder.    
+### steps    
+### Firstly Configure EmakeFile file    
+It's simple, the syntax is below.    
+It is mainly to set the entry of the original file and the storage directory of the generated file, as well as whether to open the extension, and the theme directory to be used (it may be improved in the future).    
+### Secondly compile and run the file    
+There will be binaries in the repository, but they may not be up to date.    
+So you can use the above method to compile under LINUX and WINDOWS.    
+### Thirdly run file    
+Type in the command line    
+```./easyhtml``` runs the executable.    
+After that you can enter two commands    
+```emake``` Convert the files in the source directory (note: the suffix of the file is .eh)    
+```quit``` to exit the program   
+##End  
+## About the 2021-12-29 update
+made some changes   
+The EMAKEFILE file was added first, with the intention that the conversion of HTML can be done in batches without having to select each conversion.   
+### These simple syntaxes also exist in EMAKEFILE files
+Note: do not add filename suffix    
+1. Define variables    
+The data type of ```var``` is a string, which can be used to store file addresses, etc. Syntax ```var str```   
+The data type of ```int``` is a short integer number, which is mainly used to set the output html file name in batches ```int num```   
+2. for   
+Syntax ``` for i```   
+Decrement i times i   
+3. Static must be declared when using variables   
+````var str static str```   
+4. ```#INPUTFILE``` Enter the file address, not the file, just go to the upper directory.   
+```` #INPUTFILE var```` or ``` #INPUTFILE ../md```   
+5. ```#OUTPUTFILE``` output file address   
+```` #OUTPUTFILE var```` or ```#OUTPUTFILE ../html/test ```   
+6. ```#THEME``` The address of the selected theme, the syntax is the same as above.   
+7. ```#EXPAND``` Whether to open the expansion function Open ON Close OFF   
+8. ````//``` Comment Usage: // Space Content   
+The second is to also change the way the image label is written.   
+Change to the format of ````img image link``   
+e.g.    
+````
 var name3
 name3 ../md
 static name3
-#INPUTFILE name3 
+#INPUTFILE name3
 var name
 var name2
 name2 ../theme/default
@@ -223,17 +219,11 @@ static i
 for i
 // Declare before using variables
 static name
-name ++
-++ i
+name++
+++i
 #OUTPUTFILE name
 static name2
 #THEME name2
 #EXPAND ON
-```
-## 关于编辑器   
-这个编辑器目前是一个模块在这个工具中，提供预览功能，输入相应的标签，即在终端上打印出相应的html语句。       
-输入 ``` wq``` 退出，保存输入过多的句子或短语。     
-输入 ```q``` 直接退出，不保存，输入的东西。   
-后续会加入删除与增添的功能。   
-
-### 如果您喜欢，可以给本项目加一个星标，，，哈哈
+````
+### If you like, you can add a star to this project,,, lol
