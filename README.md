@@ -4,8 +4,6 @@
 
 ![img](https://img.shields.io/github/issues/SongZihui-sudo/EasyHtml-language-HTML-MAKER) ![img](https://img.shields.io/badge/-Easyhtml-blue) ![img](https://img.shields.io/badge/author-szh-red)    
 ![img](https://tse2-mm.cn.bing.net/th/id/OIP-C.EwgonFYrdaUF5ofu4YNougHaD4?pid=ImgDet&rs=1)    
-[ENGLISH](https://github.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/english.md)   
-
 ## [EasyCoding_editor](https://github.com/SongZihui-sudo/EasyCoding_editor)     
 After the 1.0 version of the EasyCoding editor, the built-in Easy-HTML-MAKE supports html conversion.   
 ## About
