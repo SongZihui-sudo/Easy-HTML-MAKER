@@ -3,7 +3,7 @@
 ![img](https://img.shields.io/github/issues/SongZihui-sudo/EasyHtml-language-HTML-MAKER)
 ![img](https://img.shields.io/badge/-Easyhtml-blue)
 ![img](https://img.shields.io/badge/author-szh-red)
-![img](https://tse2-mm.cn.bing.net/th/id/OIP-C.EwgonFYrdaUF5ofu4YNougHaD4?pid=ImgDet&rs=1)
+![img](https://tse2-mm.cn.bing.net/th/id/OIP-C.EwgonFYrdaUF5ofu4YNougHaD4?pid=ImgDet&rs=1)    
 [ENGLISH](https://github.com/SongZihui-sudo/e-Conversion-html-maker/blob/main/english.md)
 
 ## About
@@ -230,3 +230,5 @@ This editor is currently a module. In this tool, it provides a preview function,
 Enter ``` wq``` to exit, save the sentence or phrase you entered too much.
 Enter ```q``` to exit directly without saving, what you entered.
 Delete and add functions will be added later
+
+ ### If you like you can give me a star,,,,,lol
